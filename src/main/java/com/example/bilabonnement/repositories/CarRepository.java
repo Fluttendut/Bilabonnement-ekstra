@@ -36,7 +36,7 @@ public class CarRepository {
                         resultSet.getInt("price"),
                         resultSet.getBoolean("isDamaged"),
                         resultSet.getBoolean("isAvailable"),
-                        resultSet.getBoolean("isRentedOut"));
+                        resultSet.getBoolean("isRentedOut")));
             }
         } catch (SQLException e)
         {
