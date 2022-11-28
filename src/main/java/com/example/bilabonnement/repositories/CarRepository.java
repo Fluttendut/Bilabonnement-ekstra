@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarRepository {
 
@@ -15,16 +17,19 @@ public class CarRepository {
     public CarRepository() throws IOException {
     }
 
-    public Car getCar(int serialnumber){
+    public List<Car> getCar(int serialnumber){
+
+        List<Car> cars = new ArrayList<>();
         try
         {
-            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=?"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
+            // spørgsmålstegnet gør vores query dynamisk i stedet for statisk
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
             psts.setInt(1, serialnumber);
             ResultSet resultSet = psts.executeQuery();
 
             if (resultSet.next())
             {
-                return new Car(
+                cars.add(new Car(
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
@@ -37,6 +42,7 @@ public class CarRepository {
         {
             throw new RuntimeException(e);
         }
-        return null;
+        return cars;
     }
+
 }
