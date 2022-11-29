@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Exam prep</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <script src="/scripts/image-visibility.js"></script>
+
+  <script>
+    $(function () {
+      $("#tabs").tabs();
+      $("#tabs-area-1").tabs();
+      $("#tabs-area-2").tabs();
+      $("#tabs-area-3").tabs();
+      $("#tabs-area-4").tabs();
+      $("#tabs-webs").tabs();
+
+      $("#btnRun").click(function () {
+        $.ajax({
+          url: "https://api.nationalize.io/?name=" + encodeURIComponent($("#name").val()),
+          success: function (result) {
+            $("#webresult").html("");
+            $.each(result.country, function (i) {
+              $.each(result.country[i], function (key, val) {
+                $("#webresult").append("<div>" + key + ":" + val + "</div>");
+              });
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .flex-container {
+      display: flex;
+      max-height: 75%;
+      align-content: space-between;
+    }
+
+    .container {
+      position: relative;
+      width: 50%;
+      height: auto;
+      max-height: inherit;
+    }
+
+    .image {
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      position: absolute;
+      object-fit: contain;
+      object-position: center;
+    }
+
+
+
+    .overlay .image{
+      visibility: hidden;
+      -webkit-transition-property: all;
+      -webkit-transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease;
+      background-color: white;
+    }
+
+
+    .container h3:hover {
+      cursor: pointer;
+    }
+
+
+  </style>
+</head>
+<body>
+<div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+
+  <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+    <li role="tab" tabindex="0" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab
+    ui-tabs-active ui-state-active" aria-controls="start" aria-labelledby="ui-id-1"
+        aria-selected="true" aria-expanded="true">
+      <a href="#start" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">Start</a>
+    </li>
+    <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+        aria-controls="area-1" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
+      <a href="#area-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Area 1</a>
+    </li>
+    <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+        aria-controls="area-2" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
+      <a href="#area-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Area 2</a>
+    </li>
+    <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+        aria-controls="area-3" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
+      <a href="#area-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Area 3</a>
+    </li>
+    <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+        aria-controls="area-4" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
+      <a href="#area-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Area 4</a>
+    </li>
+    <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+        aria-controls="webs" aria-labelledby="ui-id-6" aria-selected="false" aria-expanded="false">
+      <a href="#webs" tabindex="-1" class="ui-tabs-anchor" id="ui-id-6">Webservice</a>
+    </li>
+  </ul>
+
+  <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="false">
+    <p>
+      <b>This program uses the 4 learning areas</b>
+    </p>
+    <table>
+      <tbody>
+      <tr>Area 1: Cloud, Operative Systems, Databases</tr>
+      <tr>Area 2: Number Systems, Debug</tr>
+      <tr>Area 3: Concurrency Issues</tr>
+      <tr>Area 4: Computer Network</tr>
+      <tr>Webservice: Test</tr>
+      </tbody>
+    </table>
+    <br>
+    This project is made by: Jakob Nikolaj Alstrup Helander, Flavie Mahilyves, Michael Beenfeldt, Michael Patino,<br>
+    Ella Irie Frost, Marcus Klinke Thorsen
+    <br>
+    <br>
+    <br>
+    Github: adrnl1ne, Flamme2, Zouthen, HKHino, Fluttendut, Marcus-k-thorsen
+    <br>
+    <br>
+    Deadline: 27/11/2022
+  </div>
+
+  <div id="area-1" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+    <div id="tabs-area-1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+
+      <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-1" aria-labelledby="ui-id-7" aria-selected="false" aria-expanded="false">
+          <a href="#qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-7">1</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-2" aria-labelledby="ui-id-8" aria-selected="false" aria-expanded="false">
+          <a href="#qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-8">2</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-3" aria-labelledby="ui-id-9" aria-selected="false" aria-expanded="false">
+          <a href="#qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-9">3</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-4" aria-labelledby="ui-id-10" aria-selected="false" aria-expanded="false">
+          <a href="#qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-10">4</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-5" aria-labelledby="ui-id-11" aria-selected="false" aria-expanded="false">
+          <a href="#qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-11">5</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-6" aria-labelledby="ui-id-12" aria-selected="false" aria-expanded="false">
+          <a href="#qs-6" tabindex="-1" class="ui-tabs-anchor" id="ui-id-12">6</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-7" aria-labelledby="ui-id-13" aria-selected="false" aria-expanded="false">
+          <a href="#qs-7" tabindex="-1" class="ui-tabs-anchor" id="ui-id-13">7</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-8" aria-labelledby="ui-id-14" aria-selected="false" aria-expanded="false">
+          <a href="#qs-8" tabindex="-1" class="ui-tabs-anchor" id="ui-id-14">8</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="qs-9" aria-labelledby="ui-id-15" aria-selected="false" aria-expanded="false">
+          <a href="#qs-9" tabindex="-1" class="ui-tabs-anchor" id="ui-id-15">9</a>
+        </li>
+      </ul>
+
+      <div id="qs-1" aria-labelledby="ui-id-7" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        1. Describe a computers hardware
+        <br>
+        Answer:
+        <br>
+        <div class="flex-container">
+          <div class="container">
+            <h2> A computer consists of following hardware: </h2>
+            <h3 id="t-1-1-0">CPU(Central Processing Unit)</h3>
+            <h3 id="t-1-1-1">Motherboard</h3>
+            <h3 id="t-1-1-2">Expansion Slots</h3>
+            <h3 id="t-1-1-3">Hard-drive: SSD, HDD, m.2</h3>
+            <h3 id="t-1-1-4">RAM(Random Access Memory)</h3>
+            <h3 id="t-1-1-5"> GPU(Graphics Processing Unit),</h3>
+            <h3 id="t-1-1-6">Power supply(PSU),</h3>
+            <h3 id="t-1-1-7">Cooling system (Fans, liquid cooling, Heatsink, etc.),</h3>
+            <h3 id="t-1-1-8">Casing/System unit</h3>
+            <h3 id="t-1-1-9">Disk-Drive: CD-ROM/BlueRay, Floppy</h3>
+          </div>
+
+          <div class="container">
+            <img src="/ComputerHardware.png" class="image original-image">
+            <div class="overlay">
+              <img src="/CPUfrontandback.png" class="image" id="i-1-1-0">
+              <img src="/Motherboardwithsimplelabels.png" class="image" id="i-1-1-1">
+              <img src="/ExpansionSlotwithExpansionCard.png" class="image" id="i-1-1-2">
+              <img src="/HDDogSSDdrives.png" class="image" id="i-1-1-3">
+              <img src="/RAM.png" class="image" id="1-1-4">
+              <img src="/GPUfrontandback.png" class="image" id="i-1-1-5">
+              <img src="/transparent-PSU-power-supply-unit.png" class="image" id="i-1-1-6">
+              <img src="/Heatsink.png" class="image" id="i-1-1-7">
+              <img src="/InsideSystemUnit.png" class="image" id="i-1-1-8">
+              <img src="/floppy-drives.png" class="image" id="i-1-1-9">
+              <img src="/OpticalDiscDrive-optical-drive.png" class="image" id="i-1-1-10">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="qs-2" aria-labelledby="ui-id-8" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        "2. Describe Azure Cloud and its uses"
+        <br>
+        "Answer:
+        <br>
+        Azure cloud er en online baseret hosting service som bruges til<br>
+        at hoste ens servere fx databaser eller virtuelle maskiner.<br>
+        Dette bruges så man ikke selv skal have denne stående ved ens virksomhed/hjemme hos ens selv.<br>
+        Det bruges også hvis man har brug for mere computerkraft end man selv har til rådighed fx supercomputer.<br>
+        En af de helt store styrker er, at man kan få adgang fra alle steder og det ved være consistent for alle
+        brugere.<br>
+        Det er deres ansvar at passe på din data, frem for at det er dit/din virksomheds ansvar at passe på den
+        opbevarede data.<br>
+        Dette kan gøres for at spare plads/penge på opgradering af udstyr som forældes med tiden.
+      </div>
+
+      <div id="qs-3" aria-labelledby="ui-id-9" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        3. What is a Raspberry Pi and what are its uses?
+        <br>
+        Answer:
+        <br>
+        Skal ikke besvares
+      </div>
+
+      <div id="qs-4" aria-labelledby="ui-id-10" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        4. What are the different types of hard-discs, and what are the difference between them?
+        <br>
+        Answer:
+        <br>
+        Gammeldags mekaniske harddiske<br>
+        Gemmer data ved at magnetisere et kobberbånd og aflæse data fra dette.<br>
+        Derfor er dette en langsom og sårbar metode.<br><br>
+        SSD (solid state drive)<br>
+        Disse er hurtigere, mere solide gemmer data på en bedre måde hvilket gør dem mindre sårbare.<br><br>
+        m.2 nvme<br>
+        Disse er nyere, bedre og hurtigere versioner af SSD harddiske,<br>
+        disse bruger 2 sata porte til overførsel af data frem for kun en ved standard ssd/hdd.
+
+      </div>
+
+      <div id="qs-5" aria-labelledby="ui-id-11" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        5. What types of busses are there in a computer?
+        <br>
+        Answer:
+        <br>
+        Databus –<br>
+        Overføre data og instruktioner mellem komponenterne i en computer, denne overførsel er
+        bi-directional.<br>
+        Så information kan flyde i begge retninger. Fx kan cpu’en modtage noget data,<br>
+        der skal laves noget behandling på og sende denne data tilbage.<br><br>
+        Adresse bus –<br>
+        Overføre en adresse/lokation i hukommelse til hvor i hukommelsen,<br>
+        hvor i hukommelsen noget data eller en instruktion er placeret.<br>
+        Denne process er single-directional, altså går dataen kun i en retning, fx fra CPU til RAM.<br>
+        Dermed ved modtageren hvor, den efterspurgte data kan findes/skal skrive til.<br><br>
+        Control bus –<br>
+        Overføre kontrolsignaler mellem komponenter, denne overførsel er bi-directional.<br>
+        Så det kan gå i begge retninger fx når en cpu sender en adresse til hukommelsen,<br>
+        så er det kontrolsignalet der fortæller om den ønskede data skal læses,<br>
+        så ved hukommelsen den adresse skal sendes tilbage over databussen.<br>
+        Eller hvis kontrolsignalet siger skriv, så ved modtageren,<br>
+        at den modtagerne data skal opbevares på denne adresse.<br>
+        Alternativt kan det være nødvendigt for en proces som fx CPU’en er i gang med som skal afbrydes,<br>
+        så kan en komponent sende kontrolsignal til CPU’en, at den skal stoppe processen den er i gang
+        med.<br><br>
+        Systembus –<br>
+        De 3 ovenstående busser udgøre tilsammen systembussen.<br>
+        Busserne består hver i sær af et kredsløb af ”ledninger”.<br>
+
+      </div>
+
+      <div id="qs-6" aria-labelledby="ui-id-12" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        6. Computer-network: What is the difference between IP and MAC?
+        <br>
+        Answer:
+        <br>
+        ip internet protocol<br>
+        Denne bruges til at identificere det specifikke apparat der tilgår internettet.<br>
+        Denne kan være dynamisk, dvs du får en ny ip tildelt hver gang du logger af og på internettet,<br>
+        eller hvis du forbliver logget på længe nok efter en given tid.<br>
+        Hvis ens IP er statisk, vil det sige at denne aldrig ændre sig,<br>
+        dette er ofte brugbart for firmaer og lignende der har services liggende ude på nettet,<br>
+        som skal kunne tilgås af brugere/forbrugere.<br><br>
+        Mac adresse<br>
+        Et unikt fysisk identifikationsnummer lidt ligesom et cpr nummer,<br>
+        bare for udstyr der kan gå på nettet mac adressen består altid af 12 tegn (bogstaver og tal)<br>
+        og man bruger den til at identificere routere, computere og andet når de kommunikere lokalt og
+        globalt,<br>
+        så data kan finde den rette computer når der kommer tilbage på det lokale niveau.<br>
+
+      </div>
+
+      <div id="qs-7" aria-labelledby="ui-id-13" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        7. What are the categories of PSU and what do they mean?
+        <br>
+        Answer:
+        <br>
+        Der findes PSU med forskellig Watt, det kan fx være 450W, 750W 1000W, eller andet.<br>
+        Derudover findes der også forskellig plating, disse kan være lavet med kobber, sølv, guld og platin.<br>
+        Der findes de følgende 3 typer<br>
+        Linear, switched and battery based.<br>
+        Regulated vs unregulated.
+
+      </div>
+
+      <div id="qs-8" aria-labelledby="ui-id-14" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        8. What is the difference between RAM and a Hard-disc?
+        <br>
+        Answer:
+        <br>
+        Begge 2 er former for hukommelse, hvor ram fungere som en korttidshukommelse,<br>
+        slukkes der for strømmen forsvinder alt der ligger i RAM.<br>
+        Ram kan ikke indeholde store mængder af data, da man som ofte ikke har store mængder tilgængelig.<br>
+        Ram er mange gange hurtigere end selv den hurtigste harddisk,<br>
+        og kan derfor hurtigt videregive den information der findes i dem til fx CPU.<br>
+        Data i Ram sendes enten tilbage til harddisken eller slettes når den ikke længere bruges.<br>
+        En harddisk er derimod den del af computeren som bruges til langtidslagring af data,<br>
+        det tager betydelig længere at hente data fra en harddisk end fra ram.
+
+      </div>
+
+      <div id="qs-9" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        9. What is DBMS MySQL and what can you use it for?
+        <br>
+        Answer:
+        <br>
+        Dbms betyder Database management system. Dette bruges til at styre databaser,<br>
+        der findes en lang række af forskellige databaser fx Oracle, H2, MySql og mange flere.<br>
+        MySQL er et RDBMS (relational database management system).<br>
+        MySql er et SQL dialekt, der bruges til at skrive queries til at manipulere data i et DBMS.<br>
+        DBMS er ikke en database i selv, men bruges til at manipulere databasen på fx Azure.<br>
+        Dette kan bruges til at oprette databaser der kan indeholde data i tabeller.
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="area-2" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+    <div id="tabs-area-2" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+      <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="2-qs-1" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false">
+          <a href="#2-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">1</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
+          <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">2</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
+          <a href="#2-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-18">3</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
+          <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">4</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="2-qs-5" aria-labelledby="ui-id-20" aria-selected="false" aria-expanded="false">
+          <a href="#2-qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-20">5</a>
+        </li>
+      </ul>
+
+      <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        1. Explain the uses of the following number-systems and their names:<br>
+        16-system<br>
+        10-system<br>
+        2-system
+        <br>
+        Answer:
+        <br>
+        16-talsystemet (hexadecimal)<br>
+        Hexadecimal er brugt når alle tallene er fra 0-9 er brugt.<br>
+        Herefter udfylder man med a,b,c,d,e,f og g.<br>
+        Dette gøres da disse kun tager en bit i modsætning til fx 10 der vil tage mere plads.<br>
+        Dette bruges til mac-adresser og farvekoder.<br>
+        10- talsystemet (decimal)<br>
+        Dette bruges da, det er nemmere at forstå for et menneske. Da vi er vant til brugen af
+        10-talsystemet<br>
+        2- talsystemet (binær)<br>
+        Computerens elektronik forstår kun 0 og 1. tændt eller slukket. Alt andet funktionalitet bygges på
+        dette.
+      </div>
+
+      <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        2. Explain how to calculate between binary and decimal
+        <br>
+        Answer:
+        <br>
+        <p><img src="/deciToBinary.png"></p>
+      </div>
+
+      <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        3. Explain how to calculate between binary and hexadecimal
+        <br>
+        Answer:
+        <br>
+        <p>
+          <img src="/1.png">
+          <img src="/2.png">
+          <img src="/3.png">
+        </p>
+      </div>
+
+      <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        4. Explain what DDL and DML mean and their uses
+        <br>
+        Answer:
+        <br>
+        Data definition language à bruges til at modificere strukturen af objekter i en database ved brug af
+        prædefinerede kommandoer: create, drop, alter og truncate.<br>
+        Data manipulation language à bruges til at manipulere objekter I en database ved brug af prædefinerede
+        kommandoer: insert update delete call explain call lock.
+
+      </div>
+
+      <div id="2-qs-5" aria-labelledby="ui-id-20" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        5. Describe how to make a MySQL DBMS on Azure and its uses
+        <br>
+        Answer:
+        <br>
+        Log in på azure, følg guiden, vælg de rigtige parametre til din database, i forhold til dine behov. <br>
+        Denne kan bruges til at opbevare data, så denne ligger online i en cloud og kan være tilgængelig for
+        alle brugere alle steder fra, <br>
+        så længe de har credientiels i orden og databasen køre. Man betaler kun for den tid man bruger. Data er
+        altid ført ajour, dvs alle altid har nyeste version.<br>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="area-3" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+    <div id="tabs-area-3" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+      <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
+          <a href="#3-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-21">1</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="3-qs-2" aria-labelledby="ui-id-22" aria-selected="false" aria-expanded="false">
+          <a href="#3-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-22">2</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="3-qs-3" aria-labelledby="ui-id-23" aria-selected="false" aria-expanded="false">
+          <a href="#3-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-23">3</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="3-qs-4" aria-labelledby="ui-id-24" aria-selected="false" aria-expanded="false">
+          <a href="#3-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-24">4</a>
+        </li>
+      </ul>
+
+      <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        1. Describe what makes concurrency issues a problem
+        <br>
+        Answer:
+        <br>
+        Et problem bliver et samtidighedsproblem når flere brugere/applikationer forsøger at tilgå den samme
+        data samtidig. <br>
+        Dette gør at man kan få forskellige problemer, såsom dirty read, unrepeatable read, lost update og
+        phantom read. <br>
+      </div>
+
+      <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        2. Describe a type of concurrency issues with examples
+        <br>
+        Answer:
+        <br>
+        Dirty read – man læser noget som ikke er blevet opdateret, eller er opdateret forkert <br><br>
+        Unrepeatable read – Dette sker når bruger aflæser en værdi af variablen x og bruger denne, <br>
+        bruger b ændre variablen fra x til z. Derfor ændre koden sige og bruger a undre sig nu over hvorfor den
+        er ændret. <br><br>
+        Lost update – man får overskrevet en update, med noget ældre/noget andet end man forventer.<br><br>
+        Phantom read – man læser en fil som er blevet slettet mens man har den åben.<br>
+
+      </div>
+
+      <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        3. Is there a standard way to solve concurrency issues?
+        <br>
+        Answer:
+        <br>
+        Standardløsningen er at man sætter processerne i kø og lader dem eksekvere en ad gangen. <br>
+
+      </div>
+
+      <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        4. Describe a deadlock
+        <br>
+        Answer:
+        <br>
+        Computeren låser/går i stå, da al computer kraften bruges og vi ender med en blue screen of death og
+        computeren crasher. <br>
+      </div>
+    </div>
+  </div>
+
+  <div id="area-4" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+    <div id="tabs-area-4" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+      <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="4-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
+          <a href="#4-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-25">1</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="4-qs-2" aria-labelledby="ui-id-22" aria-selected="false" aria-expanded="false">
+          <a href="#4-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-26">2</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="4-qs-3" aria-labelledby="ui-id-23" aria-selected="false" aria-expanded="false">
+          <a href="#4-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-27">3</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+            aria-controls="4-qs-4" aria-labelledby="ui-id-24" aria-selected="false" aria-expanded="false">
+          <a href="#4-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-28">4</a>
+        </li>
+      </ul>
+
+      <div id="4-qs-1" aria-labelledby="ui-id-25" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        1. What do you use a DNS for according to computer-network?
+        <br>
+        Answer:
+        <br>
+        DNS bruges til at oversætte fra IP adresse til en URL adresse.
+      </div>
+
+      <div id="4-qs-2" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        2. Is it possible to view the files used by a website? If yes, how?
+        <br>
+        Answer:
+        <br>
+        Det kan man med wireshark eller lignende programmer.
+      </div>
+
+      <div id="4-qs-3" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        3. How do you tell the difference between Ipv4 and Ipv6?
+        <br>
+        Answer:
+        <br>
+        IPv6 er version 6 af Internetprotokollen IP, som erstatter den forrige standard, IPv4. <br>
+        Der er indført mange forbedringer i IPv6, men den største forskel er størrelsen af adressefeltet, <br>
+        som er på 128 bit mod kun 32 bit i den gamle IPv4 standard. <br><br>
+        Her er et eksempel på en IPv4-adresse: <br>
+        32.253.431.175 <br>
+        Her er et eksempel på en IPv6-adresse: <br>
+        3002:0bd6:0000:0000:0000:ee00:0033:6778 <br>
+
+      </div>
+
+      <div id="4-qs-4" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <p>Question:</p>
+        <br>
+        4. Show and describe the terminal commando's you know, regarding networks
+        <br>
+        Answer:
+        <br>
+        ping dr.dk <br>
+        ipconfig <br>
+        tracert dr.dk <br>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="webs" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+    <table>
+      <tbody>
+      <tr>
+        <td>
+          Name
+        </td>
+        <td style="padding-left: 20px;padding-right: 20px">
+          <input id="name" alt="Click the button" title="Click the button">
+        </td>
+        <td>
+          <button id="btnRun">Test Webservice</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <br><br><br>
+    <b>Result from Webservice</b>
+    <div id="webresult"></div>
+  </div>
+
+
+</div>
+</body>
+</html>
