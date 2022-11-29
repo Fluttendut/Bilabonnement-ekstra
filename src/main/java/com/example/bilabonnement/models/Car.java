@@ -23,9 +23,6 @@ public class Car {
         this.isRentedOut = isRentedOut;
     }
 
-    public Car(String type) {
-        this.type = type;
-    }
 
     public int getId() {
         return id;

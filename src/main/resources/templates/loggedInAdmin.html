@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="carlist">
+    <table class="container">
+        <tbody>
+        <tr>
+            <td>ID</td>
+            <td>Serialnumber</td>
+            <td>Type</td>
+            <td>Price</td>
+            <td>Damaged</td>
+            <td>Available</td>
+        </tr>
+        <tr th:each="car :${cars}">
+            <td th:text="${cars.id}"></td>
+            <td th:text="${cars.serialnumber}"></td>
+            <td th:text="${cars.type}"></td>
+            <td th:text="${cars.price}"></td>
+            <td th:text="${cars.damaged}"></td>
+            <td th:text="${cars.available}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <div id="knapper">
+
+        <form action="/createWish" method="post">
+
+            <input type="text" required name="name" placeholder="Enter product name">
+            <input type="text" required name="price" placeholder="Price"
+                   pattern="[0-9]{1,9}"
+                   maxlength="9"
+                   oninvalid="this.setCustomValidity('Only enter numbers')"
+                   onkeyup="setCustomValidity('')">
+            <input type="number" hidden required name="id_user" th:value="${user.id_user}">
+
+
+            <button id="addbutton" type="submit" class="btn btn-primary btn-lg">Add Wish</button>
+            <br>
+        </form>
+
+
+
+        <form action="/deleteWish" method="post">
+
+            <input type="int" required name="wishId" placeholder="Enter ID to delete"
+                   pattern="[0-9]{1,9}"
+                   oninvalid="this.setCustomValidity('Only enter ID number')"
+                   onkeyup="setCustomValidity('')">
+
+            <button id="deletebutton" type="submit" class="btn btn-primary btn-lg">Delete Wish</button>
+            <br>
+        </form>
+
+        <a id="logoutbutton" type="button" class="btn btn-primary btn-lg" href="/">Logout</a>
+
+</body>
+</html>
