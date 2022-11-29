@@ -72,10 +72,63 @@ public class CarRepository {
 
         return cars;
     }
+    public List<Car> getAllRentedCars()
+    {
+
+        List<Car> rentedCars = new ArrayList<>();
+        try
+        {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars where available=0");
+            ResultSet resultSet = psts.executeQuery();
+            while (resultSet.next())
+            {
+                rentedCars.add(new Car(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("type"),
+                        resultSet.getInt("price"),
+                        resultSet.getBoolean("isDamaged"),
+                        resultSet.getBoolean("isAvailable"),
+                        resultSet.getBoolean("isRentedOut")));
+            }
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        return rentedCars;
+    }
+
+    public List<Car> getAllDamagedCars()
+    {
+
+        List<Car> damagedCars = new ArrayList<>();
+        try
+        {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars where damaged=1");
+            ResultSet resultSet = psts.executeQuery();
+            while (resultSet.next())
+            {
+                damagedCars.add(new Car(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("type"),
+                        resultSet.getInt("price"),
+                        resultSet.getBoolean("isDamaged"),
+                        resultSet.getBoolean("isAvailable"),
+                        resultSet.getBoolean("isRentedOut")));
+            }
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+
+        return damagedCars;
+    }
 
 
     // Creates and insert new car object into DB
-    public void createWish(Car car) throws RuntimeException
+    public void createCar(Car car) throws RuntimeException
     {
 
         try
@@ -84,8 +137,8 @@ public class CarRepository {
             psts.setInt(1,car.getSerialnumber());
             psts.setString(2, car.getType());
             psts.setInt(3,car.getPrice());
-            psts.setBoolean(4, car.isDamaged());
-            psts.setBoolean(5, car.isAvailable());
+            psts.setBoolean(4, car.getIsDamaged());
+            psts.setBoolean(5, car.getIsAvailable());
 
             psts.executeUpdate();
 
@@ -96,13 +149,62 @@ public class CarRepository {
     }
 
     // Deletes car object from DB
-    public void deleteWish(int serialnumber) throws RuntimeException
+    public void deleteCar(int serialnumber) throws RuntimeException
     {
         try
         {
             PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.cars where serialnumber=? ");
             psts.setInt(1,serialnumber);
             psts.executeUpdate();
+
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
+    // updates car object from DB
+    public void updateCarDamage(int serialnumber) throws RuntimeException
+    {
+        try
+        {
+            PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set damaged =? where serialnumber=?");
+            Car car = getCar(serialnumber).get(0);
+            if(car.getIsDamaged() == true)
+            {
+                psts.setBoolean(1,false);
+                psts.setInt(2,serialnumber);
+                psts.executeUpdate();
+            }
+            else{
+                psts.setBoolean(1,true);
+                psts.setInt(2,serialnumber);
+                psts.executeUpdate();
+            }
+
+        } catch (SQLException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+    public void updateCarAvailable(int serialnumber) throws RuntimeException
+    {
+        try
+        {
+            PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set available =? where serialnumber=?");
+            Car car = getCar(serialnumber).get(0);
+            if(car.getIsAvailable() == false)
+            {
+                psts.setBoolean(1,true);
+                psts.setInt(2,serialnumber);
+                psts.executeUpdate();
+            }
+            else{
+                psts.setBoolean(1,false);
+                psts.setInt(2,serialnumber);
+                psts.executeUpdate();
+            }
+
 
         } catch (SQLException e)
         {

@@ -1,6 +1,7 @@
 package com.example.bilabonnement.models;
 
-public class Car {
+public class Car
+{
 
     private int id;
     private int serialnumber;
@@ -10,10 +11,12 @@ public class Car {
     private boolean isAvailable = true;
     private boolean isRentedOut = false;
 
-    public Car() {
+    public Car()
+    {
     }
 
-    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable, boolean isRentedOut) {
+    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable, boolean isRentedOut)
+    {
         this.id = id;
         this.serialnumber = serialnumber;
         this.type = type;
@@ -24,64 +27,79 @@ public class Car {
     }
 
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)
+    {
         this.id = id;
     }
 
-    public int getSerialnumber() {
+    public int getSerialnumber()
+    {
         return serialnumber;
     }
 
-    public void setSerialnumber(int serialnumber) {
+    public void setSerialnumber(int serialnumber)
+    {
         this.serialnumber = serialnumber;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public int getPrice() {
+    public int getPrice()
+    {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(int price)
+    {
         this.price = price;
     }
 
-    public boolean isDamaged() {
+    public boolean getIsDamaged()
+    {
         return isDamaged;
     }
 
-    public void setDamaged(boolean damaged) {
+    public void setDamaged(boolean damaged)
+    {
         this.isDamaged = damaged;
     }
 
-    public boolean isAvailable() {
+    public boolean getIsAvailable()
+    {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(boolean available)
+    {
         this.isAvailable = available;
     }
 
-    public boolean isRentedOut() {
+    public boolean getIsRentedOut()
+    {
         return isRentedOut;
     }
 
-    public void setRentedOut(boolean rentedOut) {
+    public void setRentedOut(boolean rentedOut)
+    {
         this.isRentedOut = rentedOut;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Car{" +
                 "id=" + id +
                 ", serialnumber=" + serialnumber +
