@@ -1,7 +1,10 @@
 package com.example.bilabonnement.repositories;
 
+import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.User;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +27,7 @@ public class LogginginRepository
         return -1;
 
     }
+
 
 
 }
