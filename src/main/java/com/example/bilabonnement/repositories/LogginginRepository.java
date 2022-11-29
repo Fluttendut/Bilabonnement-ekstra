@@ -12,8 +12,8 @@ public class LogginginRepository
     public int loggedin(User user)
     {
 
-        users.add(new User(1, "clbo", "1234"));
-        users.add(new User(2, "benjamin", "1234"));
+        users.add(new User(1, "Hino", "1234"));
+        users.add(new User(2, "svend", "asdf"));
         for (User i : users)
         {
             if (user.getUsername().equals(i.getUsername()) && user.getPassword().equals(i.getPassword()))

@@ -17,13 +17,14 @@ public class RenteeRepository {
     public RenteeRepository() throws IOException {
     }
 
-    public List<Rentee> getCostumer(String name) {
+    public List<Rentee> getRentee(String name, String email) {
 
         List<Rentee> rentee = new ArrayList<>();
         try {
             // spørgsmålstegnet gør vores query dynamisk i stedet for statisk
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.rentee WHERE name =? or email =?");
             psts.setString(1, "name");
+            psts.setString(2, "email");
             ResultSet resultSet = psts.executeQuery();
 
             if (resultSet.next()) {
