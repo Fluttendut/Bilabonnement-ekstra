@@ -38,12 +38,12 @@ public class LoggingInController
 //        }
 
 
-        @GetMapping("logout")
-        public String logout(HttpSession session){
-            System.out.println(session.getAttribute("log"));
-            session.invalidate();
-            return "redirect:/";
-        }
+//        @GetMapping("logout")
+//        public String logout(HttpSession session){
+//            System.out.println(session.getAttribute("log"));
+//            session.invalidate();
+//            return "redirect:/";
+//        }
 
 
 

@@ -1,10 +1,638 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bilabonnement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<!--    ADD this to test column and row grit
+        <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <script src="/scripts/image-visibility.js"></script>
+
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+            $("#tabs-area-1").tabs();
+            $("#tabs-area-2").tabs();
+            $("#tabs-area-3").tabs();
+            $("#tabs-area-4").tabs();
+            $("#tabs-webs").tabs();
+
+            $("#btnRun").click(function () {
+                $.ajax({
+                    url: "https://api.nationalize.io/?name=" + encodeURIComponent($("#name").val()),
+                    success: function (result) {
+                        $("#webresult").html("");
+                        $.each(result.country, function (i) {
+                            $.each(result.country[i], function (key, val) {
+                                $("#webresult").append("<div>" + key + ":" + val + "</div>");
+                            });
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .flex-container {
+            display: flex;
+            max-height: 75%;
+            align-content: space-between;
+        }
+
+        .container {
+            position: relative;
+            width: 50%;
+            height: auto;
+            max-height: inherit;
+        }
+        .container h3:hover {
+            cursor: pointer;
+        }
+
+
+    </style>
 </head>
 <body>
+<div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+
+    <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+        <li role="tab" tabindex="0" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab
+    ui-tabs-active ui-state-active" aria-controls="start" aria-labelledby="ui-id-1"
+            aria-selected="true" aria-expanded="true">
+            <a href="#start" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">Welcome!</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+            aria-controls="area-1" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
+            <a href="#area-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Cars</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+            aria-controls="area-2" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
+            <a href="#area-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Subscription</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+            aria-controls="area-3" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
+            <a href="#area-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Accounting</a>
+        </li>
+        <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
+            aria-controls="area-4" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
+            <a href="#area-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Service</a>
+        </li>
+    </ul>
+
+    <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="false">
+        <p>
+            <b>This program uses the 4 learning areas</b>
+        </p>
+        <table>
+            <tbody>
+            <tr>Area 1: Cloud, Operative Systems, Databases</tr>
+            <tr>Area 2: Number Systems, Debug</tr>
+            <tr>Area 3: Concurrency Issues</tr>
+            <tr>Area 4: Computer Network</tr>
+            <tr>Webservice: Test</tr>
+            </tbody>
+        </table>
+        <br>
+    </div>
+
+    <div id="area-1" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+        <div id="tabs-area-1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+
+            <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="qs-1" aria-labelledby="ui-id-7" aria-selected="false" aria-expanded="false">
+                    <a href="#qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-7">All</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="qs-2" aria-labelledby="ui-id-8" aria-selected="false" aria-expanded="false">
+                    <a href="#qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-8">Luxury</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="qs-3" aria-labelledby="ui-id-9" aria-selected="false" aria-expanded="false">
+                    <a href="#qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-9">Big</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="qs-4" aria-labelledby="ui-id-10" aria-selected="false" aria-expanded="false">
+                    <a href="#qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-10">Medium</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="qs-5" aria-labelledby="ui-id-11" aria-selected="false" aria-expanded="false">
+                    <a href="#qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-11">Small</a>
+                </li>
+            </ul>
+
+            <div id="qs-1" aria-labelledby="ui-id-7" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <div class="flex-container">
+                    <div class="container">
+                        <h2>
+                            <div>
+                            <table class="container">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Serialnumber</td>
+                                    <td>Price</td>
+                                    <td>Damaged</td>
+                                    <td>Available</td>
+                                </tr>
+                                <tr th:each="car :${AllCars}">
+                                    <td th:text="${car.id}"></td>
+                                    <td th:text="${car.serialnumber}"></td>
+                                    <td th:text="${car.price}"></td>
+                                    <td th:text="${car.isDamaged}"></td>
+                                    <td th:text="${car.isAvailable}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </h2>
+
+                    </div>
+
+                    <div class="container">
+                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=">
+                    </div>
+                </div>
+            </div>
+
+            <div id="qs-2" aria-labelledby="ui-id-8" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <div class="flex-container">
+                    <div class="container">
+                        <h2>
+                            <div>
+                            <table class="container">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Serialnumber</td>
+                                    <td>Price</td>
+                                    <td>Damaged</td>
+                                    <td>Available</td>
+                                </tr>
+                                <tr th:each="car :${LuxuryCars}">
+                                    <td th:text="${car.id}"></td>
+                                    <td th:text="${car.serialnumber}"></td>
+                                    <td th:text="${car.price}"></td>
+                                    <td th:text="${car.isDamaged}"></td>
+                                    <td th:text="${car.isAvailable}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </h2>
+
+                    </div>
+
+                    <div class="container">
+                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg" style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;
+                               ">
+                    </div>
+                </div>
+            </div>
+
+            <div id="qs-3" aria-labelledby="ui-id-9" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <div class="flex-container">
+                    <div class="container">
+                        <h2>
+                            <div>
+                            <table class="container">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Serialnumber</td>
+                                    <td>Price</td>
+                                    <td>Damaged</td>
+                                    <td>Available</td>
+                                </tr>
+                                <tr th:each="car :${BigCars}">
+                                    <td th:text="${car.id}"></td>
+                                    <td th:text="${car.serialnumber}"></td>
+                                    <td th:text="${car.price}"></td>
+                                    <td th:text="${car.isDamaged}"></td>
+                                    <td th:text="${car.isAvailable}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </h2>
+
+                    </div>
+
+                    <div class="container">
+                        <img id="bigCar" src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
+                             style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;
+                               ">
+                    </div>
+                </div>
+            </div>
+
+            <div id="qs-4" aria-labelledby="ui-id-10" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <div class="flex-container">
+                    <div class="container">
+                        <h2> <div>
+                            <table class="container">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Serialnumber</td>
+                                    <td>Price</td>
+                                    <td>Damaged</td>
+                                    <td>Available</td>
+                                </tr>
+                                <tr th:each="car :${MediumCars}">
+                                    <td th:text="${car.id}"></td>
+                                    <td th:text="${car.serialnumber}"></td>
+                                    <td th:text="${car.price}"></td>
+                                    <td th:text="${car.isDamaged}"></td>
+                                    <td th:text="${car.isAvailable}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></h2>
+
+                    </div>
+
+                    <div class="container">
+                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;
+                               ">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="qs-5" aria-labelledby="ui-id-11" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <div class="flex-container">
+                    <div class="container">
+                        <h2> <div>
+                            <table class="container">
+                                <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>Serialnumber</td>
+                                    <td>Price</td>
+                                    <td>Damaged</td>
+                                    <td>Available</td>
+                                </tr>
+                                <tr th:each="car :${SmallCars}">
+                                    <td th:text="${car.id}"></td>
+                                    <td th:text="${car.serialnumber}"></td>
+                                    <td th:text="${car.price}"></td>
+                                    <td th:text="${car.isDamaged}"></td>
+                                    <td th:text="${car.isAvailable}"></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div></h2>
+
+                    </div>
+
+                    <div class="container">
+                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;
+                               ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="area-2" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <div id="tabs-area-2" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+            <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="2-qs-1" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false">
+                    <a href="#2-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">1</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
+                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">2</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
+                    <a href="#2-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-18">3</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
+                    <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">4</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="2-qs-5" aria-labelledby="ui-id-20" aria-selected="false" aria-expanded="false">
+                    <a href="#2-qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-20">5</a>
+                </li>
+            </ul>
+
+            <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                1. Explain the uses of the following number-systems and their names:<br>
+                16-system<br>
+                10-system<br>
+                2-system
+                <br>
+                Answer:
+                <br>
+                16-talsystemet (hexadecimal)<br>
+                Hexadecimal er brugt når alle tallene er fra 0-9 er brugt.<br>
+                Herefter udfylder man med a,b,c,d,e,f og g.<br>
+                Dette gøres da disse kun tager en bit i modsætning til fx 10 der vil tage mere plads.<br>
+                Dette bruges til mac-adresser og farvekoder.<br>
+                10- talsystemet (decimal)<br>
+                Dette bruges da, det er nemmere at forstå for et menneske. Da vi er vant til brugen af
+                10-talsystemet<br>
+                2- talsystemet (binær)<br>
+                Computerens elektronik forstår kun 0 og 1. tændt eller slukket. Alt andet funktionalitet bygges på
+                dette.
+            </div>
+
+            <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                2. Explain how to calculate between binary and decimal
+                <br>
+                Answer:
+                <br>
+                <p><img src="/deciToBinary.png"></p>
+            </div>
+
+            <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                3. Explain how to calculate between binary and hexadecimal
+                <br>
+                Answer:
+                <br>
+                <p>
+                    <img src="/1.png">
+                    <img src="/2.png">
+                    <img src="/3.png">
+                </p>
+            </div>
+
+            <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                4. Explain what DDL and DML mean and their uses
+                <br>
+                Answer:
+                <br>
+                Data definition language à bruges til at modificere strukturen af objekter i en database ved brug af
+                prædefinerede kommandoer: create, drop, alter og truncate.<br>
+                Data manipulation language à bruges til at manipulere objekter I en database ved brug af prædefinerede
+                kommandoer: insert update delete call explain call lock.
+
+            </div>
+
+            <div id="2-qs-5" aria-labelledby="ui-id-20" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                5. Describe how to make a MySQL DBMS on Azure and its uses
+                <br>
+                Answer:
+                <br>
+                Log in på azure, følg guiden, vælg de rigtige parametre til din database, i forhold til dine behov. <br>
+                Denne kan bruges til at opbevare data, så denne ligger online i en cloud og kan være tilgængelig for
+                alle brugere alle steder fra, <br>
+                så længe de har credientiels i orden og databasen køre. Man betaler kun for den tid man bruger. Data er
+                altid ført ajour, dvs alle altid har nyeste version.<br>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="area-3" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+        <div id="tabs-area-3" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+            <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
+                    <a href="#3-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-21">1</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-2" aria-labelledby="ui-id-22" aria-selected="false" aria-expanded="false">
+                    <a href="#3-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-22">2</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-3" aria-labelledby="ui-id-23" aria-selected="false" aria-expanded="false">
+                    <a href="#3-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-23">3</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-4" aria-labelledby="ui-id-24" aria-selected="false" aria-expanded="false">
+                    <a href="#3-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-24">4</a>
+                </li>
+            </ul>
+
+            <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                1. Describe what makes concurrency issues a problem
+                <br>
+                Answer:
+                <br>
+                Et problem bliver et samtidighedsproblem når flere brugere/applikationer forsøger at tilgå den samme
+                data samtidig. <br>
+                Dette gør at man kan få forskellige problemer, såsom dirty read, unrepeatable read, lost update og
+                phantom read. <br>
+            </div>
+
+            <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                2. Describe a type of concurrency issues with examples
+                <br>
+                Answer:
+                <br>
+                Dirty read – man læser noget som ikke er blevet opdateret, eller er opdateret forkert <br><br>
+                Unrepeatable read – Dette sker når bruger aflæser en værdi af variablen x og bruger denne, <br>
+                bruger b ændre variablen fra x til z. Derfor ændre koden sige og bruger a undre sig nu over hvorfor den
+                er ændret. <br><br>
+                Lost update – man får overskrevet en update, med noget ældre/noget andet end man forventer.<br><br>
+                Phantom read – man læser en fil som er blevet slettet mens man har den åben.<br>
+
+            </div>
+
+            <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                3. Is there a standard way to solve concurrency issues?
+                <br>
+                Answer:
+                <br>
+                Standardløsningen er at man sætter processerne i kø og lader dem eksekvere en ad gangen. <br>
+
+            </div>
+
+            <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                4. Describe a deadlock
+                <br>
+                Answer:
+                <br>
+                Computeren låser/går i stå, da al computer kraften bruges og vi ender med en blue screen of death og
+                computeren crasher. <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="area-4" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+
+        <div id="tabs-area-4" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+            <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="4-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
+                    <a href="#4-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-25">1</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="4-qs-2" aria-labelledby="ui-id-22" aria-selected="false" aria-expanded="false">
+                    <a href="#4-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-26">2</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="4-qs-3" aria-labelledby="ui-id-23" aria-selected="false" aria-expanded="false">
+                    <a href="#4-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-27">3</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="4-qs-4" aria-labelledby="ui-id-24" aria-selected="false" aria-expanded="false">
+                    <a href="#4-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-28">4</a>
+                </li>
+            </ul>
+
+            <div id="4-qs-1" aria-labelledby="ui-id-25" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                1. What do you use a DNS for according to computer-network?
+                <br>
+                Answer:
+                <br>
+                DNS bruges til at oversætte fra IP adresse til en URL adresse.
+            </div>
+
+            <div id="4-qs-2" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                2. Is it possible to view the files used by a website? If yes, how?
+                <br>
+                Answer:
+                <br>
+                Det kan man med wireshark eller lignende programmer.
+            </div>
+
+            <div id="4-qs-3" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                3. How do you tell the difference between Ipv4 and Ipv6?
+                <br>
+                Answer:
+                <br>
+                IPv6 er version 6 af Internetprotokollen IP, som erstatter den forrige standard, IPv4. <br>
+                Der er indført mange forbedringer i IPv6, men den største forskel er størrelsen af adressefeltet, <br>
+                som er på 128 bit mod kun 32 bit i den gamle IPv4 standard. <br><br>
+                Her er et eksempel på en IPv4-adresse: <br>
+                32.253.431.175 <br>
+                Her er et eksempel på en IPv6-adresse: <br>
+                3002:0bd6:0000:0000:0000:ee00:0033:6778 <br>
+
+            </div>
+
+            <div id="4-qs-4" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+                <p>Question:</p>
+                <br>
+                4. Show and describe the terminal commando's you know, regarding networks
+                <br>
+                Answer:
+                <br>
+                ping dr.dk <br>
+                ipconfig <br>
+                tracert dr.dk <br>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="webs" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td style="padding-left: 20px;padding-right: 20px">
+                    <input id="name" alt="Click the button" title="Click the button">
+                </td>
+                <td>
+                    <button id="btnRun">Test Webservice</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <br><br><br>
+        <b>Result from Webservice</b>
+        <div id="webresult"></div>
+    </div>
+
+
+</div>
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
 
 <!--<div id="carlist">-->
 <!--    <table class="container">-->
@@ -32,35 +660,37 @@
 
 <!--    <div id="knapper">-->
 
-        <form action="/createWish" method="post">
+<!--        <form action="/createWish" method="post">-->
 
-            <input type="text" required name="name" placeholder="Enter product name">
-            <input type="text" required name="price" placeholder="Price"
-                   pattern="[0-9]{1,9}"
-                   maxlength="9"
-                   oninvalid="this.setCustomValidity('Only enter numbers')"
-                   onkeyup="setCustomValidity('')">
-            <input type="number" hidden required name="id_user" th:value="${user.id_user}">
-
-
-            <button id="addbutton" type="submit" class="btn btn-primary btn-lg">Add Wish</button>
-            <br>
-        </form>
+<!--            <input type="text" required name="name" placeholder="Enter product name">-->
+<!--            <input type="text" required name="price" placeholder="Price"-->
+<!--                   pattern="[0-9]{1,9}"-->
+<!--                   maxlength="9"-->
+<!--                   oninvalid="this.setCustomValidity('Only enter numbers')"-->
+<!--                   onkeyup="setCustomValidity('')">-->
+<!--            <input type="number" hidden required name="id_user" th:value="${user.id_user}">-->
 
 
+<!--            <button id="addbutton" type="submit" class="btn btn-primary btn-lg">Add Wish</button>-->
+<!--            <br>-->
+<!--        </form>-->
 
-        <form action="/deleteWish" method="post">
 
-            <input type="int" required name="wishId" placeholder="Enter ID to delete"
-                   pattern="[0-9]{1,9}"
-                   oninvalid="this.setCustomValidity('Only enter ID number')"
-                   onkeyup="setCustomValidity('')">
 
-            <button id="deletebutton" type="submit" class="btn btn-primary btn-lg">Delete Wish</button>
-            <br>
-        </form>
+<!--        <form action="/deleteWish" method="post">-->
 
-        <a id="logoutbutton" type="button" class="btn btn-primary btn-lg" href="/">Logout</a>
+<!--            <input type="int" required name="wishId" placeholder="Enter ID to delete"-->
+<!--                   pattern="[0-9]{1,9}"-->
+<!--                   oninvalid="this.setCustomValidity('Only enter ID number')"-->
+<!--                   onkeyup="setCustomValidity('')">-->
 
-</body>
-</html>
+<!--            <button id="deletebutton" type="submit" class="btn btn-primary btn-lg">Delete Wish</button>-->
+<!--            <br>-->
+<!--        </form>-->
+
+<!--        <a id="logoutbutton" type="button" class="btn btn-primary btn-lg" href="/">Logout</a>-->
+<!--</div>-->
+<!--&ndash;&gt;-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

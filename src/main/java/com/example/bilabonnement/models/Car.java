@@ -9,7 +9,6 @@ public class Car
     private int price;
     private boolean isDamaged = false;
     private boolean isAvailable = true;
-    private boolean isRentedOut = false;
 
     public Car()
     {
@@ -23,7 +22,6 @@ public class Car
         this.price = price;
         this.isDamaged = isDamaged;
         this.isAvailable = isAvailable;
-        this.isRentedOut = isRentedOut;
     }
 
     public int getId() {
