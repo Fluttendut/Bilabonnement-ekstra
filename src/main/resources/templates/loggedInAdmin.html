@@ -6,30 +6,31 @@
 </head>
 <body>
 
-<div id="carlist">
-    <table class="container">
-        <tbody>
-        <tr>
-            <td>ID</td>
-            <td>Serialnumber</td>
-            <td>Type</td>
-            <td>Price</td>
-            <td>Damaged</td>
-            <td>Available</td>
-        </tr>
-        <tr th:each="car :${cars}">
-            <td th:text="${cars.id}"></td>
-            <td th:text="${cars.serialnumber}"></td>
-            <td th:text="${cars.type}"></td>
-            <td th:text="${cars.price}"></td>
-            <td th:text="${cars.damaged}"></td>
-            <td th:text="${cars.available}"></td>
+<!--<div id="carlist">-->
+<!--    <table class="container">-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            <td>ID</td>-->
+<!--            <td>Serialnumber</td>-->
+<!--            <td>Type</td>-->
+<!--            <td>Price</td>-->
+<!--            <td>Damaged</td>-->
+<!--            <td>Available</td>-->
+<!--        </tr>-->
+<!--        <tr th:each="car :${cars}">-->
+<!--            <td th:text="${car.id}"></td>-->
+<!--            <td th:text="${car.serialnumber}"></td>-->
+<!--            <td th:text="${car.type}"></td>-->
+<!--            <td th:text="${car.price}"></td>-->
+<!--            <td th:text="${car.isDamaged}"></td>-->
+<!--            <td th:text="${car.isAvailable}"></td>-->
 
-        </tr>
-        </tbody>
-    </table>
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--    </div>-->
 
-    <div id="knapper">
+<!--    <div id="knapper">-->
 
         <form action="/createWish" method="post">
 

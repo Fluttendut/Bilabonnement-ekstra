@@ -19,25 +19,23 @@ public class LoggingInController
     @Controller
     public class LoginController {
 
-        LogginginRepository repo = new LogginginRepository();
-        CarRepository carRepo = new CarRepository();
-
-        public LoginController() throws IOException {
-        }
-
-        @PostMapping("/login")
-        public String login(HttpSession session, WebRequest req){
-
-            User user = new User(req.getParameter("user"), req.getParameter("pass"));
-            int userId = repo.loggedin(user);
-
-            if(userId == -1){
-                return "redirect:/";
-            } else {
-                session.setAttribute("log", userId);
-                return "loggedInAdmin";
-            }
-        }
+//        LogginginRepository repo = new LogginginRepository();
+//
+//
+//
+//       @PostMapping("/login")
+//        public String login(HttpSession session, WebRequest req){
+//
+//            User user = new User(req.getParameter("user"), req.getParameter("pass"));
+//            int userId = repo.loggedin(user);
+//
+//            if(userId == -1){
+//                return "redirect:/";
+//            } else {
+//                session.setAttribute("log", userId);
+//                return "loggedInAdmin";
+//            }
+//        }
 
 
         @GetMapping("logout")
