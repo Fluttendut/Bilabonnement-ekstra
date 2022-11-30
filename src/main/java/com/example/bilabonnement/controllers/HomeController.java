@@ -12,29 +12,33 @@ import org.springframework.web.context.request.WebRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+
 @Controller
 public class HomeController {
-    LogginginRepository repo = new LogginginRepository();
+
+    CarRepository repo = new CarRepository();
+
+    public HomeController() throws IOException {
+    }
+
     public class htmlController {
         @GetMapping("/")
         public String index() {
             return "index";
         }
 }
+    //TEMP login så vi kan arbejde med næste side
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("AllCars", repo.getAllCars());
+        model.addAttribute("SmallCars",repo.getAllCarsByType("small"));
+        model.addAttribute("MediumCars",repo.getAllCarsByType("medium"));
+        model.addAttribute("BigCars",repo.getAllCarsByType("big"));
+        model.addAttribute("LuxuryCars",repo.getAllCarsByType("luxury"));
 
-    @PostMapping("/login")
-    public String login(HttpSession session, WebRequest req){
-
-        User user = new User(req.getParameter("user"), req.getParameter("pass"));
-        int userId = repo.loggedin(user);
-
-        if(userId == -1){
-            return "redirect:/";
-        } else {
-            session.setAttribute("log", userId);
-            return "loggedInAdmin";
-        }
+        return "loggedInAdmin";
     }
+
 
 }
 

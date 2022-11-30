@@ -1,6 +1,5 @@
 package com.example.bilabonnement.repositories;
 
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.Rentee;
 
 import java.io.IOException;

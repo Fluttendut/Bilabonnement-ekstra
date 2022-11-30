@@ -87,9 +87,9 @@ public class CarRepository {
                                 resultSet.getInt("serialnumber"),
                                 resultSet.getString("type"),
                                 resultSet.getInt("price"),
-                                resultSet.getBoolean("isDamaged"),
-                                resultSet.getBoolean("isAvailable"),
-                                resultSet.getBoolean("isRentedOut")));
+                                resultSet.getBoolean("damaged"),
+                                resultSet.getBoolean("available")
+                        ));
             }
         } catch (SQLException e)
         {
@@ -98,6 +98,31 @@ public class CarRepository {
 
         return cars;
     }
+
+    public List<Car> getAllCarsByType(String type) {
+
+        List<Car> cars = new ArrayList<>();
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars where type=?");
+            psts.setString(1, type);
+            ResultSet resultSet = psts.executeQuery();
+            while (resultSet.next()) {
+                cars.add(new Car(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("type"),
+                        resultSet.getInt("price"),
+                        resultSet.getBoolean("damaged"),
+                        resultSet.getBoolean("available")
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return cars;
+    }
+
     public List<Car> getAllRentedCars()
     {
 
@@ -114,8 +139,7 @@ public class CarRepository {
                         resultSet.getString("type"),
                         resultSet.getInt("price"),
                         resultSet.getBoolean("isDamaged"),
-                        resultSet.getBoolean("isAvailable"),
-                        resultSet.getBoolean("isRentedOut")));
+                        resultSet.getBoolean("isAvailable")));
             }
         } catch (SQLException e)
         {
@@ -141,8 +165,7 @@ public class CarRepository {
                         resultSet.getString("type"),
                         resultSet.getInt("price"),
                         resultSet.getBoolean("isDamaged"),
-                        resultSet.getBoolean("isAvailable"),
-                        resultSet.getBoolean("isRentedOut")));
+                        resultSet.getBoolean("isAvailable")));
             }
         } catch (SQLException e)
         {
@@ -152,8 +175,9 @@ public class CarRepository {
         return damagedCars;
     }
 
-
-    // Creates and insert new car object into DB
+/*
+    //TODO SPACCCESHIIIPPPPP EARLY EDITION!!! LIMITED BS!!
+       Creates and insert new car object into DB and delete function
     public void createCar(Car car) throws RuntimeException
     {
 
@@ -188,6 +212,7 @@ public class CarRepository {
             throw new RuntimeException(e);
         }
     }
+ */
 
     // updates car object from DB
     public void updateCarDamage(int serialnumber) throws RuntimeException
