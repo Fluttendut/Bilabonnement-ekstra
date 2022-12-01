@@ -8,7 +8,7 @@
 <!--    ADD this to test column and row grit
         <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script src="/scripts/image-visibility.js"></script>
@@ -87,9 +87,6 @@
 
     <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
-        <p>
-            <b>This program uses the 4 learning areas</b>
-        </p>
         <table>
             <tbody>
             <tr>greatings from skynet!</tr>
@@ -355,13 +352,14 @@
                 <form action="/createleasing" method="post">
 
 
-                    <label type="login">Create</label> <br>
-                    <input type="text" name="username" placeholder="Enter your username">
-                    <input type="password" name="password" placeholder="Enter your password"> <br>
-                    <input type="password" name="password" placeholder="Enter your password"> <br>
-                    <input type="password" name="password" placeholder="Enter your password"> <br>
+                    <label type="create">Create</label> <br>
+                    <input type="text" required name="Serialnumber" placeholder="Enter serialnumber">
+                    <input type="text" required name="Type" placeholder="Enter type">
+                    <input type="date" required name="Startdate" placeholder="Enter start date">
+                    <input type="date" required name="Enddate" placeholder="Enter End date">
+                    <input type="text" required name="Price" placeholder="Price"> <br>
 
-                    <button id="submit" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
                 </form>
 

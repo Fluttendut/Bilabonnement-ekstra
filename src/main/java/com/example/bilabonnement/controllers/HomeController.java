@@ -1,8 +1,10 @@
 package com.example.bilabonnement.controllers;
 
+import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.LogginginRepository;
+import com.example.bilabonnement.services.RentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,7 @@ import java.io.IOException;
 public class HomeController {
 
     CarRepository repo = new CarRepository();
+    RentService rent = new RentService();
 
     public HomeController() throws IOException {
     }
@@ -35,6 +38,13 @@ public class HomeController {
         model.addAttribute("MediumCars",repo.getAllCarsByType("medium"));
         model.addAttribute("BigCars",repo.getAllCarsByType("big"));
         model.addAttribute("LuxuryCars",repo.getAllCarsByType("luxury"));
+
+        return "loggedInAdmin";
+    }
+
+    @PostMapping("/createleasing")
+    public String createLeasing(LeasingContract leasingContract){
+        rent.createRentalContract(leasingContract);
 
         return "loggedInAdmin";
     }
