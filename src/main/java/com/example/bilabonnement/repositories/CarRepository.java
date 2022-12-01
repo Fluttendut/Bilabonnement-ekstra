@@ -31,9 +31,8 @@ public class CarRepository {
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getInt("price"),
-                        resultSet.getBoolean("isDamaged"),
-                        resultSet.getBoolean("isAvailable"),
-                        resultSet.getBoolean("isRentedOut"));
+                        resultSet.getBoolean("Damaged"),
+                        resultSet.getBoolean("Available"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
