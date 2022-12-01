@@ -150,6 +150,7 @@
                                     <td th:text="${car.id}"></td>
                                     <td th:text="${car.serialnumber}"></td>
                                     <td th:text="${car.price}"></td>
+                                    <td th:text="${car.type}"></td>
                                     <td th:text="${car.isDamaged}"></td>
                                     <td th:text="${car.isAvailable}"></td>
 
@@ -333,104 +334,54 @@
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-1" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">1</a>
+                    <a href="#2-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-16">Create new leasing</a>
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">2</a>
+                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasin</a>
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-18">3</a>
+                    <a href="#2-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-18">Change leasing</a>
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">4</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="2-qs-5" aria-labelledby="ui-id-20" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-20">5</a>
+                    <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">View leasing</a>
                 </li>
             </ul>
 
             <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                1. Explain the uses of the following number-systems and their names:<br>
-                16-system<br>
-                10-system<br>
-                2-system
-                <br>
-                Answer:
-                <br>
-                16-talsystemet (hexadecimal)<br>
-                Hexadecimal er brugt når alle tallene er fra 0-9 er brugt.<br>
-                Herefter udfylder man med a,b,c,d,e,f og g.<br>
-                Dette gøres da disse kun tager en bit i modsætning til fx 10 der vil tage mere plads.<br>
-                Dette bruges til mac-adresser og farvekoder.<br>
-                10- talsystemet (decimal)<br>
-                Dette bruges da, det er nemmere at forstå for et menneske. Da vi er vant til brugen af
-                10-talsystemet<br>
-                2- talsystemet (binær)<br>
-                Computerens elektronik forstår kun 0 og 1. tændt eller slukket. Alt andet funktionalitet bygges på
-                dette.
+
+                <form action="/createleasing" method="post">
+
+
+                    <label type="login">Create</label> <br>
+                    <input type="text" name="username" placeholder="Enter your username">
+                    <input type="password" name="password" placeholder="Enter your password"> <br>
+                    <input type="password" name="password" placeholder="Enter your password"> <br>
+                    <input type="password" name="password" placeholder="Enter your password"> <br>
+
+                    <button id="submit" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <br>
+                </form>
+
             </div>
 
             <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                2. Explain how to calculate between binary and decimal
-                <br>
-                Answer:
-                <br>
-                <p><img src="/deciToBinary.png"></p>
+                Cancel leasing
             </div>
 
             <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                3. Explain how to calculate between binary and hexadecimal
-                <br>
-                Answer:
-                <br>
-                <p>
-                    <img src="/1.png">
-                    <img src="/2.png">
-                    <img src="/3.png">
-                </p>
+                Change leasing
             </div>
 
             <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                4. Explain what DDL and DML mean and their uses
-                <br>
-                Answer:
-                <br>
-                Data definition language à bruges til at modificere strukturen af objekter i en database ved brug af
-                prædefinerede kommandoer: create, drop, alter og truncate.<br>
-                Data manipulation language à bruges til at manipulere objekter I en database ved brug af prædefinerede
-                kommandoer: insert update delete call explain call lock.
+                View Leasing
 
-            </div>
-
-            <div id="2-qs-5" aria-labelledby="ui-id-20" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                5. Describe how to make a MySQL DBMS on Azure and its uses
-                <br>
-                Answer:
-                <br>
-                Log in på azure, følg guiden, vælg de rigtige parametre til din database, i forhold til dine behov. <br>
-                Denne kan bruges til at opbevare data, så denne ligger online i en cloud og kan være tilgængelig for
-                alle brugere alle steder fra, <br>
-                så længe de har credientiels i orden og databasen køre. Man betaler kun for den tid man bruger. Data er
-                altid ført ajour, dvs alle altid har nyeste version.<br>
             </div>
         </div>
 

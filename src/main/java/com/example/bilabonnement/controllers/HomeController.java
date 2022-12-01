@@ -63,4 +63,13 @@ public class HomeController {
 //TODO binde tingene sammen
 //TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler
+
+
+// TO DO today
 //TODO registrer nye lejeaftaler
+//TODO opsig lejeaftaler
+//TODO opret rental table i DB
+//TODO
+//TODO
+//TODO
+
