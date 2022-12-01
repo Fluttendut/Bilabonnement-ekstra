@@ -1,7 +1,6 @@
 package com.example.bilabonnement.models;
 
-public class Car
-{
+public class Car {
 
     private int id;
     private int serialnumber;
@@ -10,12 +9,10 @@ public class Car
     private boolean isDamaged = false;
     private boolean isAvailable = true;
 
-    public Car()
-    {
+    public Car() {
     }
 
-    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable)
-    {
+    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable) {
         this.id = id;
         this.serialnumber = serialnumber;
         this.type = type;
@@ -70,6 +67,22 @@ public class Car
 
     public void setAvailable(boolean available) {
         isAvailable = available;
+    }
+
+    public String getIsAvailableString() {
+        if (isAvailable == true) {
+            return "is available";
+        } else {
+            return "car not available";
+        }
+    }
+
+    public String getIsDamagedString() {
+        if (isDamaged == true) {
+            return "this card is damaged";
+        } else {
+            return "This car is not damaged";
+        }
     }
 
     @Override

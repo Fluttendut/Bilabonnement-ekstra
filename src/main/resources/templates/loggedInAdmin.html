@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" >
 <head>
     <meta charset="UTF-8">
     <title>Bilabonnement</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-<!--    ADD this to test column and row grit
-        <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
+    <!--    ADD this to test column and row grit
+            <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -51,6 +51,7 @@
             height: auto;
             max-height: inherit;
         }
+
         .container h3:hover {
             cursor: pointer;
         }
@@ -133,26 +134,27 @@
                     <div class="container">
                         <h2>
                             <div>
-                            <table class="container">
-                                <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Serialnumber</td>
-                                    <td>Price</td>
-                                    <td>Damaged</td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr th:each="car :${AllCars}">
-                                    <td th:text="${car.id}"></td>
-                                    <td th:text="${car.serialnumber}"></td>
-                                    <td th:text="${car.price}"></td>
-                                    <td th:text="${car.type}"></td>
-                                    <td th:text="${car.isDamaged}"></td>
-                                    <td th:text="${car.isAvailable}"></td>
+                                <table class="container">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Serialnumber</td>
+                                        <td>Price</td>
+                                        <td>Damaged</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr th:each="car :${AllCars}">
+                                        <td th:text="${car.id}"></td>
+                                        <td th:text="${car.serialnumber}"></td>
+                                        <td th:text="${car.price}"></td>
+                                        <td th:text="${car.type}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </h2>
 
@@ -170,32 +172,33 @@
                     <div class="container">
                         <h2>
                             <div>
-                            <table class="container">
-                                <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Serialnumber</td>
-                                    <td>Price</td>
-                                    <td>Damaged</td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr th:each="car :${LuxuryCars}">
-                                    <td th:text="${car.id}"></td>
-                                    <td th:text="${car.serialnumber}"></td>
-                                    <td th:text="${car.price}"></td>
-                                    <td th:text="${car.isDamaged}"></td>
-                                    <td th:text="${car.isAvailable}"></td>
+                                <table class="container">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Serialnumber</td>
+                                        <td>Price</td>
+                                        <td>Damaged</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr th:each="car :${LuxuryCars}">
+                                        <td th:text="${car.id}"></td>
+                                        <td th:text="${car.serialnumber}"></td>
+                                        <td th:text="${car.price}"></td>
+                                        <td th:text="${car.isDamaged}"></td>
+                                        <td th:text="${car.isAvailable}"></td>
 
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </h2>
 
                     </div>
 
                     <div class="container">
-                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg" style="object-fit: cover;
+                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg"
+                             style="object-fit: cover;
                              width: auto;
                              height: 300px;
                              float: left;
@@ -210,32 +213,33 @@
                     <div class="container">
                         <h2>
                             <div>
-                            <table class="container">
-                                <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Serialnumber</td>
-                                    <td>Price</td>
-                                    <td>Damaged</td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr th:each="car :${BigCars}">
-                                    <td th:text="${car.id}"></td>
-                                    <td th:text="${car.serialnumber}"></td>
-                                    <td th:text="${car.price}"></td>
-                                    <td th:text="${car.isDamaged}"></td>
-                                    <td th:text="${car.isAvailable}"></td>
+                                <table class="container">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Serialnumber</td>
+                                        <td>Price</td>
+                                        <td>Damaged</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr th:each="car :${BigCars}">
+                                        <td th:text="${car.id}"></td>
+                                        <td th:text="${car.serialnumber}"></td>
+                                        <td th:text="${car.price}"></td>
+                                        <td th:text="${car.isDamaged}"></td>
+                                        <td th:text="${car.isAvailable}"></td>
 
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </h2>
 
                     </div>
 
                     <div class="container">
-                        <img id="bigCar" src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
+                        <img id="bigCar"
+                             src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
@@ -249,32 +253,35 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2> <div>
-                            <table class="container">
-                                <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Serialnumber</td>
-                                    <td>Price</td>
-                                    <td>Damaged</td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr th:each="car :${MediumCars}">
-                                    <td th:text="${car.id}"></td>
-                                    <td th:text="${car.serialnumber}"></td>
-                                    <td th:text="${car.price}"></td>
-                                    <td th:text="${car.isDamaged}"></td>
-                                    <td th:text="${car.isAvailable}"></td>
+                        <h2>
+                            <div>
+                                <table class="container">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Serialnumber</td>
+                                        <td>Price</td>
+                                        <td>Damaged</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr th:each="car :${MediumCars}">
+                                        <td th:text="${car.id}"></td>
+                                        <td th:text="${car.serialnumber}"></td>
+                                        <td th:text="${car.price}"></td>
+                                        <td th:text="${car.isDamaged}"></td>
+                                        <td th:text="${car.isAvailable}"></td>
 
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div></h2>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </h2>
 
                     </div>
 
                     <div class="container">
-                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"style="object-fit: cover;
+                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"
+                             style="object-fit: cover;
                              width: auto;
                              height: 300px;
                              float: left;
@@ -288,32 +295,35 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2> <div>
-                            <table class="container">
-                                <tbody>
-                                <tr>
-                                    <td>ID</td>
-                                    <td>Serialnumber</td>
-                                    <td>Price</td>
-                                    <td>Damaged</td>
-                                    <td>Available</td>
-                                </tr>
-                                <tr th:each="car :${SmallCars}">
-                                    <td th:text="${car.id}"></td>
-                                    <td th:text="${car.serialnumber}"></td>
-                                    <td th:text="${car.price}"></td>
-                                    <td th:text="${car.isDamaged}"></td>
-                                    <td th:text="${car.isAvailable}"></td>
+                        <h2>
+                            <div>
+                                <table class="container">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>Serialnumber</td>
+                                        <td>Price</td>
+                                        <td>Damaged</td>
+                                        <td>Available</td>
+                                    </tr>
+                                    <tr th:each="car :${SmallCars}">
+                                        <td th:text="${car.id}"></td>
+                                        <td th:text="${car.serialnumber}"></td>
+                                        <td th:text="${car.price}"></td>
+                                        <td th:text="${car.isDamaged}"></td>
+                                        <td th:text="${car.isAvailable}"></td>
 
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div></h2>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </h2>
 
                     </div>
 
                     <div class="container">
-                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"style="object-fit: cover;
+                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"
+                             style="object-fit: cover;
                              width: auto;
                              height: 300px;
                              float: left;
@@ -573,7 +583,6 @@
 </html>
 
 
-
 <!--<!DOCTYPE html>-->
 <!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
 <!--<head>-->
@@ -622,7 +631,6 @@
 <!--            <button id="addbutton" type="submit" class="btn btn-primary btn-lg">Add Wish</button>-->
 <!--            <br>-->
 <!--        </form>-->
-
 
 
 <!--        <form action="/deleteWish" method="post">-->
