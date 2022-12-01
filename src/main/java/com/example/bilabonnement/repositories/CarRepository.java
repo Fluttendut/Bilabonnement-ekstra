@@ -17,33 +17,58 @@ public class CarRepository {
     public CarRepository() throws IOException {
     }
 
+    public Car getCar(int serialnumber){
 
-    public List<Car> getCar(int serialnumber){
-
-        List<Car> cars = new ArrayList<>();
-        try
-        {
-            // spørgsmålstegnet gør vores query dynamisk i stedet for statisk
+        Car car;
+        try {
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
             psts.setInt(1, serialnumber);
             ResultSet resultSet = psts.executeQuery();
 
-            if (resultSet.next())
-            {
-                cars.add(new Car(
+            if (resultSet.next()) {
+                car = new Car(
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getInt("price"),
-                        resultSet.getBoolean("isDamaged"),
-                        resultSet.getBoolean("isAvailable")));
+                        resultSet.getBoolean("Damaged"),
+                        resultSet.getBoolean("Available"));
             }
-        } catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return cars;
+        return null;
     }
+
+//    public List<Car> getCar(int serialnumber){
+//
+//        List<Car> cars = new ArrayList<>();
+//        try
+//        {
+//            // spørgsmålstegnet gør vores query dynamisk i stedet for statisk
+//            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
+//            psts.setInt(1, serialnumber);
+//            ResultSet resultSet = psts.executeQuery();
+//
+//            if (resultSet.next())
+//            {
+//                cars.add(new Car(
+//                        resultSet.getInt("id"),
+//                        resultSet.getInt("serialnumber"),
+//                        resultSet.getString("type"),
+//                        resultSet.getInt("price"),
+//                        resultSet.getBoolean("isDamaged"),
+//                        resultSet.getBoolean("isAvailable"),
+//                        resultSet.getBoolean("isRentedOut")));
+//            }
+//        } catch (SQLException e)
+//        {
+//            throw new RuntimeException(e);
+//        }
+//        return cars;
+//    }
+
+
 
     // Get all cars
     public List<Car> getAllCars()
@@ -194,7 +219,7 @@ public class CarRepository {
         try
         {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set damaged =? where serialnumber=?");
-            Car car = getCar(serialnumber).get(0);
+            Car car = getCar(serialnumber);
             if(car.getIsDamaged() == true)
             {
                 psts.setBoolean(1,false);
@@ -217,7 +242,7 @@ public class CarRepository {
         try
         {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set available =? where serialnumber=?");
-            Car car = getCar(serialnumber).get(0);
+            Car car = getCar(serialnumber);
             if(car.getIsAvailable() == false)
             {
                 psts.setBoolean(1,true);
