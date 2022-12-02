@@ -119,7 +119,7 @@ public class Car
             return -1;
         }
         else {
-            return (getPrice()/30) * daysdiff;
+            return 4 * getPrice() + (getPrice()/30) * daysdiff;
         }
     }
 
