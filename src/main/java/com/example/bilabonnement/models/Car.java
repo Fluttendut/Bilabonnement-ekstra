@@ -1,6 +1,9 @@
 package com.example.bilabonnement.models;
 
-public class Car {
+import java.time.temporal.ChronoUnit;
+
+public class Car
+{
 
     private int id;
     private int serialnumber;
@@ -9,10 +12,12 @@ public class Car {
     private boolean isDamaged = false;
     private boolean isAvailable = true;
 
-    public Car() {
+    public Car()
+    {
     }
 
-    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable) {
+    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable)
+    {
         this.id = id;
         this.serialnumber = serialnumber;
         this.type = type;
@@ -21,72 +26,106 @@ public class Car {
         this.isAvailable = isAvailable;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id)
+    {
         this.id = id;
     }
 
-    public int getSerialnumber() {
+    public int getSerialnumber()
+    {
         return serialnumber;
     }
 
-    public void setSerialnumber(int serialnumber) {
+    public void setSerialnumber(int serialnumber)
+    {
         this.serialnumber = serialnumber;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public int getPrice() {
+    public int getPrice()
+    {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(int price)
+    {
         this.price = price;
     }
 
-    public boolean getIsDamaged() {
+    public boolean getIsDamaged()
+    {
         return isDamaged;
     }
 
-    public void setDamaged(boolean damaged) {
+    public void setDamaged(boolean damaged)
+    {
         isDamaged = damaged;
     }
 
-    public boolean getIsAvailable() {
+    public boolean getIsAvailable()
+    {
         return isAvailable;
     }
 
-    public void setAvailable(boolean available) {
+    public void setAvailable(boolean available)
+    {
         isAvailable = available;
     }
 
-    public String getIsAvailableString() {
-        if (isAvailable == true) {
+    public String getIsAvailableString()
+    {
+        if (isAvailable == true)
+        {
             return "is available";
-        } else {
+        }
+        else
+        {
             return "car not available";
         }
     }
 
-    public String getIsDamagedString() {
-        if (isDamaged == true) {
+    public String getIsDamagedString()
+    {
+        if (isDamaged == true)
+        {
             return "this card is damaged";
-        } else {
+        }
+        else
+        {
             return "This car is not damaged";
         }
     }
 
+    public int priceForCarExtendedPeriode()
+    {
+        LeasingContract leasingContract = new LeasingContract();
+        int daysdiff = (int) ChronoUnit.DAYS.between(leasingContract.getEnddate(), leasingContract.getAdditionalTime());
+        if(daysdiff < 120)
+        {
+            return -1;
+        }
+        else {
+            return (getPrice()/30) * daysdiff;
+        }
+    }
+
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "Car{" +
                 "id=" + id +
                 ", serialnumber=" + serialnumber +
@@ -97,3 +136,9 @@ public class Car {
                 '}';
     }
 }
+
+
+
+
+
+

@@ -6,11 +6,10 @@ import java.time.LocalDateTime;
 public class LeasingContract {
 
     private int extradays;
-
     private String type;
     private int price;
     private int serialnumber;
-    private LocalDateTime startdate = LocalDateTime.of(2022, 12, 1, 11, 16);
+    private LocalDateTime startdate = LocalDateTime.of(2022, 12, 1, 0, 0);
     private LocalDateTime enddate = startdate.plusDays(120);
     private LocalDateTime additionalTime = enddate.plusDays(extradays);
 

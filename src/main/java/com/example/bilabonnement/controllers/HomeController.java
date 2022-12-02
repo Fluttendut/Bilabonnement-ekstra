@@ -16,39 +16,45 @@ import java.io.IOException;
 
 
 @Controller
-public class HomeController {
+public class HomeController
+{
 
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
 
-    public HomeController() throws IOException {
+    public HomeController() throws IOException
+    {
     }
 
-    public class htmlController {
+    public class htmlController
+    {
         @GetMapping("/")
-        public String index() {
+        public String index()
+        {
             return "index";
         }
-}
+    }
+
     //TEMP login så vi kan arbejde med næste side
     @GetMapping("/login")
-    public String login(Model model){
+    public String login(Model model)
+    {
         model.addAttribute("AllCars", repo.getAllCars());
-        model.addAttribute("SmallCars",repo.getAllCarsByType("small"));
-        model.addAttribute("MediumCars",repo.getAllCarsByType("medium"));
-        model.addAttribute("BigCars",repo.getAllCarsByType("big"));
-        model.addAttribute("LuxuryCars",repo.getAllCarsByType("luxury"));
+        model.addAttribute("SmallCars", repo.getAllCarsByType("small"));
+        model.addAttribute("MediumCars", repo.getAllCarsByType("medium"));
+        model.addAttribute("BigCars", repo.getAllCarsByType("big"));
+        model.addAttribute("LuxuryCars", repo.getAllCarsByType("luxury"));
 
         return "loggedInAdmin";
     }
 
     @PostMapping("/createleasing")
-    public String createLeasing(LeasingContract leasingContract){
+    public String createLeasing(LeasingContract leasingContract)
+    {
         rent.createRentalContract(leasingContract);
 
         return "loggedInAdmin";
     }
-
 
 }
 
