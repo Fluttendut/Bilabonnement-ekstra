@@ -116,7 +116,7 @@ public class Car
         int daysdiff = (int) ChronoUnit.DAYS.between(leasingContract.getEnddate(), leasingContract.getAdditionalTime());
         if(daysdiff < 120)
         {
-            return -1;
+            return 4* getPrice();
         }
         else {
             return 4 * getPrice() + (getPrice()/30) * daysdiff;
