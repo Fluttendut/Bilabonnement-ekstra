@@ -17,6 +17,7 @@ public class RentService {
     public RentService() throws IOException {
     }
 
+
     public void createRentalContract(LeasingContract leasingContract){
         try
         {

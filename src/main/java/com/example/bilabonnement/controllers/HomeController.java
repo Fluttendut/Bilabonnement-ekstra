@@ -65,6 +65,7 @@ public class HomeController {
 //TODO create rentee
 //TODO delete rentee
 //TODO update rentee
+//TODO opret rental table i DB
 
 // Ting vi mangler
 //TODO login
@@ -78,7 +79,6 @@ public class HomeController {
 // TO DO today
 //TODO registrer nye lejeaftaler
 //TODO opsig lejeaftaler
-//TODO opret rental table i DB
 //TODO
 //TODO
 //TODO

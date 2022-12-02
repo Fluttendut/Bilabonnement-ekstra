@@ -22,6 +22,7 @@
             $("#tabs-area-4").tabs();
             $("#tabs-webs").tabs();
 
+
             $("#btnRun").click(function () {
                 $.ajax({
                     url: "https://api.nationalize.io/?name=" + encodeURIComponent($("#name").val()),
@@ -35,6 +36,8 @@
                     }
                 });
             });
+
+
         });
     </script>
 
@@ -361,13 +364,63 @@
 
                 <form action="/createleasing" method="post">
 
+                    <br>Serialnumber</br>
+                    <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
-                    <label type="create">Create</label> <br>
-                    <input type="text" required name="Serialnumber" placeholder="Enter serialnumber">
-                    <input type="text" required name="Type" placeholder="Enter type">
+                    <form>
+                        <br>Select car type</br>
+                        <input type="checkbox" name="type" id="type1" value="luxery" onclick="return ValidateSelection(),checkPrice();">
+                        <label for="type1">Luxery</label>
+                        <input type="checkbox" name="type" id="type2"  value="big" onclick="return ValidateSelection(),checkPrice();">
+                        <label for="type2">Big</label>
+                        <input type="checkbox" name="type" id="type3"  value="medium" onclick="return ValidateSelection(),checkPrice();">
+                        <label for="type3">Medium</label>
+                        <input type="checkbox" name="type" id="type4" value="small" onclick="return ValidateSelection(),checkPrice();">
+                        <label for="type4">Small</label>
+                    </form>
+
+                    <script>
+                        function ValidateSelection()
+                        {
+                            var check_box = document.getElementsByName("type");
+                            var CheckedItems = 0;
+                            for(var i = 0; i < check_box.length; i++)
+                            {
+                                if(check_box[i].checked)
+                                    CheckedItems++;
+                            }
+                            if(CheckedItems > 1){
+                                alert("You can't select more than one type!");
+                                return false;}
+                        }
+                    </script>
+
+                    <br>Select leasing period</br>
                     <input type="date" required name="Startdate" placeholder="Enter start date">
                     <input type="date" required name="Enddate" placeholder="Enter End date">
-                    <input type="text" required name="Price" placeholder="Price"> <br>
+                    <br><br>
+                    <label id="price">Price: </label> <br><br>
+                    <script>
+
+                        function checkPrice() {
+                            var price = 0;
+                            if (document.getElementById("type1").checked == true) {
+                                price = 20000;
+                            }
+                            if (document.getElementById("type2").checked == true) {
+                                price = 10000;
+                            }
+                            if (document.getElementById("type3").checked == true) {
+                                price = 5000;
+                            }
+                            if (document.getElementById("type4").checked == true) {
+                                price = 2500;
+                            }
+
+                            document.getElementById("price").innerText = "Price: " + price;
+                        }
+
+                    </script>
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>

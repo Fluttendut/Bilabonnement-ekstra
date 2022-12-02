@@ -1,7 +1,6 @@
 package com.example.bilabonnement.repositories;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -26,7 +25,6 @@ public class DatabaseConnectionManager {
         hostname = properties.getProperty("spring.datasource.url");
         username = properties.getProperty("spring.datasource.username");
         password = properties.getProperty("spring.datasource.password");
-
 
         try
         {
