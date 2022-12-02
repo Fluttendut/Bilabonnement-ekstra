@@ -1,5 +1,6 @@
 package com.example.bilabonnement.services;
 
+import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.repositories.DatabaseConnectionManager;
 
@@ -9,10 +10,13 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 
 public class RentService {
 
     private Connection conn = DatabaseConnectionManager.getConnection();
+
+    Car car = new Car();
 
     public RentService() throws IOException {
     }
@@ -49,4 +53,20 @@ public class RentService {
             throw new RuntimeException(e);
         }
     }
+
+    public int priceForCarExtendedPeriode()
+    {
+        LeasingContract leasingContract = new LeasingContract();
+
+        int standardPeriod = 120;
+        int daysdiff = (int) ChronoUnit.DAYS.between(leasingContract.getEnddate(), leasingContract.getAdditionalTime());
+        if(daysdiff < standardPeriod)
+        {
+            return 0;
+        }
+        else {
+            return daysdiff-standardPeriod;
+        }
+    }
+
 }

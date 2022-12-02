@@ -110,18 +110,7 @@ public class Car
         }
     }
 
-    public int priceForCarExtendedPeriode()
-    {
-        LeasingContract leasingContract = new LeasingContract();
-        int daysdiff = (int) ChronoUnit.DAYS.between(leasingContract.getEnddate(), leasingContract.getAdditionalTime());
-        if(daysdiff < 120)
-        {
-            return 4* getPrice();
-        }
-        else {
-            return 4 * getPrice() + (getPrice()/30) * daysdiff;
-        }
-    }
+
 
     @Override
     public String toString()

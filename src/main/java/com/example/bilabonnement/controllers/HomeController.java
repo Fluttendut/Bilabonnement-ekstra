@@ -4,6 +4,7 @@ import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.LogginginRepository;
+import com.example.bilabonnement.services.CarService;
 import com.example.bilabonnement.services.RentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +52,8 @@ public class HomeController
     @PostMapping("/createleasing")
     public String createLeasing(LeasingContract leasingContract)
     {
+        rent.priceForCarExtendedPeriode();
+
         rent.createRentalContract(leasingContract);
 
         return "loggedInAdmin";

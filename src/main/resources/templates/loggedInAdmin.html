@@ -371,13 +371,13 @@
 
                     <form>
                         <br>Select car type</br>
-                        <input type="checkbox" name="type" id="type1" value="luxery" onclick="return ValidateSelection(),checkPrice();">
+                        <input type="checkbox" name="type" id="type1" value="luxery" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type1">Luxery</label>
-                        <input type="checkbox" name="type" id="type2"  value="big" onclick="return ValidateSelection(),checkPrice();">
+                        <input type="checkbox" name="type" id="type2"  value="big" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type2">Big</label>
-                        <input type="checkbox" name="type" id="type3"  value="medium" onclick="return ValidateSelection(),checkPrice();">
+                        <input type="checkbox" name="type" id="type3"  value="medium" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type3">Medium</label>
-                        <input type="checkbox" name="type" id="type4" value="small" onclick="return ValidateSelection(),checkPrice();">
+                        <input type="checkbox" name="type" id="type4" value="small" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type4">Small</label>
                     </form>
 
@@ -401,10 +401,10 @@
                     <input type="date" required name="Startdate" placeholder="Enter start date">
                     <input type="date" required name="Enddate" placeholder="Enter End date">
                     <br><br>
-                    <label id="price">Price: </label> <br><br>
+                    <label id="monthlyPrice">Monthly price: </label> <br>
                     <script>
 
-                        function checkPrice() {
+                        function checkPriceMonthly() {
                             var price = 0;
                             if (document.getElementById("type1").checked == true) {
                                 price = 20000;
@@ -419,7 +419,30 @@
                                 price = 2500;
                             }
 
-                            document.getElementById("price").innerText = "Price: " + price;
+                            document.getElementById("monthlyPrice").innerText = "Monthly price: " + price;
+                        }
+
+                    </script>
+
+                    <label id="totalPrice">Total price: </label> <br><br>
+                    <script>
+
+                        function checkPriceTotal() {
+                            var price = 0;
+                            if (document.getElementById("type1").checked == true) {
+                                price = (20000*4) + (daysdiff * (20000/30));
+                            }
+                            if (document.getElementById("type2").checked == true) {
+                                price = (10000*4) + (daysdiff * (10000/30));
+                            }
+                            if (document.getElementById("type3").checked == true) {
+                                price = (5000*4) + (daysdiff * (5000/30));
+                            }
+                            if (document.getElementById("type4").checked == true) {
+                                price = (2500*4);
+                            }
+
+                            document.getElementById("totalPrice").innerText = "Total price: " + price;
                         }
 
                     </script>
