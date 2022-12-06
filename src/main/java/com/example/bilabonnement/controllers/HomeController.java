@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +24,7 @@ public class HomeController
 
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
+    LeasingContract leasing = new LeasingContract();
 
     public HomeController() throws IOException
     {
@@ -48,6 +51,8 @@ public class HomeController
 
         return "loggedInAdmin";
     }
+
+
 
     @PostMapping("/createleasing")
     public String createLeasing(LeasingContract leasingContract)
@@ -83,12 +88,10 @@ public class HomeController
 //TODO binde tingene sammen
 //TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler
+//TODO registrer nye lejeaftaler
+//TODO opsig lejeaftaler
 
 
 // TO DO today
-//TODO registrer nye lejeaftaler
-//TODO opsig lejeaftaler
-//TODO
-//TODO
-//TODO
+
 
