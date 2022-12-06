@@ -9,45 +9,47 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.request.WebRequest;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+@Controller
+@RequestMapping("")
 public class LoggingInController
 {
-    @Controller
-    public class LoginController {
 
-//        LogginginRepository repo = new LogginginRepository();
-//
-//
-//
-//       @PostMapping("/login")
-//        public String login(HttpSession session, WebRequest req){
-//
-//            User user = new User(req.getParameter("user"), req.getParameter("pass"));
-//            int userId = repo.loggedin(user);
-//
-//            if(userId == -1){
-//                return "redirect:/";
-//            } else {
-//                session.setAttribute("log", userId);
-//                return "loggedInAdmin";
-//            }
-//        }
+        LogginginRepository repo = new LogginginRepository();
+
+/*
+       @PostMapping("/login")
+        public String login(HttpSession session, WebRequest req){
+
+            User user = new User(req.getParameter("user"), req.getParameter("pass"));
+            int userId = repo.loggedin(user);
+
+            if(userId == -1){
+                return "redirect:/login";
+            } else {
+                session.setAttribute("log", userId);
+                return "redirect:/home/";
+            }
+        }
 
 
-//        @GetMapping("logout")
-//        public String logout(HttpSession session){
-//            System.out.println(session.getAttribute("log"));
-//            session.invalidate();
-//            return "redirect:/";
-//        }
+        @GetMapping("logout")
+        public String logout(HttpSession session){
+            System.out.println(session.getAttribute("log"));
+            session.invalidate();
+            return "redirect:/";
+        }
 
+ */
 
 
 
-    }
+
+
 
 }

@@ -11,6 +11,8 @@ public class LogginginRepository
     public int loggedin(User user)
     {
 
+        return 1;
+        /*
         users.add(new User(1, "Hino", "1234"));
         users.add(new User(2, "svend", "asdf"));
         for (User i : users)
@@ -21,6 +23,8 @@ public class LogginginRepository
             }
         }
         return -1;
+
+         */
 
     }
 

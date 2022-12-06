@@ -398,11 +398,14 @@
                     </script>
 
                     <br>Select leasing period</br>
-                    <input type="date" required name="Startdate" placeholder="Enter start date">
-                    <input type="date" required name="Enddate" placeholder="Enter End date">
+                    <input type="date" id="startDate" required name="Startdate" placeholder="Enter start date">
+                    <input type="date" id="endDate" required name="Enddate" placeholder="Enter End date">
                     <br><br>
                     <label id="monthlyPrice">Monthly price: </label> <br>
                     <script>
+                        function checkStartDate(){
+                            document.getElementById("startDate").addEventListener("click",)
+                        }
 
                         function checkPriceMonthly() {
                             var price = 0;
