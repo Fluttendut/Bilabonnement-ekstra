@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" >
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Bilabonnement</title>
@@ -8,11 +8,10 @@
     <!--    ADD this to test column and row grit
             <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
-  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script src="/scripts/image-visibility.js"></script>
-
 
 
     <script>
@@ -371,29 +370,32 @@
 
                     <form>
                         <br>Select car type</br>
-                        <input type="checkbox" name="type" id="type1" value="luxery" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                        <input type="checkbox" name="type" id="type1" value="luxery"
+                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type1">Luxery</label>
-                        <input type="checkbox" name="type" id="type2"  value="big" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                        <input type="checkbox" name="type" id="type2" value="big"
+                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type2">Big</label>
-                        <input type="checkbox" name="type" id="type3"  value="medium" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                        <input type="checkbox" name="type" id="type3" value="medium"
+                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type3">Medium</label>
-                        <input type="checkbox" name="type" id="type4" value="small" onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                        <input type="checkbox" name="type" id="type4" value="small"
+                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
                         <label for="type4">Small</label>
                     </form>
 
                     <script>
-                        function ValidateSelection()
-                        {
+                        function ValidateSelection() {
                             var check_box = document.getElementsByName("type");
                             var CheckedItems = 0;
-                            for(var i = 0; i < check_box.length; i++)
-                            {
-                                if(check_box[i].checked)
+                            for (var i = 0; i < check_box.length; i++) {
+                                if (check_box[i].checked)
                                     CheckedItems++;
                             }
-                            if(CheckedItems > 1){
+                            if (CheckedItems > 1) {
                                 alert("You can't select more than one type!");
-                                return false;}
+                                return false;
+                            }
                         }
                     </script>
 
@@ -403,6 +405,7 @@
                     <br><br>
                     <label id="monthlyPrice">Monthly price: </label> <br>
                     <script>
+
 
                         function checkPriceMonthly() {
                             var price = 0;
@@ -430,16 +433,16 @@
                         function checkPriceTotal() {
                             var price = 0;
                             if (document.getElementById("type1").checked == true) {
-                                price = (20000*4) + (daysdiff * (20000/30));
+                                price = (20000 * 4) + (daysdiff * (20000 / 30));
                             }
                             if (document.getElementById("type2").checked == true) {
-                                price = (10000*4) + (daysdiff * (10000/30));
+                                price = (10000 * 4) + (daysdiff * (10000 / 30));
                             }
                             if (document.getElementById("type3").checked == true) {
-                                price = (5000*4) + (daysdiff * (5000/30));
+                                price = (5000 * 4) + (daysdiff * (5000 / 30));
                             }
                             if (document.getElementById("type4").checked == true) {
-                                price = (2500*4);
+                                price = (2500 * 4);
                             }
 
                             document.getElementById("totalPrice").innerText = "Total price: " + price;
@@ -498,57 +501,24 @@
 
             <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                1. Describe what makes concurrency issues a problem
-                <br>
-                Answer:
-                <br>
-                Et problem bliver et samtidighedsproblem når flere brugere/applikationer forsøger at tilgå den samme
-                data samtidig. <br>
-                Dette gør at man kan få forskellige problemer, såsom dirty read, unrepeatable read, lost update og
-                phantom read. <br>
+
             </div>
 
             <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                2. Describe a type of concurrency issues with examples
-                <br>
-                Answer:
-                <br>
-                Dirty read – man læser noget som ikke er blevet opdateret, eller er opdateret forkert <br><br>
-                Unrepeatable read – Dette sker når bruger aflæser en værdi af variablen x og bruger denne, <br>
-                bruger b ændre variablen fra x til z. Derfor ændre koden sige og bruger a undre sig nu over hvorfor den
-                er ændret. <br><br>
-                Lost update – man får overskrevet en update, med noget ældre/noget andet end man forventer.<br><br>
-                Phantom read – man læser en fil som er blevet slettet mens man har den åben.<br>
+                <p>:</p>
+
 
             </div>
 
             <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                3. Is there a standard way to solve concurrency issues?
-                <br>
-                Answer:
-                <br>
-                Standardløsningen er at man sætter processerne i kø og lader dem eksekvere en ad gangen. <br>
 
             </div>
 
             <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                4. Describe a deadlock
-                <br>
-                Answer:
-                <br>
-                Computeren låser/går i stå, da al computer kraften bruges og vi ender med en blue screen of death og
-                computeren crasher. <br>
+
             </div>
         </div>
     </div>
@@ -578,55 +548,22 @@
 
             <div id="4-qs-1" aria-labelledby="ui-id-25" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                1. What do you use a DNS for according to computer-network?
-                <br>
-                Answer:
-                <br>
-                DNS bruges til at oversætte fra IP adresse til en URL adresse.
+
             </div>
 
             <div id="4-qs-2" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                2. Is it possible to view the files used by a website? If yes, how?
-                <br>
-                Answer:
-                <br>
-                Det kan man med wireshark eller lignende programmer.
+
             </div>
 
             <div id="4-qs-3" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                3. How do you tell the difference between Ipv4 and Ipv6?
-                <br>
-                Answer:
-                <br>
-                IPv6 er version 6 af Internetprotokollen IP, som erstatter den forrige standard, IPv4. <br>
-                Der er indført mange forbedringer i IPv6, men den største forskel er størrelsen af adressefeltet, <br>
-                som er på 128 bit mod kun 32 bit i den gamle IPv4 standard. <br><br>
-                Her er et eksempel på en IPv4-adresse: <br>
-                32.253.431.175 <br>
-                Her er et eksempel på en IPv6-adresse: <br>
-                3002:0bd6:0000:0000:0000:ee00:0033:6778 <br>
 
             </div>
 
             <div id="4-qs-4" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>Question:</p>
-                <br>
-                4. Show and describe the terminal commando's you know, regarding networks
-                <br>
-                Answer:
-                <br>
-                ping dr.dk <br>
-                ipconfig <br>
-                tracert dr.dk <br>
+
 
             </div>
         </div>
@@ -660,71 +597,3 @@
 </body>
 </html>
 
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-
-<!--<div id="carlist">-->
-<!--    <table class="container">-->
-<!--        <tbody>-->
-<!--        <tr>-->
-<!--            <td>ID</td>-->
-<!--            <td>Serialnumber</td>-->
-<!--            <td>Type</td>-->
-<!--            <td>Price</td>-->
-<!--            <td>Damaged</td>-->
-<!--            <td>Available</td>-->
-<!--        </tr>-->
-<!--        <tr th:each="car :${cars}">-->
-<!--            <td th:text="${car.id}"></td>-->
-<!--            <td th:text="${car.serialnumber}"></td>-->
-<!--            <td th:text="${car.type}"></td>-->
-<!--            <td th:text="${car.price}"></td>-->
-<!--            <td th:text="${car.isDamaged}"></td>-->
-<!--            <td th:text="${car.isAvailable}"></td>-->
-
-<!--        </tr>-->
-<!--        </tbody>-->
-<!--    </table>-->
-<!--    </div>-->
-
-<!--    <div id="knapper">-->
-
-<!--        <form action="/createWish" method="post">-->
-
-<!--            <input type="text" required name="name" placeholder="Enter product name">-->
-<!--            <input type="text" required name="price" placeholder="Price"-->
-<!--                   pattern="[0-9]{1,9}"-->
-<!--                   maxlength="9"-->
-<!--                   oninvalid="this.setCustomValidity('Only enter numbers')"-->
-<!--                   onkeyup="setCustomValidity('')">-->
-<!--            <input type="number" hidden required name="id_user" th:value="${user.id_user}">-->
-
-
-<!--            <button id="addbutton" type="submit" class="btn btn-primary btn-lg">Add Wish</button>-->
-<!--            <br>-->
-<!--        </form>-->
-
-
-<!--        <form action="/deleteWish" method="post">-->
-
-<!--            <input type="int" required name="wishId" placeholder="Enter ID to delete"-->
-<!--                   pattern="[0-9]{1,9}"-->
-<!--                   oninvalid="this.setCustomValidity('Only enter ID number')"-->
-<!--                   onkeyup="setCustomValidity('')">-->
-
-<!--            <button id="deletebutton" type="submit" class="btn btn-primary btn-lg">Delete Wish</button>-->
-<!--            <br>-->
-<!--        </form>-->
-
-<!--        <a id="logoutbutton" type="button" class="btn btn-primary btn-lg" href="/">Logout</a>-->
-<!--</div>-->
-<!--&ndash;&gt;-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
