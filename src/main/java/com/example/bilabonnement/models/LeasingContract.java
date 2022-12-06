@@ -58,7 +58,7 @@ public class LeasingContract {
         this.serialnumber = serialnumber;
     }
 
-    public LocalDateTime getStartdate() {
+ public LocalDateTime getStartdate() {
         return startdate;
     }
 
