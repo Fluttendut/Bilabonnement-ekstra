@@ -371,21 +371,60 @@
                     <form>
                         <br>Select car type</br>
                         <input type="checkbox" name="type" id="type1" value="luxery"
-                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                               onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type1">Luxery</label>
                         <input type="checkbox" name="type" id="type2" value="big"
-                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                               onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type2">Big</label>
                         <input type="checkbox" name="type" id="type3" value="medium"
-                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                               onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type3">Medium</label>
                         <input type="checkbox" name="type" id="type4" value="small"
-                               onclick="return ValidateSelection(),checkPriceMonthly(),checkPriceTotal();">
+                               onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type4">Small</label>
                     </form>
 
+                    <form>
+                    <br>Select leasing period</br>
+                    <input type="checkbox" name="period" id="4m" value="4"
+                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                    <label for="4m">4 Months</label>
+                    <input type="checkbox" name="period" id="8m" value="8"
+                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                    <label for="8m">8 Months</label>
+                    <input type="checkbox" name="period" id="12m" value="12"
+                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                    <label for="12m">12 Months</label>
+                    <input type="checkbox" name="period" id="24m" value="24"
+                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                    <label for="24m">24 Months</label>
+                    <input type="checkbox" name="period" id="36m" value="36"
+                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                    <label for="36m">36 Months</label>
+                    </form>
+                    <br><br>
+
+                    <label id="monthlyPrice">Monthly price: </label> <br>
+                    <label id="totalPrice">Total price: </label> <br><br>
+                    <div>
+                        <script>
+                            startDate = new Date().toLocaleDateString();
+                            document.write(startDate);
+                            document.getElementsByName("startDate").innerText = "Start date " + startDate;
+                        </script>
+
+                    </div>
+
+
+
+                    <input type="text" name="startDate" value="">
+                    <input type="text" name="endDate" value="">
+
+                    <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <br>
                     <script>
-                        function ValidateSelection() {
+
+                        function ValidateCheckType() {
                             var check_box = document.getElementsByName("type");
                             var CheckedItems = 0;
                             for (var i = 0; i < check_box.length; i++) {
@@ -397,64 +436,93 @@
                                 return false;
                             }
                         }
-                    </script>
+                        function ValidateCheckPeriod() {
+                            var check_box = document.getElementsByName("period");
+                            var CheckedItems = 0;
+                            for (var i = 0; i < check_box.length; i++) {
+                                if (check_box[i].checked)
+                                    CheckedItems++;
+                            }
+                            if (CheckedItems > 1) {
+                                alert("You can't select more than one period");
+                                return false;
+                            }
+                        }
+                        function displayDays() {
 
-                    <br>Select leasing period</br>
-                    <input type="date" id="startDate" required name="Startdate" placeholder="Enter start date">
-                    <input type="date" id="endDate" required name="Enddate" placeholder="Enter End date">
-                    <br><br>
-                    <label id="monthlyPrice">Monthly price: </label> <br>
-                    <script>
-                        function checkStartDate(){
-                            document.getElementById("startDate").addEventListener("click",)
+                            startDate = new Date().toLocaleDateString();
+                            document.write(startDate);
+
+                            var days = 0;
+                            if (document.getElementById("4m").checked == true) {
+                                days = 120;
+                            }
+                            if (document.getElementById("8m").checked == true) {
+                                days = 240;
+                            }
+                            if (document.getElementById("12m").checked == true) {
+                                days = 360;
+                            }
+                            if (document.getElementById("24m").checked == true) {
+                                days = 720;
+                            }
+                            if (document.getElementById("36m").checked == true) {
+                                days = 1080
+                            }
+
+                            Date.prototype.addDays = function(days) {
+                                var date = new Date(this.valueOf());
+                                date.setDate(date.getDate() + days);
+                                return date;
+                            }
+                            var date = new Date;
+
+                            //console.log(date.addDays(120));
+                            //document.write(date.addDays(days).toLocaleDateString())
+
+
+                            document.getElementsByName("endDate").innerText = "End date " + date.addDays(days);
+
                         }
 
-
-                        function checkPriceMonthly() {
-                            var price = 0;
+                        function checkPrice() {
+                            var priceM = 0;
                             if (document.getElementById("type1").checked == true) {
-                                price = 20000;
+                                priceM = 20000;
                             }
                             if (document.getElementById("type2").checked == true) {
-                                price = 10000;
+                                priceM = 10000;
                             }
                             if (document.getElementById("type3").checked == true) {
-                                price = 5000;
+                                priceM = 5000;
                             }
                             if (document.getElementById("type4").checked == true) {
-                                price = 2500;
+                                priceM = 2500;
+                            }
+                            document.getElementById("monthlyPrice").innerText = "Monthly price: " + priceM;
+
+                            var priceT = 0;
+                            if (document.getElementById("4m").checked == true) {
+                                priceT = (priceM * 4);
+                            }
+                            if (document.getElementById("8m").checked == true) {
+                                priceT = (priceM * 8);
+                            }
+                            if (document.getElementById("12m").checked == true) {
+                                priceT = (priceM * 12);
+                            }
+                            if (document.getElementById("24m").checked == true) {
+                                priceT = (priceM * 24);
+                            }
+                            if (document.getElementById("36m").checked == true) {
+                                priceT = (priceM * 36);
                             }
 
-                            document.getElementById("monthlyPrice").innerText = "Monthly price: " + price;
-                        }
 
+                            document.getElementById("totalPrice").innerText = "Total price: " + priceT;
+                        }
                     </script>
 
-                    <label id="totalPrice">Total price: </label> <br><br>
-                    <script>
-
-                        function checkPriceTotal() {
-                            var price = 0;
-                            if (document.getElementById("type1").checked == true) {
-                                price = (20000 * 4) + (daysdiff * (20000 / 30));
-                            }
-                            if (document.getElementById("type2").checked == true) {
-                                price = (10000 * 4) + (daysdiff * (10000 / 30));
-                            }
-                            if (document.getElementById("type3").checked == true) {
-                                price = (5000 * 4) + (daysdiff * (5000 / 30));
-                            }
-                            if (document.getElementById("type4").checked == true) {
-                                price = (2500 * 4);
-                            }
-
-                            document.getElementById("totalPrice").innerText = "Total price: " + price;
-                        }
-
-                    </script>
-
-                    <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    <br>
                 </form>
 
             </div>

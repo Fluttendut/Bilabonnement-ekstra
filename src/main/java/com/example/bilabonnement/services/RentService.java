@@ -41,6 +41,8 @@ public class RentService {
         }
     }
 
+
+
     public void cancelRentalContract(int serialnumber){
         try
         {
