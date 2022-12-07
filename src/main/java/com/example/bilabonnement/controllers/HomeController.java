@@ -85,16 +85,21 @@ public class HomeController
 //TODO delete rentee
 //TODO update rentee
 //TODO opret rental table i DB
+//TODO opsig lejeaftaler
+//TODO registrer nye lejeaftaler
 
 // Ting vi mangler
-//TODO login
-//TODO alt html / css
+//TODO fix login så rent faktisk virker.
+//TODO ret html/css til så det bliver pænt
 //TODO test af alt
 //TODO binde tingene sammen
 //TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler
-//TODO registrer nye lejeaftaler
-//TODO opsig lejeaftaler
+
+
+//TODO lav loop der tager første tilgængelige bil fra listen på databasen.
+
+
 
 
 // TO DO today

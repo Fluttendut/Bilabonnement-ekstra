@@ -40,6 +40,31 @@ public class CarRepository {
         return null;
     }
 
+    public int getavailableCarBySerialnumber (String type){
+
+        Car car = new Car();
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE available=true and type =?");
+            psts.setString(1, type);
+            ResultSet resultSet = psts.executeQuery();
+
+            List<Car> cars = new ArrayList<>();
+
+            if (resultSet.next()) {
+                for (int i=0; i< cars.size(); i++ )
+                {
+                    if (car.getIsAvailable() == true)
+                    {
+                        return car.getSerialnumber();
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+      return -1;
+    }
+
 //    public List<Car> getCar(int serialnumber){
 //
 //        List<Car> cars = new ArrayList<>();
