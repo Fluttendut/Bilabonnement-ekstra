@@ -2,6 +2,7 @@ package com.example.bilabonnement.services;
 
 import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.LeasingContract;
+import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.repositories.DatabaseConnectionManager;
 
 import java.io.IOException;
@@ -22,15 +23,21 @@ public class RentService {
     }
 
 
-    public void createRentalContract(LeasingContract leasingContract){
+    public void createRentalContract(LeasingContract leasingContract, Rentee rentee){
         try
         {
-            PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, price, startdate,enddate,serialnumber) values(?,?,?,?,?)"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
+            PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, startdate,enddate,serialnumber, priceMonthly, priceTotal,leasingperiod,name, Email, CPR,address) values(?,?,?,?,?,?,?,?,?,?,?)"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
             psts.setString(1, leasingContract.getType());
-            psts.setInt(2,leasingContract.getPrice());
-            psts.setDate(3, (Date) Date.from(leasingContract.getStartdate().toInstant(ZoneOffset.UTC)));
-            psts.setDate(3, (Date) Date.from(leasingContract.getEnddate().toInstant(ZoneOffset.UTC)));
-            psts.setInt(5,leasingContract.getSerialnumber());
+            psts.setString(2, leasingContract.getStartdate()); //todo spørg philip om hvordan man får datoen ind fra HTML/JS
+            psts.setString(3,leasingContract.getEnddate());
+            psts.setInt(4,leasingContract.getSerialnumber());
+            psts.setInt(5, leasingContract.getPriceMonthly());
+            psts.setInt(6,leasingContract.getPriceTotal());
+            psts.setInt(7,leasingContract.getLeasingperiod());
+            psts.setString(8, rentee.getName());
+            psts.setString(9, rentee.getEmail());
+            psts.setInt(10,rentee.getCpr());
+            psts.setString(11,rentee.getAddress());
 
 
             psts.executeUpdate();
@@ -56,19 +63,6 @@ public class RentService {
         }
     }
 
-    public int priceForCarExtendedPeriode()
-    {
-        LeasingContract leasingContract = new LeasingContract();
 
-        int standardPeriod = 120;
-        int daysdiff = (int) ChronoUnit.DAYS.between(leasingContract.getEnddate(), leasingContract.getAdditionalTime());
-        if(daysdiff < standardPeriod)
-        {
-            return 0;
-        }
-        else {
-            return daysdiff-standardPeriod;
-        }
-    }
 
 }

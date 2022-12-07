@@ -1,6 +1,7 @@
 package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.LeasingContract;
+import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.LogginginRepository;
@@ -55,9 +56,10 @@ public class HomeController
 
 
     @PostMapping("/createleasing")
-    public String createLeasing(LeasingContract leasingContract)
+    public String createLeasing(LeasingContract leasingContract, Rentee rentee)
     {
-        rent.createRentalContract(leasingContract);
+
+        rent.createRentalContract(leasingContract, rentee);
 
         return "loggedInAdmin";
     }
