@@ -1,14 +1,11 @@
 package com.example.bilabonnement.models;
 
-import java.time.temporal.ChronoUnit;
-
 public class Car
 {
 
     private int id;
     private int serialnumber;
     private String type;
-    private int price;
     private boolean isDamaged = false;
     private boolean isAvailable = true;
 
@@ -54,16 +51,6 @@ public class Car
     public void setType(String type)
     {
         this.type = type;
-    }
-
-    public int getPrice()
-    {
-        return price;
-    }
-
-    public void setPrice(int price)
-    {
-        this.price = price;
     }
 
     public boolean getIsDamaged()
@@ -119,7 +106,6 @@ public class Car
                 "id=" + id +
                 ", serialnumber=" + serialnumber +
                 ", type='" + type + '\'' +
-                ", price=" + price +
                 ", isDamaged=" + isDamaged +
                 ", isAvailable=" + isAvailable +
                 '}';

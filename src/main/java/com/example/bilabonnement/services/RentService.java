@@ -36,7 +36,7 @@ public class RentService {
             psts.setInt(7,leasingContract.getLeasingperiod());
             psts.setString(8, rentee.getName());
             psts.setString(9, rentee.getEmail());
-            psts.setInt(10,rentee.getCpr());
+            psts.setString(10,rentee.getCpr());
             psts.setString(11,rentee.getAddress());
 
 

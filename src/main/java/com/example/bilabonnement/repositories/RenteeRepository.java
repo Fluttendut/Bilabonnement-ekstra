@@ -16,7 +16,7 @@ public class RenteeRepository {
 
     public RenteeRepository() throws IOException {
     }
-
+/*
     public List<Rentee> getRentee(String name, String email) {
 
         List<Rentee> rentee = new ArrayList<>();
@@ -69,7 +69,7 @@ public class RenteeRepository {
             PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.rentee(name, email, cpr, address) values(?,?,?,?)");
             psts.setString(1, rentee.getName());
             psts.setString(2, rentee.getEmail());
-            psts.setInt(3, rentee.getCpr());
+            psts.setString(3, rentee.getCpr());
             psts.setString(4, rentee.getAddress());
 
             psts.executeUpdate();
@@ -108,4 +108,6 @@ public class RenteeRepository {
             throw new RuntimeException(e);
         }
     }
+
+ */
 }

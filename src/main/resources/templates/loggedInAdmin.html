@@ -353,7 +353,10 @@
                     <label>E-mail</label><br>
                     <input type="text" required name="Email" placeholder="Enter E-mail"> <br>
                     <label>CPR</label><br>
-                    <input type="number" required name="CPR" placeholder="Enter CPR"> <br>
+                    <input type="text" required name="cpr" placeholder="Enter CPR"
+                           pattern="[0-9]{10,10}"
+                           oninvalid="this.setCustomValidity('Enter 10 digit cpr')"
+                           onkeyup="setCustomValidity('')"> <br>
                     <label>Address</label><br>
                     <input type="text" required name="address" placeholder="Enter Address"> <br>
                     <br>
@@ -397,8 +400,13 @@
 
                     <br><br>
 
-                    <label id="monthlyPrice" name="priceMonthly">Monthly price: </label> <br>
-                    <label id="totalPrice" name="priceTotal">Total price: </label> <br><br>
+                    <label for="monthlyPrice">Monthly price: </label>
+                    <input type="text" id="monthlyPrice" readonly name="priceMonthly">
+                    <br>
+
+                    <label for="totalPrice">Total price: </label>
+                    <input type="text" id="totalPrice" readonly name="priceTotal">
+                    <br><br>
 
                     <label for="box1">Start date: </label>
                     <input type="text" id="box1" readonly name="startdate">
@@ -458,7 +466,7 @@
                         if (document.getElementById("type4").checked == true) {
                             priceM = 2500;
                         }
-                        document.getElementById("monthlyPrice").innerText = "Monthly price: " + priceM;
+                        document.getElementById("monthlyPrice").value = priceM;
 
                         var priceT = 0;
                         if (document.getElementById("4m").checked == true) {
@@ -478,7 +486,7 @@
                         }
 
 
-                        document.getElementById("totalPrice").innerText = "Total price: " + priceT;
+                        document.getElementById("totalPrice").value = priceT;
                     }
                 </script>
 

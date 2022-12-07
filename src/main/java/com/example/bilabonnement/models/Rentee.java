@@ -4,13 +4,13 @@ public class Rentee {
 
     private String name;
     private String email;
-    private int cpr;
+    private String cpr;
     private String address;
 
     public Rentee() {
     }
 
-    public Rentee(String name, String email, int cpr, String address) {
+    public Rentee(String name, String email, String cpr, String address) {
         this.name = name;
         this.email = email;
         this.cpr = cpr;
@@ -33,11 +33,11 @@ public class Rentee {
         this.email = email;
     }
 
-    public int getCpr() {
+    public String getCpr() {
         return cpr;
     }
 
-    public void setCpr(int cpr) {
+    public void setCpr(String cpr) {
         this.cpr = cpr;
     }
 

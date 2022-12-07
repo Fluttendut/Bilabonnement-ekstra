@@ -61,7 +61,7 @@ public class HomeController
 
         rent.createRentalContract(leasingContract, rentee);
 
-        return "loggedInAdmin";
+        return "redirect:/login";
     }
     @PostMapping("/service")
     public String service()
@@ -94,9 +94,13 @@ public class HomeController
 //TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler
 //TODO registrer nye lejeaftaler
-//TODO opsig lejeaftaler
+
 
 
 // TO DO today
+//TODO opdater trello!!!
+//TODO delete contract
+//TODO alter contract
+//TODO fix pris
 
 
