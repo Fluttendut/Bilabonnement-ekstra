@@ -63,17 +63,37 @@
         .container h3:hover {
             cursor: pointer;
         }
-        .column {
+        /*.column {*/
+        /*    float: left;*/
+        /*    width: 33.33%;*/
+        /*    padding: 5px;*/
+        /*}*/
+        /*.row::after {*/
+        /*    content: "";*/
+        /*    clear: both;*/
+        /*    display: table;*/
+        /*}*/
+
+        #customerInformationColumn, #carInformationColumn {
             float: left;
             width: 33.33%;
             padding: 5px;
         }
-        .row::after {
+        #rowCreateLeasing{
             content: "";
             clear: both;
             display: table;
         }
-
+        #mechanicColumn, #mechanicImgColumn {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        #rowService {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
     </style>
 </head>
@@ -347,10 +367,11 @@
             </ul>
 
             <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
+            ui-widget-content" aria-hidden="true" style="display: none;">
+                <div id="rowCreateLeasing" class="row">
+                    <div style="width: 257px" id="customerInformationColumn" class="column">
                 <form action="/createleasing" method="post">
-                    <h4><b>Kunde information</b></h4>
+                    <h4><b>Customer information</b></h4>
 
                     <label for="name">Name</label><br>
                     <input style="border-radius: 15px" type="text" required name="name" id="name" placeholder=" Enter name"> <br>
@@ -364,8 +385,10 @@
                     <label for="address">Address</label><br>
                     <input style="border-radius: 15px"  type="text" required name="address" id="address" placeholder=" Enter address"> <br>
                     <br>
+                    </form>
+                    </div>
 
-
+                    <div style="width:69.33%" id="carInformationColumn" class="column">
                     <h4><b>Serialnumber</b></h4>
                     <input style="border-radius: 15px" type="text" name="serialnumber" required id="serialnumber" placeholder=" Enter serialnumber"><br>
 
@@ -420,8 +443,12 @@
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
 
+                        </form>
 
-                </form>
+            </div>
+                </div>
+
+
 
                 <script>
 
@@ -501,6 +528,7 @@
 
             </div>
 
+
             <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
                 Cancel leasing
@@ -570,8 +598,8 @@
 
     <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <div class="row">
-            <div class="column">
+        <div id="rowService" class="row">
+            <div id="mechanicColumn" class="column">
                 <form action="/service" method="post">
                     <h4><b>Serialnumber</b></h4>
                     <input style="border-radius: 15px" type="text" required name="serialnumber" placeholder=" Enter serialnumber"> <br>
@@ -584,7 +612,7 @@
                         <label for="damaged">Damaged</label>
                         <input type="radio" name="damaged" id="damaged"  value="Damaged">
                         <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
-                        <label for="damaged">Damaged</label>
+
                     </form>
 
                 </form>
@@ -592,7 +620,7 @@
 
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </div>
-            <div class="column">
+            <div id="mechanicImgColumn" class="column">
 
                 <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" alt="Mechanic"
                      style="object-fit: cover;
