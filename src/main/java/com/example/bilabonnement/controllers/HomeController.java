@@ -57,8 +57,6 @@ public class HomeController
     @PostMapping("/createleasing")
     public String createLeasing(LeasingContract leasingContract)
     {
-        rent.priceForCarExtendedPeriode();
-
         rent.createRentalContract(leasingContract);
 
         return "loggedInAdmin";
