@@ -10,13 +10,12 @@ public class Rentee {
     public Rentee() {
     }
 
-    public Rentee(String name, String email, int cpr, String address) {
+    public Rentee(String name, String email, int cpr, String address){
         this.name = name;
         this.email = email;
         this.cpr = cpr;
         this.address = address;
     }
-
     public String getName() {
         return name;
     }
