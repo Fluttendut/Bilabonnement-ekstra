@@ -370,35 +370,35 @@
 
                     <form>
                         <br>Select car type</br>
-                        <input type="checkbox" name="type" id="type1" value="luxery"
+                        <input type="radio" name="type" id="type1" value="luxery"
                                onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type1">Luxery</label>
-                        <input type="checkbox" name="type" id="type2" value="big"
+                        <input type="radio" name="type" id="type2" value="big"
                                onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type2">Big</label>
-                        <input type="checkbox" name="type" id="type3" value="medium"
+                        <input type="radio" name="type" id="type3" value="medium"
                                onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type3">Medium</label>
-                        <input type="checkbox" name="type" id="type4" value="small"
+                        <input type="radio" name="type" id="type4" value="small"
                                onclick="return ValidateCheckType(),checkPrice()">
                         <label for="type4">Small</label>
                     </form>
 
                     <form>
                     <br>Select leasing period</br>
-                    <input type="checkbox" name="period" id="4m" value="4"
+                    <input type="radio" name="period" id="4m" value="4"
                            onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
-                    <input type="checkbox" name="period" id="8m" value="8"
+                    <input type="radio" name="period" id="8m" value="8"
                            onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
                     <label for="8m">8 Months</label>
-                    <input type="checkbox" name="period" id="12m" value="12"
+                    <input type="radio" name="period" id="12m" value="12"
                            onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
                     <label for="12m">12 Months</label>
-                    <input type="checkbox" name="period" id="24m" value="24"
+                    <input type="radio" name="period" id="24m" value="24"
                            onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
                     <label for="24m">24 Months</label>
-                    <input type="checkbox" name="period" id="36m" value="36"
+                    <input type="radio" name="period" id="36m" value="36"
                            onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
                     <label for="36m">36 Months</label>
                     </form>
@@ -406,19 +406,13 @@
 
                     <label id="monthlyPrice">Monthly price: </label> <br>
                     <label id="totalPrice">Total price: </label> <br><br>
-                    <div>
-                        <script>
-                            startDate = new Date().toLocaleDateString();
-                            document.write(startDate);
-                            document.getElementsByName("startDate").innerText = "Start date " + startDate;
-                        </script>
 
-                    </div>
+
+                    <input type="text" id="box1" name="startDate" value="">
+                    <input type="text" id="box2" name="endDate" value="">
 
 
 
-                    <input type="text" name="startDate" value="">
-                    <input type="text" name="endDate" value="">
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
@@ -451,7 +445,7 @@
                         function displayDays() {
 
                             startDate = new Date().toLocaleDateString();
-                            document.write(startDate);
+                            //document.write(startDate);
 
                             var days = 0;
                             if (document.getElementById("4m").checked == true) {
@@ -476,12 +470,10 @@
                                 return date;
                             }
                             var date = new Date;
+                            date.addDays(days)
+                            document.getElementById("box2").value = date.toISOString().slice(0,10);
+                            document.getElementById("box1").value = new Date().toISOString().slice(0,10);
 
-                            //console.log(date.addDays(120));
-                            //document.write(date.addDays(days).toLocaleDateString())
-
-
-                            document.getElementsByName("endDate").innerText = "End date " + date.addDays(days);
 
                         }
 

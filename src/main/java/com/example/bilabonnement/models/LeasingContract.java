@@ -8,8 +8,9 @@ public class LeasingContract {
     private String type;
     private int price;
     private int serialnumber;
+    private int minimumDays = 120;
     private LocalDateTime startdate = LocalDateTime.of(2022, 12, 1, 0, 0);
-    private LocalDateTime enddate = startdate.plusDays(120);
+    private LocalDateTime enddate = startdate.plusDays(minimumDays);
     private LocalDateTime additionalTime = enddate.plusDays(extradays);
 
 

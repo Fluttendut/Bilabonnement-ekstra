@@ -23,7 +23,7 @@ public class LogginginRepository
             }
         }
         return -1;
-
+// -1 is a value used to symbolize that something didnt go as expected.
          */
 
     }
