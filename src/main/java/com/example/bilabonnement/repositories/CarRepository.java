@@ -31,7 +31,6 @@ public class CarRepository {
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
-                        resultSet.getInt("price"),
                         resultSet.getBoolean("Damaged"),
                         resultSet.getBoolean("Available"));
             }
@@ -86,7 +85,6 @@ public class CarRepository {
                                 resultSet.getInt("id"),
                                 resultSet.getInt("serialnumber"),
                                 resultSet.getString("type"),
-                                resultSet.getInt("price"),
                                 resultSet.getBoolean("damaged"),
                                 resultSet.getBoolean("available")
                         ));
@@ -111,7 +109,6 @@ public class CarRepository {
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
-                        resultSet.getInt("price"),
                         resultSet.getBoolean("damaged"),
                         resultSet.getBoolean("available")
                 ));
@@ -137,7 +134,6 @@ public class CarRepository {
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
-                        resultSet.getInt("price"),
                         resultSet.getBoolean("isDamaged"),
                         resultSet.getBoolean("isAvailable")));
             }
@@ -163,7 +159,6 @@ public class CarRepository {
                         resultSet.getInt("id"),
                         resultSet.getInt("serialnumber"),
                         resultSet.getString("type"),
-                        resultSet.getInt("price"),
                         resultSet.getBoolean("isDamaged"),
                         resultSet.getBoolean("isAvailable")));
             }

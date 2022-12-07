@@ -157,7 +157,6 @@
                                     <tr th:each="car :${AllCars}">
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.price}"></td>
                                         <td th:text="${car.type}"></td>
                                         <td th:text="${car.isDamagedString}"></td>
                                         <td th:text="${car.isAvailableString}"></td>
@@ -191,7 +190,6 @@
                                     <tr th:each="car :${LuxuryCars}">
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.price}"></td>
                                         <td th:text="${car.isDamagedString}"></td>
                                         <td th:text="${car.isAvailableString}"></td>
 
@@ -228,7 +226,6 @@
                                     <tr th:each="car :${BigCars}">
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.price}"></td>
                                         <td th:text="${car.isDamagedString}"></td>
                                         <td th:text="${car.isAvailableString}"></td>
 
@@ -266,7 +263,6 @@
                                     <tr th:each="car :${MediumCars}">
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.price}"></td>
                                         <td th:text="${car.isDamagedString}"></td>
                                         <td th:text="${car.isAvailableString}"></td>
 
@@ -304,7 +300,6 @@
                                     <tr th:each="car :${SmallCars}">
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.price}"></td>
                                         <td th:text="${car.isDamagedString}"></td>
                                         <td th:text="${car.isAvailableString}"></td>
 
@@ -354,21 +349,21 @@
                 <form action="/createleasing" method="post">
                     <br>Kunde information <br>
                     <label >Name</label><br>
-                    <input type="text" required name="Name" placeholder="Enter name"> <br>
+                    <input type="text" required name="name" placeholder="Enter name"> <br>
                     <label>E-mail</label><br>
-                    <input type="text" required name="E-mail" placeholder="Enter E-mail"> <br>
+                    <input type="text" required name="Email" placeholder="Enter E-mail"> <br>
                     <label>CPR</label><br>
-                    <input type="text" required name="CPR" placeholder="Enter CPR"> <br>
+                    <input type="number" required name="CPR" placeholder="Enter CPR"> <br>
                     <label>Address</label><br>
-                    <input type="text" required name="Address" placeholder="Enter Address"> <br>
+                    <input type="text" required name="address" placeholder="Enter Address"> <br>
                     <br>
 
                     <br>Serialnumber
-                    <input type="text" required id="serialnumber" name="Serialnumber" placeholder="Enter serialnumber"> <br>
+                    <input type="text" required id="serialnumber" name="serialnumber" placeholder="Enter serialnumber"> <br>
 
-                    <form>
+
                         <br>Select car type
-                        <input type="radio" name="type" id="type1" value="luxery"
+                        <input type="radio" name="type" id="type1" value="luxury"
                                onclick="return checkPrice()">
                         <label for="type1">Luxery</label>
                         <input type="radio" name="type" id="type2" value="big"
@@ -380,111 +375,112 @@
                         <input type="radio" name="type" id="type4" value="small"
                                onclick="return checkPrice()">
                         <label for="type4">Small</label>
-                    </form>
 
-                    <form>
+
+
                     <br>Select leasing period
-                    <input type="radio" name="period" id="4m" value="4"
+                    <input type="radio" name="leasingperiod" id="4m" value="4"
                            onclick="return checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
-                    <input type="radio" name="period" id="8m" value="8"
+                    <input type="radio" name="leasingperiod" id="8m" value="8"
                            onclick="return checkPrice(),displayDays()">
                     <label for="8m">8 Months</label>
-                    <input type="radio" name="period" id="12m" value="12"
+                    <input type="radio" name="leasingperiod" id="12m" value="12"
                            onclick="return checkPrice(),displayDays()">
                     <label for="12m">12 Months</label>
-                    <input type="radio" name="period" id="24m" value="24"
+                    <input type="radio" name="leasingperiod" id="24m" value="24"
                            onclick="return checkPrice(),displayDays()">
                     <label for="24m">24 Months</label>
-                    <input type="radio" name="period" id="36m" value="36"
+                    <input type="radio" name="leasingperiod" id="36m" value="36"
                            onclick="return checkPrice(),displayDays()">
                     <label for="36m">36 Months</label>
-                    </form>
+
                     <br><br>
 
-                    <label id="monthlyPrice">Monthly price: </label> <br>
-                    <label id="totalPrice">Total price: </label> <br><br>
+                    <label id="monthlyPrice" name="priceMonthly">Monthly price: </label> <br>
+                    <label id="totalPrice" name="priceTotal">Total price: </label> <br><br>
 
                     <label for="box1">Start date: </label>
-                    <input type="text" id="box1" readonly name="startDate">
+                    <input type="text" id="box1" readonly name="startdate">
                     <label for="box1">End date: </label>
-                    <input type="text" id="box2" readonly name="endDate">
+                    <input type="text" id="box2" readonly name="enddate">
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
-                    <script>
-
-                        function displayDays() {
-
-                            var days = 0;
-                            if (document.getElementById("4m").checked == true) {
-                                days = 120;
-                            }
-                            if (document.getElementById("8m").checked == true) {
-                                days = 240;
-                            }
-                            if (document.getElementById("12m").checked == true) {
-                                days = 360;
-                            }
-                            if (document.getElementById("24m").checked == true) {
-                                days = 720;
-                            }
-                            if (document.getElementById("36m").checked == true) {
-                                days = 1080
-                            }
-
-                            Date.prototype.addDays = function(days) {
-                                var date = new Date(this.valueOf());
-                                date.setDate(date.getDate() + days);
-                                return date;
-                            }
-                            var date = new Date;
-                            date = date.addDays(days)
-
-                            document.getElementById("box1").value = new Date().toISOString().slice(0,10);
-                            document.getElementById("box2").value = date.toISOString().slice(0,10);
-
-                        }
-
-                        function checkPrice() {
-                            var priceM = 0;
-                            if (document.getElementById("type1").checked == true) {
-                                priceM = 20000;
-                            }
-                            if (document.getElementById("type2").checked == true) {
-                                priceM = 10000;
-                            }
-                            if (document.getElementById("type3").checked == true) {
-                                priceM = 5000;
-                            }
-                            if (document.getElementById("type4").checked == true) {
-                                priceM = 2500;
-                            }
-                            document.getElementById("monthlyPrice").innerText = "Monthly price: " + priceM;
-
-                            var priceT = 0;
-                            if (document.getElementById("4m").checked == true) {
-                                priceT = (priceM * 4);
-                            }
-                            if (document.getElementById("8m").checked == true) {
-                                priceT = (priceM * 8);
-                            }
-                            if (document.getElementById("12m").checked == true) {
-                                priceT = (priceM * 12);
-                            }
-                            if (document.getElementById("24m").checked == true) {
-                                priceT = (priceM * 24);
-                            }
-                            if (document.getElementById("36m").checked == true) {
-                                priceT = (priceM * 36);
-                            }
-
-
-                            document.getElementById("totalPrice").innerText = "Total price: " + priceT;
-                        }
-                    </script>
 
                 </form>
+
+                <script>
+
+                    function displayDays() {
+
+                        var days = 0;
+                        if (document.getElementById("4m").checked == true) {
+                            days = 120;
+                        }
+                        if (document.getElementById("8m").checked == true) {
+                            days = 240;
+                        }
+                        if (document.getElementById("12m").checked == true) {
+                            days = 360;
+                        }
+                        if (document.getElementById("24m").checked == true) {
+                            days = 720;
+                        }
+                        if (document.getElementById("36m").checked == true) {
+                            days = 1080
+                        }
+
+                        Date.prototype.addDays = function(days) {
+                            var date = new Date(this.valueOf());
+                            date.setDate(date.getDate() + days);
+                            return date;
+                        }
+                        var date = new Date;
+                        date = date.addDays(days)
+
+                        document.getElementById("box1").value = new Date().toISOString().slice(0,10);
+                        document.getElementById("box2").value = date.toISOString().slice(0,10);
+
+                    }
+
+                    function checkPrice() {
+                        var priceM = 0;
+                        if (document.getElementById("type1").checked == true) {
+                            priceM = 20000;
+                        }
+                        if (document.getElementById("type2").checked == true) {
+                            priceM = 10000;
+                        }
+                        if (document.getElementById("type3").checked == true) {
+                            priceM = 5000;
+                        }
+                        if (document.getElementById("type4").checked == true) {
+                            priceM = 2500;
+                        }
+                        document.getElementById("monthlyPrice").innerText = "Monthly price: " + priceM;
+
+                        var priceT = 0;
+                        if (document.getElementById("4m").checked == true) {
+                            priceT = (priceM * 4);
+                        }
+                        if (document.getElementById("8m").checked == true) {
+                            priceT = (priceM * 8);
+                        }
+                        if (document.getElementById("12m").checked == true) {
+                            priceT = (priceM * 12);
+                        }
+                        if (document.getElementById("24m").checked == true) {
+                            priceT = (priceM * 24);
+                        }
+                        if (document.getElementById("36m").checked == true) {
+                            priceT = (priceM * 36);
+                        }
+
+
+                        document.getElementById("totalPrice").innerText = "Total price: " + priceT;
+                    }
+                </script>
 
             </div>
 

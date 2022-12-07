@@ -16,12 +16,11 @@ public class Car
     {
     }
 
-    public Car(int id, int serialnumber, String type, int price, boolean isDamaged, boolean isAvailable)
+    public Car(int id, int serialnumber, String type, boolean isDamaged, boolean isAvailable)
     {
         this.id = id;
         this.serialnumber = serialnumber;
         this.type = type;
-        this.price = price;
         this.isDamaged = isDamaged;
         this.isAvailable = isAvailable;
 
