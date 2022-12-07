@@ -194,8 +194,8 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
@@ -235,8 +235,8 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
@@ -277,8 +277,8 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
@@ -319,8 +319,8 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
@@ -353,7 +353,7 @@
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasin</a>
+                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasing</a>
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
@@ -381,21 +381,21 @@
                     <br>
 
                     <br>Serialnumber</br>
-                    <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
+                    <input type="text" required id="serialnumber" name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
                     <form>
                         <br>Select car type</br>
                         <input type="radio" name="type" id="type1" value="luxery"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type1">Luxery</label>
                         <input type="radio" name="type" id="type2" value="big"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type2">Big</label>
                         <input type="radio" name="type" id="type3" value="medium"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type3">Medium</label>
                         <input type="radio" name="type" id="type4" value="small"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type4">Small</label>
                     </form>
 
@@ -423,17 +423,13 @@
                     <label id="totalPrice">Total price: </label> <br><br>
 
                     <label for="box1">Start date: </label>
-                    <input type="text" id="box1" readonly name="startDate" value="">
+                    <input type="text" id="box1" readonly name="startDate">
                     <label for="box1">End date: </label>
-                    <input type="text" id="box2" readonly name="endDate" value="">
-
-
-
+                    <input type="text" id="box2" readonly name="endDate">
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
                     <script>
-
 
                         function displayDays() {
 
