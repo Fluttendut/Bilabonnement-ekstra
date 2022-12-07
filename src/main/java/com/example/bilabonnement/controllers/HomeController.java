@@ -63,6 +63,11 @@ public class HomeController
 
         return "loggedInAdmin";
     }
+    @PostMapping("/service")
+    public String service()
+    {
+        return "service";
+    }
 
 }
 

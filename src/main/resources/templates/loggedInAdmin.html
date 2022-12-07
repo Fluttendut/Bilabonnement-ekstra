@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-    <!--    ADD this to test column and row grit
-            <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -18,10 +16,10 @@
     <script>
         $(function () {
             $("#tabs").tabs();
-            $("#tabs-area-1").tabs();
-            $("#tabs-area-2").tabs();
-            $("#tabs-area-3").tabs();
-            $("#tabs-area-4").tabs();
+            $("#tabs-cars").tabs();
+            $("#tabs-subscription").tabs();
+            $("#tabs-accounting").tabs();
+            $("#tabs-service").tabs();
             $("#tabs-webs").tabs();
 
 
@@ -45,7 +43,6 @@
 
     <style>
 
-
         body {background-color: lightblue;}
 
         .flex-container {
@@ -64,6 +61,16 @@
         .container h3:hover {
             cursor: pointer;
         }
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
 
 
     </style>
@@ -78,40 +85,37 @@
             <a href="#start" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">Welcome!</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-1" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
-            <a href="#area-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Cars</a>
+            aria-controls="cars" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
+            <a href="#cars" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Cars</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-2" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
-            <a href="#area-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Subscription</a>
+            aria-controls="subscription" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
+            <a href="#subscription" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Subscription</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-3" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
-            <a href="#area-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Accounting</a>
+            aria-controls="accounting" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
+            <a href="#accounting" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Accounting</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-4" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
-            <a href="#area-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Service</a>
+            aria-controls="service" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
+            <a href="#service" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Service</a>
         </li>
     </ul>
 
     <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
-        <table>
-            <tbody>
-            <tr>greatings from skynet!</tr>
-            <br>Welcome to bilabonnoments frontpage! you have sucesfully logged in</br>
-            <br>You will now have access to the program and its features! </br>
-            <br>have a nice day! </br>
-            </tbody>
-        </table>
+
+            <h1>Greatings from skynet!</h1>
+            <h4>Welcome to bilabonnoments frontpage! you have sucesfully logged in</h4>
+            <h4>You will now have access to the program and its features!</h4><br>
+            <h5>Have a nice day!</h5>
         <br>
     </div>
 
-    <div id="area-1" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="cars" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-        <div id="tabs-area-1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-cars" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
 
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
 
@@ -141,8 +145,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -164,13 +166,10 @@
 
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
-
                     </div>
 
                     <div class="container">
-                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=">
+                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=" alt="All cars">
                     </div>
                 </div>
             </div>
@@ -179,8 +178,7 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
+
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -194,14 +192,12 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -211,7 +207,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Luxury cars">
                     </div>
                 </div>
             </div>
@@ -220,8 +216,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -235,14 +229,12 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -253,7 +245,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Big cars">
                     </div>
                 </div>
             </div>
@@ -262,8 +254,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -277,14 +267,12 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -294,7 +282,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Medium cars">
 
                     </div>
                 </div>
@@ -304,8 +292,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -319,15 +305,12 @@
                                         <td th:text="${car.id}"></td>
                                         <td th:text="${car.serialnumber}"></td>
                                         <td th:text="${car.price}"></td>
-                                        <td th:text="${car.isDamaged}"></td>
-                                        <td th:text="${car.isAvailable}"></td>
+                                        <td th:text="${car.isDamagedString}"></td>
+                                        <td th:text="${car.isAvailableString}"></td>
 
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
-
                     </div>
 
                     <div class="container">
@@ -336,16 +319,16 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Small cars">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="area-2" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="subscription" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <div id="tabs-area-2" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-subscription" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-1" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false">
@@ -353,7 +336,7 @@
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasin</a>
+                    <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasing</a>
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
@@ -370,7 +353,7 @@
 
                 <form action="/createleasing" method="post">
                     <br>Kunde information <br>
-                    <label>Name</label><br>
+                    <label >Name</label><br>
                     <input type="text" required name="Name" placeholder="Enter name"> <br>
                     <label>E-mail</label><br>
                     <input type="text" required name="E-mail" placeholder="Enter E-mail"> <br>
@@ -380,27 +363,27 @@
                     <input type="text" required name="Address" placeholder="Enter Address"> <br>
                     <br>
 
-                    <br>Serialnumber</br>
-                    <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
+                    <br>Serialnumber
+                    <input type="text" required id="serialnumber" name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
                     <form>
-                        <br>Select car type</br>
+                        <br>Select car type
                         <input type="radio" name="type" id="type1" value="luxery"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type1">Luxery</label>
                         <input type="radio" name="type" id="type2" value="big"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type2">Big</label>
                         <input type="radio" name="type" id="type3" value="medium"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type3">Medium</label>
                         <input type="radio" name="type" id="type4" value="small"
-                               onclick="return ValidateCheckType(),checkPrice()">
+                               onclick="return checkPrice()">
                         <label for="type4">Small</label>
                     </form>
 
                     <form>
-                    <br>Select leasing period</br>
+                    <br>Select leasing period
                     <input type="radio" name="period" id="4m" value="4"
                            onclick="return checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
@@ -423,17 +406,13 @@
                     <label id="totalPrice">Total price: </label> <br><br>
 
                     <label for="box1">Start date: </label>
-                    <input type="text" id="box1" readonly name="startDate" value="">
+                    <input type="text" id="box1" readonly name="startDate">
                     <label for="box1">End date: </label>
-                    <input type="text" id="box2" readonly name="endDate" value="">
-
-
-
+                    <input type="text" id="box2" readonly name="endDate">
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
                     <script>
-
 
                         function displayDays() {
 
@@ -529,10 +508,10 @@
 
     </div>
 
-    <div id="area-3" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-        <div id="tabs-area-3" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-accounting" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
@@ -576,93 +555,37 @@
         </div>
     </div>
 
-    <div id="area-4" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <form action="/createleasing" method="post">
-
-            <br>Serialnumber</br>
+        <div class="row">
+            <div class="column">
+        <form action="/service" method="post">
+            <br>Serialnumber
             <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
             <form>
-                <br>Select car type</br>
-                <input type="radio" name="type"  value="luxery"
-                       onclick="return ValidateCheckType(),checkPrice()">
-                <label for="type1">Luxery</label>
-                <input type="radio" name="type"  value="big"
-                       onclick="return ValidateCheckType(),checkPrice()">
-                <label for="type2">Big</label>
-                <input type="radio" name="type"  value="medium"
-                       onclick="return ValidateCheckType(),checkPrice()">
-                <label for="type3">Medium</label>
-                <input type="radio" name="type"  value="small"
-                       onclick="return ValidateCheckType(),checkPrice()">
-                <label for="type4">Small</label>
-            </form>
-
-
-            <label >Monthly price: </label> <br>
-            <label >Total price: </label> <br><br>
-
-
-            <input type="text"  name="startDate" value="">
-            <input type="text"  name="endDate" value="">
-
-            <form>
-                <br>Select leasing period</br>
-                <input type="radio" name="period" value="4"
-                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
-                <label for="4m">4 Months</label>
-                <input type="radio" name="period"  value="8"
-                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
-                <label for="8m">8 Months</label>
-                <input type="radio" name="period"  value="12"
-                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
-                <label for="12m">12 Months</label>
-                <input type="radio" name="period"  value="24"
-                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
-                <label for="24m">24 Months</label>
-                <input type="radio" name="period"  value="36"
-                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
-                <label for="36m">36 Months</label>
+                <br>Car repair status
+                <input type="radio" name="type"  value="Repaired">
+<!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                <label for="type1">Repaired</label>
+                <input type="radio" name="type"  value="Damaged">
+<!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                <label for="type2">Damaged</label>
             </form>
         </form>
             <br><br>
 
-
-
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-            <br>
-            <div class="container">
-                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" width="800 px"
-                     style="object-fit: cover;
-                             width: auto;
-                             height: 300px;
-                             float: left;
-                               ">
             </div>
+            <div class="column">
 
-
-    <div id="webs" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <table>
-            <tbody>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td style="padding-left: 20px;padding-right: 20px">
-                    <input id="name" alt="Click the button" title="Click the button">
-                </td>
-                <td>
-                    <button id="btnRun">Test Webservice</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br><br><br>
-        <b>Result from Webservice</b>
-        <div id="webresult"></div>
-    </div>
+                <img id="mechanicimg" src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
+                     style="object-fit: cover;
+                     width: auto;
+                      height: 300px;
+                      float: left;">
+            </div>
+        </div>
     </div>
 </div>
 </body>
