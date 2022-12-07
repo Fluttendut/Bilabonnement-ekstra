@@ -4,96 +4,112 @@ import java.time.LocalDateTime;
 
 public class LeasingContract {
 
-    private int extradays;
     private String type;
-    private int price;
+    private int priceMonthly;
+    private int priceTotal;
     private int serialnumber;
-    private int minimumDays = 120;
-    private LocalDateTime startdate = LocalDateTime.of(2022, 12, 1, 0, 0);
-    private LocalDateTime enddate = startdate.plusDays(minimumDays);
-    private LocalDateTime additionalTime = enddate.plusDays(extradays);
+
+   private String startdate;
+   private String enddate;
+   private int leasingperiod;
 
 
     public LeasingContract() {
         
     }
 
-    public LeasingContract(String type, int price, int serialnumber, LocalDateTime startdate, LocalDateTime enddate, LocalDateTime additionalTime) {
+    public LeasingContract(String type, int priceMonthly, int priceTotal, int serialnumber, String startdate, String enddate, int leasingperiod)
+    {
         this.type = type;
-        this.price = price;
+        this.priceMonthly = priceMonthly;
+        this.priceTotal = priceTotal;
         this.serialnumber = serialnumber;
         this.startdate = startdate;
         this.enddate = enddate;
-        this.additionalTime = additionalTime;
+        this.leasingperiod = leasingperiod;
     }
 
-    public int getExtradays() {
-        return extradays;
-    }
-
-    public void setExtradays(int extradays) {
-        this.extradays = extradays;
-    }
-
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPriceMonthly()
+    {
+        return priceMonthly;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setPriceMonthly(int priceMonthly)
+    {
+        this.priceMonthly = priceMonthly;
     }
 
-    public int getSerialnumber() {
+    public int getPriceTotal()
+    {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(int priceTotal)
+    {
+        this.priceTotal = priceTotal;
+    }
+
+    public int getSerialnumber()
+    {
         return serialnumber;
     }
 
-    public void setSerialnumber(int serialnumber) {
+    public void setSerialnumber(int serialnumber)
+    {
         this.serialnumber = serialnumber;
     }
 
- public LocalDateTime getStartdate() {
+    public String getStartdate()
+    {
         return startdate;
     }
 
-    public void setStartdate(LocalDateTime startdate) {
+    public void setStartdate(String startdate)
+    {
         this.startdate = startdate;
     }
 
-    public LocalDateTime getEnddate() {
+    public String getEnddate()
+    {
         return enddate;
     }
 
-    public void setEnddate(LocalDateTime enddate) {
+    public void setEnddate(String enddate)
+    {
         this.enddate = enddate;
     }
 
-    public LocalDateTime getAdditionalTime() {
-        return additionalTime;
+    public int getLeasingperiod()
+    {
+        return leasingperiod;
     }
 
-    public void setAdditionalTime(LocalDateTime additionalTime) {
-        this.additionalTime = additionalTime;
+    public void setLeasingperiod(int leasingperiod)
+    {
+        this.leasingperiod = leasingperiod;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "LeasingContract{" +
                 "type='" + type + '\'' +
-                ", price=" + price +
+                ", priceMonthly=" + priceMonthly +
+                ", priceTotal=" + priceTotal +
                 ", serialnumber=" + serialnumber +
-                ", startdate=" + startdate +
-                ", enddate=" + enddate +
-                ", additionalTime=" + additionalTime +
+                ", startdate='" + startdate + '\'' +
+                ", enddate='" + enddate + '\'' +
+                ", leasingperiod=" + leasingperiod +
                 '}';
     }
-
-
 }
