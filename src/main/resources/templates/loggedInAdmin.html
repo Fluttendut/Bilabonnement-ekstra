@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-    <script src="/scripts/image-visibility.js"></script>
+<!--    <script src="/scripts/image-visibility.js"></script>-->
 
 
     <script>
@@ -42,6 +42,7 @@
     </script>
 
     <style>
+
 
         body {background-color: lightblue;}
 
@@ -105,10 +106,10 @@
     <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
 
-            <h1>Greatings from skynet!</h1>
-            <h4>Welcome to bilabonnoments frontpage! you have sucesfully logged in</h4>
-            <h4>You will now have access to the program and its features!</h4><br>
-            <h5>Have a nice day!</h5>
+        <h1>Greetings from skynet!</h1>
+        <h4>Welcome to the frontpage of BilAbonnement! You have successfully logged in</h4>
+        <h4>You will now have access to the program and its features!</h4><br>
+        <h5>Have a nice day!</h5>
         <br>
     </div>
 
@@ -145,30 +146,35 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                                <table class="container">
-                                    <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Serialnumber</td>
-                                        <td>Price</td>
-                                        <td>Damaged</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr th:each="car :${AllCars}">
-                                        <td th:text="${car.id}"></td>
-                                        <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.type}"></td>
-                                        <td th:text="${car.isDamagedString}"></td>
-                                        <td th:text="${car.isAvailableString}"></td>
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Serialnumber</td>
+                                <td>Price</td>
+                                <td>Damaged</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr th:each="car :${AllCars}">
+                                <td th:text="${car.id}"></td>
+                                <td th:text="${car.serialnumber}"></td>
+                                <td th:text="${car.type}"></td>
+                                <td th:text="${car.isDamagedString}"></td>
+                                <td th:text="${car.isAvailableString}"></td>
 
-                                    </tr>
+                            </tr>
 
-                                    </tbody>
-                                </table>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="container">
-                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=" alt="All cars">
+                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=" alt="All cars"
+                             style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;">
+
                     </div>
                 </div>
             </div>
@@ -178,34 +184,34 @@
                 <div class="flex-container">
                     <div class="container">
 
-                                <table class="container">
-                                    <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Serialnumber</td>
-                                        <td>Price</td>
-                                        <td>Damaged</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr th:each="car :${LuxuryCars}">
-                                        <td th:text="${car.id}"></td>
-                                        <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.isDamagedString}"></td>
-                                        <td th:text="${car.isAvailableString}"></td>
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Serialnumber</td>
+                                <td>Price</td>
+                                <td>Damaged</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr th:each="car :${LuxuryCars}">
+                                <td th:text="${car.id}"></td>
+                                <td th:text="${car.serialnumber}"></td>
+                                <td th:text="${car.isDamagedString}"></td>
+                                <td th:text="${car.isAvailableString}"></td>
 
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
 
                     <div class="container">
-                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg"
+                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg" alt="Luxury cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
-                             float: left;
-                               " alt="Luxury cars">
+                             float: left;"
+                            >
                     </div>
                 </div>
             </div>
@@ -214,35 +220,34 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                                <table class="container">
-                                    <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Serialnumber</td>
-                                        <td>Price</td>
-                                        <td>Damaged</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr th:each="car :${BigCars}">
-                                        <td th:text="${car.id}"></td>
-                                        <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.isDamagedString}"></td>
-                                        <td th:text="${car.isAvailableString}"></td>
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Serialnumber</td>
+                                <td>Price</td>
+                                <td>Damaged</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr th:each="car :${BigCars}">
+                                <td th:text="${car.id}"></td>
+                                <td th:text="${car.serialnumber}"></td>
+                                <td th:text="${car.isDamagedString}"></td>
+                                <td th:text="${car.isAvailableString}"></td>
 
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
 
                     <div class="container">
                         <img id="bigCar"
-                             src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
+                             src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg" alt="Big cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
-                             float: left;
-                               " alt="Big cars">
+                             float: left">
                     </div>
                 </div>
             </div>
@@ -251,34 +256,32 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                                <table class="container">
-                                    <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Serialnumber</td>
-                                        <td>Price</td>
-                                        <td>Damaged</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr th:each="car :${MediumCars}">
-                                        <td th:text="${car.id}"></td>
-                                        <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.isDamagedString}"></td>
-                                        <td th:text="${car.isAvailableString}"></td>
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Serialnumber</td>
+                                <td>Price</td>
+                                <td>Damaged</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr th:each="car :${MediumCars}">
+                                <td th:text="${car.id}"></td>
+                                <td th:text="${car.serialnumber}"></td>
+                                <td th:text="${car.isDamagedString}"></td>
+                                <td th:text="${car.isAvailableString}"></td>
 
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            </tr>
+                            </tbody>
+                        </table>
 
                     </div>
 
                     <div class="container">
-                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"
+                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg" alt="Medium cars"
                              style="object-fit: cover;
                              width: auto;
-                             height: 300px;
-                             float: left;
-                               " alt="Medium cars">
+                             height: 300px">
 
                     </div>
                 </div>
@@ -288,33 +291,32 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                                <table class="container">
-                                    <tbody>
-                                    <tr>
-                                        <td>ID</td>
-                                        <td>Serialnumber</td>
-                                        <td>Price</td>
-                                        <td>Damaged</td>
-                                        <td>Available</td>
-                                    </tr>
-                                    <tr th:each="car :${SmallCars}">
-                                        <td th:text="${car.id}"></td>
-                                        <td th:text="${car.serialnumber}"></td>
-                                        <td th:text="${car.isDamagedString}"></td>
-                                        <td th:text="${car.isAvailableString}"></td>
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>Serialnumber</td>
+                                <td>Price</td>
+                                <td>Damaged</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr th:each="car :${SmallCars}">
+                                <td th:text="${car.id}"></td>
+                                <td th:text="${car.serialnumber}"></td>
+                                <td th:text="${car.isDamagedString}"></td>
+                                <td th:text="${car.isAvailableString}"></td>
 
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="container">
-                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"
+                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg" alt="Small cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
-                             float: left;
-                               " alt="Small cars">
+                             float: left">
                     </div>
                 </div>
             </div>
@@ -347,41 +349,42 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
 
                 <form action="/createleasing" method="post">
-                    <br>Kunde information <br>
-                    <label >Name</label><br>
-                    <input type="text" required name="name" placeholder="Enter name"> <br>
-                    <label>E-mail</label><br>
-                    <input type="text" required name="Email" placeholder="Enter E-mail"> <br>
-                    <label>CPR</label><br>
-                    <input type="text" required name="cpr" placeholder="Enter CPR"
+                    <h4><b>Kunde information</b></h4>
+
+                    <label for="name">Name</label><br>
+                    <input style="border-radius: 15px" type="text" required name="name" id="name" placeholder="Enter name"> <br>
+                    <label for="email">E-mail</label><br>
+                    <input style="border-radius: 15px" type="text" required name="email" id="email" placeholder=" Enter e-mail"> <br>
+                    <label for="cpr">CPR</label><br>
+                    <input style="border-radius: 15px" type="text" required name="cpr" id="cpr" placeholder=" Enter CPR"
                            pattern="[0-9]{10,10}"
                            oninvalid="this.setCustomValidity('Enter 10 digit cpr')"
                            onkeyup="setCustomValidity('')"> <br>
-                    <label>Address</label><br>
-                    <input type="text" required name="address" placeholder="Enter Address"> <br>
+                    <label for="address">Address</label><br>
+                    <input style="border-radius: 15px"  type="text" required name="address" id="address" placeholder=" Enter address"> <br>
                     <br>
 
-                    <br>Serialnumber
-                    <input type="text" required id="serialnumber" name="serialnumber" placeholder="Enter serialnumber"> <br>
+
+                    <h4><b>Serialnumber</b></h4>
+                    <input style="border-radius: 15px" type="text" name="serialnumber" required id="serialnumber" placeholder=" Enter serialnumber"><br>
+
+                    <br><h4><b> Select car type</b></h4>
+                    <input type="radio" name="type" id="type1" value="luxury"
+                           onclick="return checkPrice()">
+                    <label for="type1">Luxury</label>
+                    <input type="radio" name="type" id="type2" value="big"
+                           onclick="return checkPrice()">
+                    <label for="type2">Big</label>
+                    <input type="radio" name="type" id="type3" value="medium"
+                           onclick="return checkPrice()">
+                    <label for="type3">Medium</label>
+                    <input type="radio" name="type" id="type4" value="small"
+                           onclick="return checkPrice()">
+                    <label for="type4">Small</label>
 
 
-                        <br>Select car type
-                        <input type="radio" name="type" id="type1" value="luxury"
-                               onclick="return checkPrice()">
-                        <label for="type1">Luxury</label>
-                        <input type="radio" name="type" id="type2" value="big"
-                               onclick="return checkPrice()">
-                        <label for="type2">Big</label>
-                        <input type="radio" name="type" id="type3" value="medium"
-                               onclick="return checkPrice()">
-                        <label for="type3">Medium</label>
-                        <input type="radio" name="type" id="type4" value="small"
-                               onclick="return checkPrice()">
-                        <label for="type4">Small</label>
 
-
-
-                    <br>Select leasing period
+                    <br><h4><b>Select leasing period</b></h4>
                     <input type="radio" name="leasingperiod" id="4m" value="4"
                            onclick="return checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
@@ -409,9 +412,9 @@
                     <br><br>
 
                     <label for="box1">Start date: </label>
-                    <input type="text" id="box1" readonly name="startdate">
-                    <label for="box1">End date: </label>
-                    <input type="text" id="box2" readonly name="enddate">
+                    <input style="border-radius: 15px" type="text" id="box1" readonly name="startdate">
+                    <label for="box2">End date: </label>
+                    <input style="border-radius: 15px" type="text" id="box2" readonly name="enddate">
 
                     <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
@@ -422,29 +425,30 @@
 
                     function displayDays() {
 
-                        var days = 0;
-                        if (document.getElementById("4m").checked == true) {
+                        let days = 0;
+                        if (document.getElementById("4m").checked === true) {
                             days = 120;
                         }
-                        if (document.getElementById("8m").checked == true) {
+                        if (document.getElementById("8m").checked === true) {
                             days = 240;
                         }
-                        if (document.getElementById("12m").checked == true) {
+                        if (document.getElementById("12m").checked === true) {
                             days = 360;
                         }
-                        if (document.getElementById("24m").checked == true) {
+                        if (document.getElementById("24m").checked === true) {
                             days = 720;
                         }
-                        if (document.getElementById("36m").checked == true) {
+                        if (document.getElementById("36m").checked === true) {
                             days = 1080
                         }
 
                         Date.prototype.addDays = function(days) {
-                            var date = new Date(this.valueOf());
+                            //TODO Why const instead of let?
+                            const date = new Date(this.valueOf());
                             date.setDate(date.getDate() + days);
                             return date;
                         }
-                        var date = new Date;
+                        let date = new Date;
                         date = date.addDays(days)
 
                         document.getElementById("box1").value = new Date().toISOString().slice(0,10);
@@ -453,35 +457,38 @@
                     }
 
                     function checkPrice() {
-                        var priceM = 0;
-                        if (document.getElementById("type1").checked == true) {
+                        let priceM = 0;
+                        if (document.getElementById("type1").checked === true) {
                             priceM = 20000;
                         }
-                        if (document.getElementById("type2").checked == true) {
+                        if (document.getElementById("type2").checked === true) {
                             priceM = 10000;
                         }
-                        if (document.getElementById("type3").checked == true) {
+                        if (document.getElementById("type3").checked === true) {
                             priceM = 5000;
                         }
-                        if (document.getElementById("type4").checked == true) {
+                        if (document.getElementById("type4").checked === true) {
                             priceM = 2500;
                         }
                         document.getElementById("monthlyPrice").value = priceM;
 
-                        var priceT = 0;
-                        if (document.getElementById("4m").checked == true) {
+                        //TODO read up on why === instead of ==
+                        //The main difference between the == and === operator in javascript is that the == operator does the
+                        // type conversion of the operands before comparison, whereas the === operator compares the values as well as the data types of the operands
+                        let priceT = 0;
+                        if (document.getElementById("4m").checked === true) {
                             priceT = (priceM * 4);
                         }
-                        if (document.getElementById("8m").checked == true) {
+                        if (document.getElementById("8m").checked === true) {
                             priceT = (priceM * 8);
                         }
-                        if (document.getElementById("12m").checked == true) {
+                        if (document.getElementById("12m").checked === true) {
                             priceT = (priceM * 12);
                         }
-                        if (document.getElementById("24m").checked == true) {
+                        if (document.getElementById("24m").checked === true) {
                             priceT = (priceM * 24);
                         }
-                        if (document.getElementById("36m").checked == true) {
+                        if (document.getElementById("36m").checked === true) {
                             priceT = (priceM * 36);
                         }
 
@@ -563,27 +570,29 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
         <div class="row">
             <div class="column">
-        <form action="/service" method="post">
-            <br>Serialnumber
-            <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
+                <form action="/service" method="post">
+                    <h4><b>Serialnumber</b></h4>
+                    <input style="border-radius: 15px" type="text" required name="serialnumber" placeholder=" Enter serialnumber"> <br>
 
-            <form>
-                <br>Car repair status
-                <input type="radio" name="type"  value="Repaired">
-<!--                       onclick="return ValidateCheckType(),checkPrice()">-->
-                <label for="type1">Repaired</label>
-                <input type="radio" name="type"  value="Damaged">
-<!--                       onclick="return ValidateCheckType(),checkPrice()">-->
-                <label for="type2">Damaged</label>
-            </form>
-        </form>
-            <br><br>
+                    <form>
+                        <br><h4><b>Car repair status</b></h4>
+                        <label for="repaired">Repaired</label><br>
+                        <input type="radio" name="repaired" id="repaired"  value="Repaired">
+                        <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                        <label for="damaged">Damaged</label>
+                        <input type="radio" name="damaged" id="damaged"  value="Damaged">
+                        <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                        <label for="damaged">Damaged</label>
+                    </form>
 
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+                <br><br>
+
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </div>
             <div class="column">
 
-                <img id="mechanicimg" src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
+                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" alt="Mechanic"
                      style="object-fit: cover;
                      width: auto;
                       height: 300px;
