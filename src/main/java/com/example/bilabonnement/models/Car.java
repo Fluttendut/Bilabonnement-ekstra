@@ -24,6 +24,7 @@ public class Car
         this.price = price;
         this.isDamaged = isDamaged;
         this.isAvailable = isAvailable;
+
     }
 
     public int getId()
