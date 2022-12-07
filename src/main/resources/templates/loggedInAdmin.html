@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-    <!--    ADD this to test column and row grit
-            <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -18,10 +16,10 @@
     <script>
         $(function () {
             $("#tabs").tabs();
-            $("#tabs-area-1").tabs();
-            $("#tabs-area-2").tabs();
-            $("#tabs-area-3").tabs();
-            $("#tabs-area-4").tabs();
+            $("#tabs-cars").tabs();
+            $("#tabs-subscription").tabs();
+            $("#tabs-accounting").tabs();
+            $("#tabs-service").tabs();
             $("#tabs-webs").tabs();
 
 
@@ -78,20 +76,20 @@
             <a href="#start" tabindex="-1" class="ui-tabs-anchor" id="ui-id-1">Welcome!</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-1" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
-            <a href="#area-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Cars</a>
+            aria-controls="cars" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false">
+            <a href="#cars" tabindex="-1" class="ui-tabs-anchor" id="ui-id-2">Cars</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-2" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
-            <a href="#area-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Subscription</a>
+            aria-controls="subscription" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false">
+            <a href="#subscription" tabindex="-1" class="ui-tabs-anchor" id="ui-id-3">Subscription</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-3" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
-            <a href="#area-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Accounting</a>
+            aria-controls="accounting" aria-labelledby="ui-id-4" aria-selected="false" aria-expanded="false">
+            <a href="#accounting" tabindex="-1" class="ui-tabs-anchor" id="ui-id-4">Accounting</a>
         </li>
         <li role="tab" tabindex="-1" class="ui-tabs-nav ui-corner-top ui-state-default ui-tab"
-            aria-controls="area-4" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
-            <a href="#area-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Service</a>
+            aria-controls="service" aria-labelledby="ui-id-5" aria-selected="false" aria-expanded="false">
+            <a href="#service" tabindex="-1" class="ui-tabs-anchor" id="ui-id-5">Service</a>
         </li>
     </ul>
 
@@ -108,10 +106,10 @@
         <br>
     </div>
 
-    <div id="area-1" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="cars" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-        <div id="tabs-area-1" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-cars" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
 
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
 
@@ -343,9 +341,9 @@
         </div>
     </div>
 
-    <div id="area-2" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="subscription" aria-labelledby="ui-id-3" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <div id="tabs-area-2" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-subscription" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-1" aria-labelledby="ui-id-16" aria-selected="false" aria-expanded="false">
@@ -525,10 +523,10 @@
 
     </div>
 
-    <div id="area-3" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-        <div id="tabs-area-3" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+        <div id="tabs-accounting" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
@@ -572,7 +570,7 @@
         </div>
     </div>
 
-    <div id="area-4" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
         <form action="/service" method="post">
 
