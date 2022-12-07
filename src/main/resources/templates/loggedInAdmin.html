@@ -43,7 +43,6 @@
 
     <style>
 
-
         body {background-color: lightblue;}
 
         .flex-container {
@@ -61,6 +60,16 @@
 
         .container h3:hover {
             cursor: pointer;
+        }
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
         }
 
 
@@ -95,14 +104,11 @@
 
     <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
-        <table>
-            <tbody>
-            <tr>greatings from skynet!</tr>
-            <br>Welcome to bilabonnoments frontpage! you have sucesfully logged in</br>
-            <br>You will now have access to the program and its features! </br>
-            <br>have a nice day! </br>
-            </tbody>
-        </table>
+
+            <h1>Greatings from skynet!</h1>
+            <h4>Welcome to bilabonnoments frontpage! you have sucesfully logged in</h4>
+            <h4>You will now have access to the program and its features!</h4><br>
+            <h5>Have a nice day!</h5>
         <br>
     </div>
 
@@ -139,8 +145,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -162,13 +166,10 @@
 
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
-
                     </div>
 
                     <div class="container">
-                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=">
+                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=" alt="All cars">
                     </div>
                 </div>
             </div>
@@ -177,8 +178,7 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
+
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -198,8 +198,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -209,7 +207,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Luxury cars">
                     </div>
                 </div>
             </div>
@@ -218,8 +216,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -239,8 +235,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -251,7 +245,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Big cars">
                     </div>
                 </div>
             </div>
@@ -260,8 +254,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -281,8 +273,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
 
                     </div>
 
@@ -292,7 +282,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Medium cars">
 
                     </div>
                 </div>
@@ -302,8 +292,6 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="flex-container">
                     <div class="container">
-                        <h2>
-                            <div>
                                 <table class="container">
                                     <tbody>
                                     <tr>
@@ -323,9 +311,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                        </h2>
-
                     </div>
 
                     <div class="container">
@@ -334,7 +319,7 @@
                              width: auto;
                              height: 300px;
                              float: left;
-                               ">
+                               " alt="Small cars">
                     </div>
                 </div>
             </div>
@@ -368,7 +353,7 @@
 
                 <form action="/createleasing" method="post">
                     <br>Kunde information <br>
-                    <label>Name</label><br>
+                    <label >Name</label><br>
                     <input type="text" required name="Name" placeholder="Enter name"> <br>
                     <label>E-mail</label><br>
                     <input type="text" required name="E-mail" placeholder="Enter E-mail"> <br>
@@ -378,11 +363,11 @@
                     <input type="text" required name="Address" placeholder="Enter Address"> <br>
                     <br>
 
-                    <br>Serialnumber</br>
+                    <br>Serialnumber
                     <input type="text" required id="serialnumber" name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
                     <form>
-                        <br>Select car type</br>
+                        <br>Select car type
                         <input type="radio" name="type" id="type1" value="luxery"
                                onclick="return checkPrice()">
                         <label for="type1">Luxery</label>
@@ -398,7 +383,7 @@
                     </form>
 
                     <form>
-                    <br>Select leasing period</br>
+                    <br>Select leasing period
                     <input type="radio" name="period" id="4m" value="4"
                            onclick="return checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
@@ -572,13 +557,14 @@
 
     <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
+        <div class="row">
+            <div class="column">
         <form action="/service" method="post">
-
-            <br>Serialnumber</br>
+            <br>Serialnumber
             <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
             <form>
-                <br>Car repair status</br>
+                <br>Car repair status
                 <input type="radio" name="type"  value="Repaired">
 <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
                 <label for="type1">Repaired</label>
@@ -589,40 +575,17 @@
         </form>
             <br><br>
 
-
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-            <br>
-            <div class="container">
-                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
-                     width="800 px"
+            </div>
+            <div class="column">
+
+                <img id="mechanicimg" src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
                      style="object-fit: cover;
                      width: auto;
                       height: 300px;
                       float: left;">
             </div>
-
-
-    <div id="webs" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <table>
-            <tbody>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td style="padding-left: 20px;padding-right: 20px">
-                    <input id="name" alt="Click the button" title="Click the button">
-                </td>
-                <td>
-                    <button id="btnRun">Test Webservice</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br><br><br>
-        <b>Result from Webservice</b>
-        <div id="webresult"></div>
-    </div>
+        </div>
     </div>
 </div>
 </body>
