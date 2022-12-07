@@ -387,19 +387,19 @@
                     <form>
                     <br>Select leasing period</br>
                     <input type="radio" name="period" id="4m" value="4"
-                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                           onclick="return checkPrice(),displayDays()">
                     <label for="4m">4 Months</label>
                     <input type="radio" name="period" id="8m" value="8"
-                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                           onclick="return checkPrice(),displayDays()">
                     <label for="8m">8 Months</label>
                     <input type="radio" name="period" id="12m" value="12"
-                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                           onclick="return checkPrice(),displayDays()">
                     <label for="12m">12 Months</label>
                     <input type="radio" name="period" id="24m" value="24"
-                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                           onclick="return checkPrice(),displayDays()">
                     <label for="24m">24 Months</label>
                     <input type="radio" name="period" id="36m" value="36"
-                           onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                           onclick="return checkPrice(),displayDays()">
                     <label for="36m">36 Months</label>
                     </form>
                     <br><br>
@@ -407,9 +407,10 @@
                     <label id="monthlyPrice">Monthly price: </label> <br>
                     <label id="totalPrice">Total price: </label> <br><br>
 
-
-                    <input type="text" id="box1" name="startDate" value="">
-                    <input type="text" id="box2" name="endDate" value="">
+                    <label for="box1">Start date: </label>
+                    <input type="text" id="box1" readonly name="startDate" value="">
+                    <label for="box1">End date: </label>
+                    <input type="text" id="box2" readonly name="endDate" value="">
 
 
 
@@ -418,34 +419,8 @@
                     <br>
                     <script>
 
-                        function ValidateCheckType() {
-                            var check_box = document.getElementsByName("type");
-                            var CheckedItems = 0;
-                            for (var i = 0; i < check_box.length; i++) {
-                                if (check_box[i].checked)
-                                    CheckedItems++;
-                            }
-                            if (CheckedItems > 1) {
-                                alert("You can't select more than one type!");
-                                return false;
-                            }
-                        }
-                        function ValidateCheckPeriod() {
-                            var check_box = document.getElementsByName("period");
-                            var CheckedItems = 0;
-                            for (var i = 0; i < check_box.length; i++) {
-                                if (check_box[i].checked)
-                                    CheckedItems++;
-                            }
-                            if (CheckedItems > 1) {
-                                alert("You can't select more than one period");
-                                return false;
-                            }
-                        }
-                        function displayDays() {
 
-                            startDate = new Date().toLocaleDateString();
-                            //document.write(startDate);
+                        function displayDays() {
 
                             var days = 0;
                             if (document.getElementById("4m").checked == true) {
@@ -470,10 +445,10 @@
                                 return date;
                             }
                             var date = new Date;
-                            date.addDays(days)
-                            document.getElementById("box2").value = date.toISOString().slice(0,10);
-                            document.getElementById("box1").value = new Date().toISOString().slice(0,10);
+                            date = date.addDays(days)
 
+                            document.getElementById("box1").value = new Date().toISOString().slice(0,10);
+                            document.getElementById("box2").value = date.toISOString().slice(0,10);
 
                         }
 
