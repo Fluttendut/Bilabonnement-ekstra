@@ -5,6 +5,7 @@
     <title>Bilabonnement</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
     <!--    ADD this to test column and row grit
             <link rel="stylesheet" href="stylesheetLoggedInAdmin.css">-->
 
@@ -43,9 +44,13 @@
     </script>
 
     <style>
+
+
+        body {background-color: lightblue;}
+
         .flex-container {
             display: flex;
-            max-height: 75%;
+            max-height: 50%;
             align-content: space-between;
         }
 
@@ -364,6 +369,16 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
 
                 <form action="/createleasing" method="post">
+                    <br>Kunde information <br>
+                    <label>Name</label><br>
+                    <input type="text" required name="Name" placeholder="Enter name"> <br>
+                    <label>E-mail</label><br>
+                    <input type="text" required name="E-mail" placeholder="Enter E-mail"> <br>
+                    <label>CPR</label><br>
+                    <input type="text" required name="CPR" placeholder="Enter CPR"> <br>
+                    <label>Address</label><br>
+                    <input type="text" required name="Address" placeholder="Enter Address"> <br>
+                    <br>
 
                     <br>Serialnumber</br>
                     <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
@@ -563,50 +578,68 @@
 
     <div id="area-4" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
+        <form action="/createleasing" method="post">
 
-        <div id="tabs-area-4" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
-            <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="4-qs-1" aria-labelledby="ui-id-21" aria-selected="false" aria-expanded="false">
-                    <a href="#4-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-25">1</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="4-qs-2" aria-labelledby="ui-id-22" aria-selected="false" aria-expanded="false">
-                    <a href="#4-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-26">2</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="4-qs-3" aria-labelledby="ui-id-23" aria-selected="false" aria-expanded="false">
-                    <a href="#4-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-27">3</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="4-qs-4" aria-labelledby="ui-id-24" aria-selected="false" aria-expanded="false">
-                    <a href="#4-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-28">4</a>
-                </li>
-            </ul>
+            <br>Serialnumber</br>
+            <input type="text" required name="Serialnumber" placeholder="Enter serialnumber"> <br>
 
-            <div id="4-qs-1" aria-labelledby="ui-id-25" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
+            <form>
+                <br>Select car type</br>
+                <input type="radio" name="type"  value="luxery"
+                       onclick="return ValidateCheckType(),checkPrice()">
+                <label for="type1">Luxery</label>
+                <input type="radio" name="type"  value="big"
+                       onclick="return ValidateCheckType(),checkPrice()">
+                <label for="type2">Big</label>
+                <input type="radio" name="type"  value="medium"
+                       onclick="return ValidateCheckType(),checkPrice()">
+                <label for="type3">Medium</label>
+                <input type="radio" name="type"  value="small"
+                       onclick="return ValidateCheckType(),checkPrice()">
+                <label for="type4">Small</label>
+            </form>
 
+
+            <label >Monthly price: </label> <br>
+            <label >Total price: </label> <br><br>
+
+
+            <input type="text"  name="startDate" value="">
+            <input type="text"  name="endDate" value="">
+
+            <form>
+                <br>Select leasing period</br>
+                <input type="radio" name="period" value="4"
+                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                <label for="4m">4 Months</label>
+                <input type="radio" name="period"  value="8"
+                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                <label for="8m">8 Months</label>
+                <input type="radio" name="period"  value="12"
+                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                <label for="12m">12 Months</label>
+                <input type="radio" name="period"  value="24"
+                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                <label for="24m">24 Months</label>
+                <input type="radio" name="period"  value="36"
+                       onclick="return ValidateCheckPeriod(),checkPrice(),displayDays()">
+                <label for="36m">36 Months</label>
+            </form>
+            <br><br>
+
+
+
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <br>
+            <div class="container">
+                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" width="800 px"
+                     style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;
+                               ">
             </div>
 
-            <div id="4-qs-2" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-            </div>
-
-            <div id="4-qs-3" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-            </div>
-
-            <div id="4-qs-4" aria-labelledby="ui-id-26" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-
-            </div>
-        </div>
-
-    </div>
 
     <div id="webs" aria-labelledby="ui-id-6" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
