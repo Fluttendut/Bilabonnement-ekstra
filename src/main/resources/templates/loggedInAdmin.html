@@ -63,37 +63,37 @@
         .container h3:hover {
             cursor: pointer;
         }
-        /*.column {*/
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /*#customerInformationColumn, #carInformationColumn {*/
         /*    float: left;*/
         /*    width: 33.33%;*/
         /*    padding: 5px;*/
         /*}*/
-        /*.row::after {*/
+        /*#rowCreateLeasing{*/
         /*    content: "";*/
         /*    clear: both;*/
         /*    display: table;*/
         /*}*/
-
-        #customerInformationColumn, #carInformationColumn {
-            float: left;
-            width: 33.33%;
-            padding: 5px;
-        }
-        #rowCreateLeasing{
-            content: "";
-            clear: both;
-            display: table;
-        }
-        #mechanicColumn, #mechanicImgColumn {
-            float: left;
-            width: 33.33%;
-            padding: 5px;
-        }
-        #rowService {
-            content: "";
-            clear: both;
-            display: table;
-        }
+        /*#mechanicColumn, #mechanicImgColumn {*/
+        /*    float: left;*/
+        /*    width: 33.33%;*/
+        /*    padding: 5px;*/
+        /*}*/
+        /*#rowService {*/
+        /*    content: "";*/
+        /*    clear: both;*/
+        /*    display: table;*/
+        /*}*/
 
     </style>
 </head>
@@ -368,8 +368,8 @@
 
             <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
             ui-widget-content" aria-hidden="true" style="display: none;">
-                <div id="rowCreateLeasing" class="row">
-                    <div style="width: 257px" id="customerInformationColumn" class="column">
+                <div class="row">
+                    <div style="width: 257px" class="column">
                 <form action="/createleasing" method="post">
                     <h4><b>Customer information</b></h4>
 
@@ -387,10 +387,6 @@
                     <br>
                     </form>
                     </div>
-
-                    <div style="width:69.33%" id="carInformationColumn" class="column">
-                    <h4><b>Serialnumber</b></h4>
-                    <input style="border-radius: 15px" type="text" name="serialnumber" required id="serialnumber" placeholder=" Enter serialnumber"><br>
 
                     <br><h4><b> Select car type</b></h4>
                     <input type="radio" name="type" id="type1" value="luxury"
@@ -425,7 +421,12 @@
                            onclick="return checkPrice(),displayDays()">
                     <label for="36m">36 Months</label>
 
-                    <br><br>
+                    <br>
+
+                    <div style="width:69.33%" class="column">
+                        <h4><b>Serialnumber</b></h4>
+                        <input style="border-radius: 15px" type="text" name="serialnumber" required id="serialnumber" placeholder=" Enter serialnumber"><br><br>
+
 
                     <label for="monthlyPrice">Monthly price: </label>
                     <input style="border-radius: 15px" type="text" id="monthlyPrice" readonly name="priceMonthly">
@@ -598,8 +599,8 @@
 
     <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <div id="rowService" class="row">
-            <div id="mechanicColumn" class="column">
+        <div class="row">
+            <div class="column">
                 <form action="/service" method="post">
                     <h4><b>Serialnumber</b></h4>
                     <input style="border-radius: 15px" type="text" required name="serialnumber" placeholder=" Enter serialnumber"> <br>
@@ -620,7 +621,7 @@
 
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
             </div>
-            <div id="mechanicImgColumn" class="column">
+            <div class="column">
 
                 <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" alt="Mechanic"
                      style="object-fit: cover;
