@@ -1,6 +1,7 @@
 package com.example.bilabonnement.repositories;
 
 import com.example.bilabonnement.models.Car;
+import com.example.bilabonnement.models.LeasingContract;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -40,25 +41,22 @@ public class CarRepository {
         return null;
     }
 
-    public int getavailableCarBySerialnumber (String type){
+    //TODO retunere ikke den rigtige værdi? 
+    //TODO Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'serialnumber'
+    public int autoSerialNumber(String type) {
 
-        Car car = new Car();
+        List<LeasingContract> cars = new ArrayList<>();
+
         try {
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE available=true and type =?");
             psts.setString(1, type);
             ResultSet resultSet = psts.executeQuery();
 
-            List<Car> cars = new ArrayList<>();
-
-            if (resultSet.next()) {
-                for (int i=0; i< cars.size(); i++ )
-                {
-                    if (car.getIsAvailable() == true)
-                    {
-                        return car.getSerialnumber();
-                    }
-                }
+            while (resultSet.next()) {
+                cars.add(new LeasingContract(resultSet.getInt("serialnumber")));
             }
+            return cars.get(0).getSerialnumber();
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

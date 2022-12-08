@@ -36,17 +36,18 @@ public class RentService {
             psts.setInt(7,leasingContract.getLeasingperiod());
             psts.setString(8, rentee.getName());
             psts.setString(9, rentee.getEmail());
-            psts.setString(10,rentee.getCpr());
-            psts.setString(11,rentee.getAddress());
+            psts.setString(10, rentee.getCpr());
+            psts.setString(11, rentee.getAddress());
 
 
             psts.executeUpdate();
 
-        } catch (SQLException e)
-        {
-            throw new RuntimeException(e);
         }
+     catch(SQLException | IOException e)
+    {
+        throw new RuntimeException(e);
     }
+}
 
 
 
