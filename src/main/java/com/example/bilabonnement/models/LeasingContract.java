@@ -29,6 +29,10 @@ public class LeasingContract {
         this.leasingperiod = leasingperiod;
     }
 
+    public LeasingContract(int serialnumber) {
+        this.serialnumber = serialnumber;
+    }
+
     public String getType()
     {
         return type;
