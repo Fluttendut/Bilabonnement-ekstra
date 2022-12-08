@@ -79,11 +79,11 @@ public class Car
     {
         if (isAvailable == true)
         {
-            return "is available";
+            return "X";
         }
         else
         {
-            return "car not available";
+            return "";
         }
     }
 
@@ -91,11 +91,11 @@ public class Car
     {
         if (isDamaged == true)
         {
-            return "this card is damaged";
+            return "X";
         }
         else
         {
-            return "This car is not damaged";
+            return "";
         }
     }
 
