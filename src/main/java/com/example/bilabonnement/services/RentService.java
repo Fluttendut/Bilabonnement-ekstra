@@ -59,11 +59,16 @@ public class RentService {
 
     public void cancelRentalContract(int contractID) {
         try {
-            PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.leasing where contractID=? ");
-            psts.setInt(1, contractID);
-            psts.executeUpdate();
+            CarRepository carRepo = new CarRepository();
 
-        } catch (SQLException e) {
+            PreparedStatement psts2 = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
+            psts2.setInt(1, contractID);
+            //TODO fix this stuff
+            //carRepo.updateCarAvailable();
+
+            psts2.executeUpdate();
+
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
