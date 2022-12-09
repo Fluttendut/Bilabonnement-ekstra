@@ -17,6 +17,10 @@ public class Rentee {
         this.address = address;
     }
 
+    public Rentee(String cpr) {
+        this.cpr=cpr;
+    }
+
     public String getName() {
         return name;
     }

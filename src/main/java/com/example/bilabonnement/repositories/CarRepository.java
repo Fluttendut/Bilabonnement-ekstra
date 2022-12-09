@@ -19,18 +19,18 @@ public class CarRepository {
     }
 
 
-    public Car getCar(int serialnumber) {
+    public Car getACar(String serialnumber) {
 
         Car car = new Car();
         try {
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
-            psts.setInt(1, serialnumber);
+            psts.setString(1, serialnumber);
             ResultSet resultSet = psts.executeQuery();
 
             if (resultSet.next()) {
                 car = new Car(
                         resultSet.getInt("id"),
-                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getBoolean("Damaged"),
                         resultSet.getBoolean("Available"));
@@ -51,7 +51,7 @@ public class CarRepository {
             ResultSet resultSet = psts.executeQuery();
 
             while (resultSet.next()) {
-                cars.add(new LeasingContract(resultSet.getInt("serialnumber")));
+                cars.add(new LeasingContract(resultSet.getString("serialnumber")));
             }
             return cars.get(0).getSerialnumber();
 
@@ -99,7 +99,7 @@ public class CarRepository {
             while (resultSet.next()) {
                 cars.add(new Car(
                         resultSet.getInt("id"),
-                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getBoolean("damaged"),
                         resultSet.getBoolean("available")
@@ -122,7 +122,7 @@ public class CarRepository {
             while (resultSet.next()) {
                 cars.add(new Car(
                         resultSet.getInt("id"),
-                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getBoolean("damaged"),
                         resultSet.getBoolean("available")
@@ -144,7 +144,7 @@ public class CarRepository {
             while (resultSet.next()) {
                 rentedCars.add(new Car(
                         resultSet.getInt("id"),
-                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getBoolean("isDamaged"),
                         resultSet.getBoolean("isAvailable")));
@@ -165,7 +165,7 @@ public class CarRepository {
             while (resultSet.next()) {
                 damagedCars.add(new Car(
                         resultSet.getInt("id"),
-                        resultSet.getInt("serialnumber"),
+                        resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
                         resultSet.getBoolean("isDamaged"),
                         resultSet.getBoolean("isAvailable")));
@@ -217,13 +217,13 @@ public class CarRepository {
  */
 
     // updates car object from DB
-    public void updateCarDamage(int serialnumber) throws RuntimeException {
+    public void updateCarDamage(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set damaged =? where serialnumber=?");
-            Car car = getCar(serialnumber);
+            Car car = getACar(serialnumber);
             if (car.getIsDamaged() == true) {
                 psts.setBoolean(1, false);
-                psts.setInt(2, serialnumber);
+                psts.setString(2, serialnumber);
                 psts.executeUpdate();
             } else {
                 psts.setBoolean(1, true);

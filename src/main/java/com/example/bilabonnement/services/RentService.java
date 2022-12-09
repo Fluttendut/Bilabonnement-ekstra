@@ -51,18 +51,36 @@ public class RentService {
 
             psts.executeUpdate();
 
+        } catch (SQLException | IOException e) {
+            throw new RuntimeException(e);
         }
-     catch(SQLException | IOException e)
-    {
-        throw new RuntimeException(e);
     }
-}
-
-
-    public void cancelRentalContract(int serialnumber) {
+/*
+    public List<Rentee> listOfContracts(String Cpr) {
+        Rentee rentee = new Rentee();
+        List<Rentee> listOfContract = new ArrayList<>();
         try {
-            PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.leasing where serialnumber=? ");
-            psts.setInt(1, serialnumber);
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing where CPR=? ");
+            psts.setString(1, rentee.getCpr() );
+            ResultSet resultSet = psts.executeQuery();
+
+            while (resultSet.next()) {
+                listOfContract.add(new Rentee(resultSet.getString("CPR")));
+            }
+            return listOfContract;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }*/ //todo fix dis shit!
+
+    public void cancelRentalContract(/*String Cpr,*/int contractID) {
+        try {
+            PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.leasing where contractID=? ");
+            //psts.setString(1, Cpr);
+            psts.setInt(1, contractID);
             psts.executeUpdate();
 
         } catch (SQLException e) {
