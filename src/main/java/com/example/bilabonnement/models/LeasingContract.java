@@ -29,6 +29,14 @@ public class LeasingContract {
         this.contractID = contractID;
     }
 
+    public LeasingContract(int contractID, String type, String serialnumber, String startdate, String enddate) {
+        this.contractID = contractID;
+        this.type = type;
+        this.serialnumber = serialnumber;
+        this.startdate = startdate;
+        this.enddate = enddate;
+    }
+
     public LeasingContract(String serialnumber) {
         this.serialnumber = serialnumber;
     }

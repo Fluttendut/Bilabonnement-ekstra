@@ -555,11 +555,20 @@
 
             <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                hello
-
+<!--
                 <label for="cprCancel">CPR</label><br>
                 <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
                        placeholder=" Enter CPR"> <br>
+-->
+                <tr th:each="leasingContract :${allContracts}">
+                    <td th:text="${leasingContract.contractID}"></td>
+                    <td th:text="${leasingContract.type}"></td>
+                    <td th:text="${leasingContract.serialnumber}"></td>
+                    <td th:text="${leasingContract.startdate}"></td>
+                    <td th:text="${leasingContract.enddate}"></td>
+
+
+                </tr>
 
                 <form action="/cancelleasing" method="post">
 

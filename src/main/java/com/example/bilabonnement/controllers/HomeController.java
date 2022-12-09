@@ -50,6 +50,8 @@ public class HomeController
         model.addAttribute("BigCars", repo.getAllCarsByType("big"));
         model.addAttribute("LuxuryCars", repo.getAllCarsByType("luxury"));
 
+        model.addAttribute("allContracts", rent.getAllContracts());
+
         return "loggedInAdmin";
     }
 
