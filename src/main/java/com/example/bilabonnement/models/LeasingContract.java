@@ -1,13 +1,12 @@
 package com.example.bilabonnement.models;
 
-import java.time.LocalDateTime;
-
 public class LeasingContract {
 
+    private int contractID;
     private String type;
     private int priceMonthly;
     private int priceTotal;
-    private int serialnumber;
+    private String serialnumber;
 
    private String startdate;
    private String enddate;
@@ -18,7 +17,7 @@ public class LeasingContract {
         
     }
 
-    public LeasingContract(String type, int priceMonthly, int priceTotal, int serialnumber, String startdate, String enddate, int leasingperiod)
+    public LeasingContract(String type, int priceMonthly, int priceTotal, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID)
     {
         this.type = type;
         this.priceMonthly = priceMonthly;
@@ -27,10 +26,19 @@ public class LeasingContract {
         this.startdate = startdate;
         this.enddate = enddate;
         this.leasingperiod = leasingperiod;
+        this.contractID = contractID;
     }
 
-    public LeasingContract(int serialnumber) {
+    public LeasingContract(String serialnumber) {
         this.serialnumber = serialnumber;
+    }
+
+    public int getContractID() {
+        return contractID;
+    }
+
+    public void setContractID(int contractID) {
+        this.contractID = contractID;
     }
 
     public String getType()
@@ -63,12 +71,12 @@ public class LeasingContract {
         this.priceTotal = priceTotal;
     }
 
-    public int getSerialnumber()
+    public String getSerialnumber()
     {
         return serialnumber;
     }
 
-    public void setSerialnumber(int serialnumber)
+    public void setSerialnumber(String serialnumber)
     {
         this.serialnumber = serialnumber;
     }
@@ -107,7 +115,8 @@ public class LeasingContract {
     public String toString()
     {
         return "LeasingContract{" +
-                "type='" + type + '\'' +
+                "contractID=" + contractID +
+                ", type='" + type + '\'' +
                 ", priceMonthly=" + priceMonthly +
                 ", priceTotal=" + priceTotal +
                 ", serialnumber=" + serialnumber +

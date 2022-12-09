@@ -4,7 +4,7 @@ public class Car
 {
 
     private int id;
-    private int serialnumber;
+    private String serialnumber;
     private String type;
     private boolean isDamaged = false;
     private boolean isAvailable = true;
@@ -13,7 +13,7 @@ public class Car
     {
     }
 
-    public Car(int id, int serialnumber, String type, boolean isDamaged, boolean isAvailable)
+    public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable)
     {
         this.id = id;
         this.serialnumber = serialnumber;
@@ -35,12 +35,12 @@ public class Car
         this.id = id;
     }
 
-    public int getSerialnumber()
+    public String getSerialnumber()
     {
         return serialnumber;
     }
 
-    public void setSerialnumber(int serialnumber)
+    public void setSerialnumber(String serialnumber)
     {
         this.serialnumber = serialnumber;
     }

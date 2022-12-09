@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
-<!--    <script src="/scripts/image-visibility.js"></script>-->
+    <!--    <script src="/scripts/image-visibility.js"></script>-->
 
 
     <script>
@@ -65,11 +65,13 @@
         .container h3:hover {
             cursor: pointer;
         }
+
         .column {
             float: left;
             width: 33.33%;
             padding: 5px;
         }
+
         .row::after {
             content: "";
             clear: both;
@@ -96,6 +98,7 @@
             display: block;
             word-wrap: break-word;
         }
+
         td {
             display: table-cell;
             vertical-align: inherit;
@@ -103,6 +106,7 @@
             border: 1px solid black;
             background-color: white;
         }
+
         tr {
             display: flex;
             display: table-row;
@@ -188,7 +192,7 @@
                             <tr>
                                 <td>ID</td>
                                 <td>Serialnumber</td>
-                                <td>Price</td>
+                                <td>Type</td>
                                 <td>Damaged</td>
                                 <td>Available</td>
                             </tr>
@@ -206,7 +210,8 @@
                     </div>
 
                     <div class="container">
-                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E=" alt="All cars"
+                        <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E="
+                             alt="All cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
@@ -242,12 +247,13 @@
                     </div>
 
                     <div class="container">
-                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg" alt="Luxury cars"
+                        <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg"
+                             alt="Luxury cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
                              float: left;"
-                            >
+                        >
                     </div>
                 </div>
             </div>
@@ -278,7 +284,8 @@
 
                     <div class="container">
                         <img id="bigCar"
-                             src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg" alt="Big cars"
+                             src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
+                             alt="Big cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
@@ -312,7 +319,8 @@
                     </div>
 
                     <div class="container">
-                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg" alt="Medium cars"
+                        <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"
+                             alt="Medium cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px">
@@ -338,14 +346,14 @@
                                 <td th:text="${car.serialnumber}"></td>
                                 <td th:text="${car.isDamagedString}"></td>
                                 <td th:text="${car.isAvailableString}"></td>
-
                             </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div class="container">
-                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg" alt="Small cars"
+                        <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"
+                             alt="Small cars"
                              style="object-fit: cover;
                              width: auto;
                              height: 300px;
@@ -392,8 +400,8 @@
                             <label for="email">E-mail</label><br>
                             <input style="border-radius: 15px" type="text" required name="email" id="email"
                                    placeholder=" Enter e-mail"> <br>
-                            <label for="cpr">CPR</label><br>
-                            <input style="border-radius: 15px" type="text" required name="cpr" id="cpr"
+                            <label for="cprCreate">CPR</label><br>
+                            <input style="border-radius: 15px" type="text" required name="cpr" id="cprCreate"
                                    placeholder=" Enter CPR"
                                    pattern="[0-9]{10,10}"
                                    oninvalid="this.setCustomValidity('Enter 10 digit cpr')"
@@ -442,20 +450,22 @@
                                    onclick="return checkPrice(),displayDays()">
                             <label for="36m">36 Months</label>
 
-                    <br><br>
+                            <br><br>
 
-                    <label for="monthlyPrice">Monthly price: </label>
-                    <input style="border-radius: 15px" type="text" id="monthlyPrice" readonly name="priceMonthly">
-                    <br>
+                            <label for="monthlyPrice">Monthly price: </label>
+                            <input style="border-radius: 15px" type="text" id="monthlyPrice" readonly
+                                   name="priceMonthly">
+                            <br>
 
-                    <label for="totalPrice">Total price:</label>
-                    <input style="border-radius: 15px; margin-left: 21px" type="text" id="totalPrice" readonly name="priceTotal">
-                    <br><br>
+                            <label for="totalPrice">Total price:</label>
+                            <input style="border-radius: 15px; margin-left: 21px" type="text" id="totalPrice" readonly
+                                   name="priceTotal">
+                            <br><br>
 
-                    <label for="box1">Start date: </label>
-                    <input style="border-radius: 15px" type="text" id="box1" readonly name="startdate">
-                    <label for="box2">End date: </label>
-                    <input style="border-radius: 15px" type="text" id="box2" readonly name="enddate">
+                            <label for="box1">Start date: </label>
+                            <input style="border-radius: 15px" type="text" id="box1" readonly name="startdate">
+                            <label for="box2">End date: </label>
+                            <input style="border-radius: 15px" type="text" id="box2" readonly name="enddate">
 
                             <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <br>
@@ -466,27 +476,26 @@
             </div>
 
 
+            <script>
 
-                <script>
+                function displayDays() {
 
-                    function displayDays() {
-
-                        let days = 0;
-                        if (document.getElementById("4m").checked === true) {
-                            days = 120;
-                        }
-                        if (document.getElementById("8m").checked === true) {
-                            days = 240;
-                        }
-                        if (document.getElementById("12m").checked === true) {
-                            days = 360;
-                        }
-                        if (document.getElementById("24m").checked === true) {
-                            days = 720;
-                        }
-                        if (document.getElementById("36m").checked === true) {
-                            days = 1080
-                        }
+                    let days = 0;
+                    if (document.getElementById("4m").checked === true) {
+                        days = 120;
+                    }
+                    if (document.getElementById("8m").checked === true) {
+                        days = 240;
+                    }
+                    if (document.getElementById("12m").checked === true) {
+                        days = 360;
+                    }
+                    if (document.getElementById("24m").checked === true) {
+                        days = 720;
+                    }
+                    if (document.getElementById("36m").checked === true) {
+                        days = 1080
+                    }
 
                     Date.prototype.addDays = function (days) {
                         //TODO Why const instead of let?
@@ -500,7 +509,7 @@
                     document.getElementById("box1").value = new Date().toISOString().slice(0, 10);
                     document.getElementById("box2").value = date.toISOString().slice(0, 10);
 
-                    }
+                }
 
                 function checkPrice() {
                     let priceM = 0;
@@ -543,30 +552,41 @@
                 }
             </script>
 
-        </div>
 
-
-        <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+            <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-            Cancel leasing
-        </div>
+                hello
 
-        <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+                <label for="cprCancel">CPR</label><br>
+                <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
+                       placeholder=" Enter CPR"> <br>
+
+                <form action="/cancelleasing" method="post">
+
+                    <label for="contractID">Contract ID</label><br>
+                    <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
+                           placeholder=" Enter Contract ID"> <br><br>
+
+                    <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    <br>
+                </form>
+
+            </div>
+
+            <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-            Change leasing
-        </div>
+                Change leasing
+            </div>
 
-        <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+            <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-            View Leasing
+                View Leasing
 
+            </div>
         </div>
     </div>
 
-
-</div>
-
-<div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+            <div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
     <div id="tabs-accounting" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
@@ -589,17 +609,17 @@
             </li>
         </ul>
 
-            <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+                    <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-            </div>
+                    </div>
 
-            <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+                    <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>:</p>
+                        <p>:</p>
 
 
-            </div>
+                    </div>
 
         <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
@@ -615,39 +635,40 @@
 
 <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <div class="row">
-            <div class="column">
-                <form action="/service" method="post">
-                    <h4><b>Serialnumber</b></h4>
-                    <input style="border-radius: 15px" type="text" required name="serialnumber" placeholder=" Enter serialnumber"> <br>
+                <div class="row">
+                    <div class="column">
+                        <form action="/service" method="post">
+                            <h4><b>Serialnumber</b></h4>
+                            <input style="border-radius: 15px" type="text" required name="serialnumber"
+                                   placeholder=" Enter serialnumber"> <br>
 
-                <form>
-                    <br><h4><b>Car repair status</b></h4>
-                    <label for="repaired">Repaired</label><br>
-                    <input type="radio" name="repaired" id="repaired" value="Repaired">
-                    <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
-                    <label for="damaged">Damaged</label>
-                    <input type="radio" name="damaged" id="damaged" value="Damaged">
-                    <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
 
-                </form>
+                            <br><h4><b>Car repair status</b></h4>
+                            <label for="repaired">Repaired</label><br>
+                            <input type="radio" name="repaired" id="repaired" value="Repaired">
+                            <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                            <label for="damaged">Damaged</label>
+                            <input type="radio" name="damaged" id="damaged" value="Damaged">
+                            <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+
 
             </form>
             <br><br>
 
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-            </div>
-            <div class="column">
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                    <div class="column">
 
-                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000" alt="Mechanic"
-                     style="object-fit: cover;
+                        <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
+                             alt="Mechanic"
+                             style="object-fit: cover;
                      width: auto;
                       height: 300px;
                       float: left;">
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</div>
 </body>
 </html>
 

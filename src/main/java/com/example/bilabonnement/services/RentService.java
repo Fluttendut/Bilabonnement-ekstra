@@ -8,21 +8,20 @@ import com.example.bilabonnement.repositories.DatabaseConnectionManager;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.ZoneOffset;
-import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RentService {
 
     private Connection conn = DatabaseConnectionManager.getConnection();
 
-    Car car = new Car();
+    //Car car = new Car();
 
     public RentService() throws IOException {
     }
-
 
     public void createRentalContract(LeasingContract leasingContract, Rentee rentee) {
         try {
@@ -34,12 +33,12 @@ public class RentService {
             psts.setString(2, leasingContract.getStartdate());
             psts.setString(3, leasingContract.getEnddate());
 
-            if (leasingContract.getSerialnumber() < 1) {
-                psts.setInt(4, carRepository.autoSerialNumber(leasingContract.getType()));
-                //carRepository.updateCarAvailable(carRepository.autoSerialNumber(leasingContract.getType()));
+            if (leasingContract.getSerialnumber().equals("")) {
+                psts.setString(4, carRepository.autoSerialNumber(leasingContract.getType()));
+                carRepository.updateCarAvailable(carRepository.autoSerialNumber(leasingContract.getType()));
             } else {
-                psts.setInt(4, leasingContract.getSerialnumber());
-                //carRepository.updateCarAvailable(leasingContract.getSerialnumber());
+                psts.setString(4, leasingContract.getSerialnumber());
+                carRepository.updateCarAvailable(leasingContract.getSerialnumber());
             }
 
             psts.setInt(5, leasingContract.getPriceMonthly());
@@ -49,7 +48,6 @@ public class RentService {
             psts.setString(9, rentee.getEmail());
             psts.setString(10, rentee.getCpr());
             psts.setString(11, rentee.getAddress());
-
 
             psts.executeUpdate();
 

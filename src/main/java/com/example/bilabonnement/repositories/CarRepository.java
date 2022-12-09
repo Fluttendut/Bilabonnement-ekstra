@@ -21,7 +21,7 @@ public class CarRepository {
 
     public Car getCar(int serialnumber) {
 
-        Car car;
+        Car car = new Car();
         try {
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
             psts.setInt(1, serialnumber);
@@ -38,12 +38,10 @@ public class CarRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+    return car;
     }
 
-    //TODO retunere ikke den rigtige værdi? 
-    //TODO Failed to convert property value of type 'java.lang.String' to required type 'int' for property 'serialnumber'
-    public int autoSerialNumber(String type) {
+    public String autoSerialNumber(String type) {
 
         List<LeasingContract> cars = new ArrayList<>();
 
@@ -229,7 +227,7 @@ public class CarRepository {
                 psts.executeUpdate();
             } else {
                 psts.setBoolean(1, true);
-                psts.setInt(2, serialnumber);
+                psts.setString(2, serialnumber);
                 psts.executeUpdate();
             }
 
@@ -238,17 +236,18 @@ public class CarRepository {
         }
     }
 
-    public void updateCarAvailable(int serialnumber) throws RuntimeException {
+    public void updateCarAvailable(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set available=? where serialnumber=?");
-            Car car = getCar(serialnumber);
+
+            Car car = getACar(serialnumber);
             if (car.getIsAvailable() == false) {
                 psts.setBoolean(1, true);
-                psts.setInt(2, serialnumber);
+                psts.setString(2, serialnumber);
                 psts.executeUpdate();
             } else {
                 psts.setBoolean(1, false);
-                psts.setInt(2, serialnumber);
+                psts.setString(2, serialnumber);
                 psts.executeUpdate();
             }
 

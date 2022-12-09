@@ -63,6 +63,15 @@ public class HomeController
 
         return "redirect:/login";
     }
+
+    @PostMapping("/cancelleasing")
+    public String cancelLeasing(LeasingContract leasingContract, Rentee rentee)
+    {
+        rent.cancelRentalContract(leasingContract.getContractID());
+        
+        return "redirect:/login";
+    }
+
     @PostMapping("/service")
     public String service()
     {

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>Exam prep</title>
+  <meta charset="UTF-8" content="width=device-width, initial-scale=1.0">
+  <title>Bilabonnement</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -36,43 +36,75 @@
   </script>
 
   <style>
+    body {
+      background-color: lightblue;
+    }
+
     .flex-container {
       display: flex;
-      max-height: 75%;
+      max-height: 50%;
       align-content: space-between;
     }
 
     .container {
       position: relative;
-      width: 50%;
-      height: auto;
+      width: auto;
+      /*height: auto;*/
       max-height: inherit;
     }
-
-    .image {
-      width: auto;
-      max-width: 100%;
-      max-height: 100%;
-      position: absolute;
-      object-fit: contain;
-      object-position: center;
-    }
-
-
-
-    .overlay .image{
-      visibility: hidden;
-      -webkit-transition-property: all;
-      -webkit-transition-duration: 0.3s;
-      -webkit-transition-timing-function: ease;
-      background-color: white;
-    }
-
 
     .container h3:hover {
       cursor: pointer;
     }
 
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+    }
+
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    table {
+      width: 1000px;
+      padding: 1px;
+      width: auto;
+      display: flex;
+      border-collapse: separate;
+      box-sizing: border-box;
+      text-indent: initial;
+      border-spacing: 2px;
+      border-color: grey;
+    }
+
+
+    tbody {
+      vertical-align: middle;
+      border-color: inherit;
+      font-size: 29px;
+      display: block;
+      word-wrap: break-word;
+    }
+
+    td {
+      display: table-cell;
+      vertical-align: inherit;
+      padding: 0 5px;
+      border: 1px solid black;
+      background-color: white;
+    }
+
+    tr {
+      display: flex;
+      display: table-row;
+      width: max-content;
+      vertical-align: inherit;
+      border-color: inherit;
+    }
 
   </style>
 </head>
@@ -109,18 +141,10 @@
 
   <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
-    <p>
-      <b>This program uses the 4 learning areas</b>
-    </p>
-    <table>
-      <tbody>
-      <tr>Area 1: Cloud, Operative Systems, Databases</tr>
-      <tr>Area 2: Number Systems, Debug</tr>
-      <tr>Area 3: Concurrency Issues</tr>
-      <tr>Area 4: Computer Network</tr>
-      <tr>Webservice: Test</tr>
-      </tbody>
-    </table>
+    <h1>Greetings from skynet!</h1>
+    <h4>Welcome to the frontpage of BilAbonnement! You have successfully logged in</h4>
+    <h4>You will now have access to the program and its features!</h4><br>
+    <h5>Have a nice day!</h5>
     <br>
   </div>
 
@@ -151,226 +175,190 @@
             aria-controls="qs-5" aria-labelledby="ui-id-11" aria-selected="false" aria-expanded="false">
           <a href="#qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-11">5</a>
         </li>
-        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-            aria-controls="qs-6" aria-labelledby="ui-id-12" aria-selected="false" aria-expanded="false">
-          <a href="#qs-6" tabindex="-1" class="ui-tabs-anchor" id="ui-id-12">6</a>
-        </li>
-        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-            aria-controls="qs-7" aria-labelledby="ui-id-13" aria-selected="false" aria-expanded="false">
-          <a href="#qs-7" tabindex="-1" class="ui-tabs-anchor" id="ui-id-13">7</a>
-        </li>
-        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-            aria-controls="qs-8" aria-labelledby="ui-id-14" aria-selected="false" aria-expanded="false">
-          <a href="#qs-8" tabindex="-1" class="ui-tabs-anchor" id="ui-id-14">8</a>
-        </li>
-        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-            aria-controls="qs-9" aria-labelledby="ui-id-15" aria-selected="false" aria-expanded="false">
-          <a href="#qs-9" tabindex="-1" class="ui-tabs-anchor" id="ui-id-15">9</a>
-        </li>
+
       </ul>
 
       <div id="qs-1" aria-labelledby="ui-id-7" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        1. Describe a computers hardware
-        <br>
-        Answer:
-        <br>
         <div class="flex-container">
           <div class="container">
-            <h2> A computer consists of following hardware: </h2>
-            <h3 id="t-1-1-0">CPU(Central Processing Unit)</h3>
-            <h3 id="t-1-1-1">Motherboard</h3>
-            <h3 id="t-1-1-2">Expansion Slots</h3>
-            <h3 id="t-1-1-3">Hard-drive: SSD, HDD, m.2</h3>
-            <h3 id="t-1-1-4">RAM(Random Access Memory)</h3>
-            <h3 id="t-1-1-5"> GPU(Graphics Processing Unit),</h3>
-            <h3 id="t-1-1-6">Power supply(PSU),</h3>
-            <h3 id="t-1-1-7">Cooling system (Fans, liquid cooling, Heatsink, etc.),</h3>
-            <h3 id="t-1-1-8">Casing/System unit</h3>
-            <h3 id="t-1-1-9">Disk-Drive: CD-ROM/BlueRay, Floppy</h3>
+            <table class="container">
+              <tbody>
+              <tr>
+                <td>ID</td>
+                <td>Serialnumber</td>
+                <td>Type</td>
+                <td>Damaged</td>
+                <td>Available</td>
+              </tr>
+              <tr th:each="car :${AllCars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.serialnumber}"></td>
+                <td th:text="${car.type}"></td>
+                <td th:text="${car.isDamagedString}"></td>
+                <td th:text="${car.isAvailableString}"></td>
+
+              </tr>
+
+              </tbody>
+            </table>
           </div>
 
           <div class="container">
-            <img src="/ComputerHardware.png" class="image original-image">
-            <div class="overlay">
-              <img src="/CPUfrontandback.png" class="image" id="i-1-1-0">
-              <img src="/Motherboardwithsimplelabels.png" class="image" id="i-1-1-1">
-              <img src="/ExpansionSlotwithExpansionCard.png" class="image" id="i-1-1-2">
-              <img src="/HDDogSSDdrives.png" class="image" id="i-1-1-3">
-              <img src="/RAM.png" class="image" id="1-1-4">
-              <img src="/GPUfrontandback.png" class="image" id="i-1-1-5">
-              <img src="/transparent-PSU-power-supply-unit.png" class="image" id="i-1-1-6">
-              <img src="/Heatsink.png" class="image" id="i-1-1-7">
-              <img src="/InsideSystemUnit.png" class="image" id="i-1-1-8">
-              <img src="/floppy-drives.png" class="image" id="i-1-1-9">
-              <img src="/OpticalDiscDrive-optical-drive.png" class="image" id="i-1-1-10">
-            </div>
+            <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E="
+                 alt="All cars"
+                 style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;">
+
           </div>
         </div>
       </div>
 
       <div id="qs-2" aria-labelledby="ui-id-8" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        "2. Describe Azure Cloud and its uses"
-        <br>
-        "Answer:
-        <br>
-        Azure cloud er en online baseret hosting service som bruges til<br>
-        at hoste ens servere fx databaser eller virtuelle maskiner.<br>
-        Dette bruges så man ikke selv skal have denne stående ved ens virksomhed/hjemme hos ens selv.<br>
-        Det bruges også hvis man har brug for mere computerkraft end man selv har til rådighed fx supercomputer.<br>
-        En af de helt store styrker er, at man kan få adgang fra alle steder og det ved være consistent for alle
-        brugere.<br>
-        Det er deres ansvar at passe på din data, frem for at det er dit/din virksomheds ansvar at passe på den
-        opbevarede data.<br>
-        Dette kan gøres for at spare plads/penge på opgradering af udstyr som forældes med tiden.
+        <div class="flex-container">
+          <div class="container">
+
+            <table class="container">
+              <tbody>
+              <tr>
+                <td>ID</td>
+                <td>Serialnumber</td>
+                <td>Damaged</td>
+                <td>Available</td>
+              </tr>
+              <tr th:each="car :${LuxuryCars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.serialnumber}"></td>
+                <td th:text="${car.isDamagedString}"></td>
+                <td th:text="${car.isAvailableString}"></td>
+
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="container">
+            <img src="https://www.motorcarsofjackson.com/wp-content/uploads/2020/04/720s-website.jpg"
+                 alt="Luxury cars"
+                 style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left;"
+            >
+          </div>
+        </div>
       </div>
 
       <div id="qs-3" aria-labelledby="ui-id-9" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        3. What is a Raspberry Pi and what are its uses?
-        <br>
-        Answer:
-        <br>
-        Skal ikke besvares
+        <div class="flex-container">
+          <div class="container">
+            <table class="container">
+              <tbody>
+              <tr>
+                <td>ID</td>
+                <td>Serialnumber</td>
+                <td>Damaged</td>
+                <td>Available</td>
+              </tr>
+              <tr th:each="car :${BigCars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.serialnumber}"></td>
+                <td th:text="${car.isDamagedString}"></td>
+                <td th:text="${car.isAvailableString}"></td>
+
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="container">
+            <img id="bigCar"
+                 src="https://www.autotrader.com/wp-content/uploads/2020/02/2021-GMC-Yukon-Denali-045.jpg"
+                 alt="Big cars"
+                 style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left">
+          </div>
+        </div>
       </div>
 
       <div id="qs-4" aria-labelledby="ui-id-10" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        4. What are the different types of hard-discs, and what are the difference between them?
-        <br>
-        Answer:
-        <br>
-        Gammeldags mekaniske harddiske<br>
-        Gemmer data ved at magnetisere et kobberbånd og aflæse data fra dette.<br>
-        Derfor er dette en langsom og sårbar metode.<br><br>
-        SSD (solid state drive)<br>
-        Disse er hurtigere, mere solide gemmer data på en bedre måde hvilket gør dem mindre sårbare.<br><br>
-        m.2 nvme<br>
-        Disse er nyere, bedre og hurtigere versioner af SSD harddiske,<br>
-        disse bruger 2 sata porte til overførsel af data frem for kun en ved standard ssd/hdd.
+        <div class="flex-container">
+          <div class="container">
+            <table class="container">
+              <tbody>
+              <tr>
+                <td>ID</td>
+                <td>Serialnumber</td>
+                <td>Damaged</td>
+                <td>Available</td>
+              </tr>
+              <tr th:each="car :${MediumCars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.serialnumber}"></td>
+                <td th:text="${car.isDamagedString}"></td>
+                <td th:text="${car.isAvailableString}"></td>
 
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="container">
+            <img src="https://media.product.which.co.uk/prod/images/original/gm-444d3599-d98e-4908-9413-39fa75c682af-focusheader.jpg"
+                 alt="Medium cars"
+                 style="object-fit: cover;
+                             width: auto;
+                             height: 300px">
+
+          </div>
+        </div>
       </div>
 
       <div id="qs-5" aria-labelledby="ui-id-11" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        5. What types of busses are there in a computer?
-        <br>
-        Answer:
-        <br>
-        Databus –<br>
-        Overføre data og instruktioner mellem komponenterne i en computer, denne overførsel er
-        bi-directional.<br>
-        Så information kan flyde i begge retninger. Fx kan cpu’en modtage noget data,<br>
-        der skal laves noget behandling på og sende denne data tilbage.<br><br>
-        Adresse bus –<br>
-        Overføre en adresse/lokation i hukommelse til hvor i hukommelsen,<br>
-        hvor i hukommelsen noget data eller en instruktion er placeret.<br>
-        Denne process er single-directional, altså går dataen kun i en retning, fx fra CPU til RAM.<br>
-        Dermed ved modtageren hvor, den efterspurgte data kan findes/skal skrive til.<br><br>
-        Control bus –<br>
-        Overføre kontrolsignaler mellem komponenter, denne overførsel er bi-directional.<br>
-        Så det kan gå i begge retninger fx når en cpu sender en adresse til hukommelsen,<br>
-        så er det kontrolsignalet der fortæller om den ønskede data skal læses,<br>
-        så ved hukommelsen den adresse skal sendes tilbage over databussen.<br>
-        Eller hvis kontrolsignalet siger skriv, så ved modtageren,<br>
-        at den modtagerne data skal opbevares på denne adresse.<br>
-        Alternativt kan det være nødvendigt for en proces som fx CPU’en er i gang med som skal afbrydes,<br>
-        så kan en komponent sende kontrolsignal til CPU’en, at den skal stoppe processen den er i gang
-        med.<br><br>
-        Systembus –<br>
-        De 3 ovenstående busser udgøre tilsammen systembussen.<br>
-        Busserne består hver i sær af et kredsløb af ”ledninger”.<br>
+        <div class="flex-container">
+          <div class="container">
+            <table class="container">
+              <tbody>
+              <tr>
+                <td>ID</td>
+                <td>Serialnumber</td>
+                <td>Damaged</td>
+                <td>Available</td>
+              </tr>
+              <tr th:each="car :${SmallCars}">
+                <td th:text="${car.id}"></td>
+                <td th:text="${car.serialnumber}"></td>
+                <td th:text="${car.isDamagedString}"></td>
+                <td th:text="${car.isAvailableString}"></td>
 
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="container">
+            <img src="https://www.topgear.com/sites/default/files/images/cars-road-test/2016/10/3d496612a0e4dc853e50c7f2a916039f/16c606_036_d312193.jpg"
+                 alt="Small cars"
+                 style="object-fit: cover;
+                             width: auto;
+                             height: 300px;
+                             float: left">
+          </div>
+        </div>
       </div>
 
-      <div id="qs-6" aria-labelledby="ui-id-12" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        6. Computer-network: What is the difference between IP and MAC?
-        <br>
-        Answer:
-        <br>
-        ip internet protocol<br>
-        Denne bruges til at identificere det specifikke apparat der tilgår internettet.<br>
-        Denne kan være dynamisk, dvs du får en ny ip tildelt hver gang du logger af og på internettet,<br>
-        eller hvis du forbliver logget på længe nok efter en given tid.<br>
-        Hvis ens IP er statisk, vil det sige at denne aldrig ændre sig,<br>
-        dette er ofte brugbart for firmaer og lignende der har services liggende ude på nettet,<br>
-        som skal kunne tilgås af brugere/forbrugere.<br><br>
-        Mac adresse<br>
-        Et unikt fysisk identifikationsnummer lidt ligesom et cpr nummer,<br>
-        bare for udstyr der kan gå på nettet mac adressen består altid af 12 tegn (bogstaver og tal)<br>
-        og man bruger den til at identificere routere, computere og andet når de kommunikere lokalt og
-        globalt,<br>
-        så data kan finde den rette computer når der kommer tilbage på det lokale niveau.<br>
-
-      </div>
-
-      <div id="qs-7" aria-labelledby="ui-id-13" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        7. What are the categories of PSU and what do they mean?
-        <br>
-        Answer:
-        <br>
-        Der findes PSU med forskellig Watt, det kan fx være 450W, 750W 1000W, eller andet.<br>
-        Derudover findes der også forskellig plating, disse kan være lavet med kobber, sølv, guld og platin.<br>
-        Der findes de følgende 3 typer<br>
-        Linear, switched and battery based.<br>
-        Regulated vs unregulated.
-
-      </div>
-
-      <div id="qs-8" aria-labelledby="ui-id-14" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        8. What is the difference between RAM and a Hard-disc?
-        <br>
-        Answer:
-        <br>
-        Begge 2 er former for hukommelse, hvor ram fungere som en korttidshukommelse,<br>
-        slukkes der for strømmen forsvinder alt der ligger i RAM.<br>
-        Ram kan ikke indeholde store mængder af data, da man som ofte ikke har store mængder tilgængelig.<br>
-        Ram er mange gange hurtigere end selv den hurtigste harddisk,<br>
-        og kan derfor hurtigt videregive den information der findes i dem til fx CPU.<br>
-        Data i Ram sendes enten tilbage til harddisken eller slettes når den ikke længere bruges.<br>
-        En harddisk er derimod den del af computeren som bruges til langtidslagring af data,<br>
-        det tager betydelig længere at hente data fra en harddisk end fra ram.
-
-      </div>
-
-      <div id="qs-9" aria-labelledby="ui-id-15" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        9. What is DBMS MySQL and what can you use it for?
-        <br>
-        Answer:
-        <br>
-        Dbms betyder Database management system. Dette bruges til at styre databaser,<br>
-        der findes en lang række af forskellige databaser fx Oracle, H2, MySql og mange flere.<br>
-        MySQL er et RDBMS (relational database management system).<br>
-        MySql er et SQL dialekt, der bruges til at skrive queries til at manipulere data i et DBMS.<br>
-        DBMS er ikke en database i selv, men bruges til at manipulere databasen på fx Azure.<br>
-        Dette kan bruges til at oprette databaser der kan indeholde data i tabeller.
-
-      </div>
     </div>
-
 
   </div>
 
@@ -394,34 +382,96 @@
             aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
           <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">4</a>
         </li>
-        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-            aria-controls="2-qs-5" aria-labelledby="ui-id-20" aria-selected="false" aria-expanded="false">
-          <a href="#2-qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-20">5</a>
-        </li>
+
       </ul>
 
       <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-        <p>Question:</p>
-        <br>
-        1. Explain the uses of the following number-systems and their names:<br>
-        16-system<br>
-        10-system<br>
-        2-system
-        <br>
-        Answer:
-        <br>
-        16-talsystemet (hexadecimal)<br>
-        Hexadecimal er brugt når alle tallene er fra 0-9 er brugt.<br>
-        Herefter udfylder man med a,b,c,d,e,f og g.<br>
-        Dette gøres da disse kun tager en bit i modsætning til fx 10 der vil tage mere plads.<br>
-        Dette bruges til mac-adresser og farvekoder.<br>
-        10- talsystemet (decimal)<br>
-        Dette bruges da, det er nemmere at forstå for et menneske. Da vi er vant til brugen af
-        10-talsystemet<br>
-        2- talsystemet (binær)<br>
-        Computerens elektronik forstår kun 0 og 1. tændt eller slukket. Alt andet funktionalitet bygges på
-        dette.
+        <div class="row">
+          <form action="/createleasing" method="post">
+            <div style="width: 257px" id="customerInformationColumn" class="column">
+
+              <h4><b>Customer information</b></h4>
+
+              <label for="name">Name</label><br>
+              <input style="border-radius: 15px" type="text" required name="name" id="name"
+                     placeholder=" Enter name"> <br>
+              <label for="email">E-mail</label><br>
+              <input style="border-radius: 15px" type="text" required name="email" id="email"
+                     placeholder=" Enter e-mail"> <br>
+              <label for="cprCreate">CPR</label><br>
+              <input style="border-radius: 15px" type="text" required name="cpr" id="cprCreate"
+                     placeholder=" Enter CPR"
+                     pattern="[0-9]{10,10}"
+                     oninvalid="this.setCustomValidity('Enter 10 digit cpr')"
+                     onkeyup="setCustomValidity('')"> <br>
+              <label for="address">Address</label><br>
+              <input style="border-radius: 15px" type="text" required name="address" id="address"
+                     placeholder=" Enter address"> <br>
+              <br>
+
+            </div>
+
+            <div style="width:69.33%" id="carInformationColumn" class="column">
+              <h4><b>Serialnumber</b></h4>
+              <input style="border-radius: 15px" type="text" name="serialnumber"
+                     id="serialnumber" placeholder=" Enter serialnumber"><br>
+
+              <br><h4><b> Select car type</b></h4>
+              <input type="radio" name="type" id="type1" value="luxury"
+                     onclick="return checkPrice()">
+              <label for="type1">Luxury</label>
+              <input type="radio" name="type" id="type2" value="big"
+                     onclick="return checkPrice()">
+              <label for="type2">Big</label>
+              <input type="radio" name="type" id="type3" value="medium"
+                     onclick="return checkPrice()">
+              <label for="type3">Medium</label>
+              <input type="radio" name="type" id="type4" value="small"
+                     onclick="return checkPrice()">
+              <label for="type4">Small</label>
+
+
+              <br><h4><b>Select leasing period</b></h4>
+              <input type="radio" name="leasingperiod" id="4m" value="4"
+                     onclick="return checkPrice(),displayDays()">
+              <label for="4m">4 Months</label>
+              <input type="radio" name="leasingperiod" id="8m" value="8"
+                     onclick="return checkPrice(),displayDays()">
+              <label for="8m">8 Months</label>
+              <input type="radio" name="leasingperiod" id="12m" value="12"
+                     onclick="return checkPrice(),displayDays()">
+              <label for="12m">12 Months</label>
+              <input type="radio" name="leasingperiod" id="24m" value="24"
+                     onclick="return checkPrice(),displayDays()">
+              <label for="24m">24 Months</label>
+              <input type="radio" name="leasingperiod" id="36m" value="36"
+                     onclick="return checkPrice(),displayDays()">
+              <label for="36m">36 Months</label>
+
+              <br><br>
+
+              <label for="monthlyPrice">Monthly price: </label>
+              <input style="border-radius: 15px" type="text" id="monthlyPrice" readonly
+                     name="priceMonthly">
+              <br>
+
+              <label for="totalPrice">Total price:</label>
+              <input style="border-radius: 15px; margin-left: 21px" type="text" id="totalPrice" readonly
+                     name="priceTotal">
+              <br><br>
+
+              <label for="box1">Start date: </label>
+              <input style="border-radius: 15px" type="text" id="box1" readonly name="startdate">
+              <label for="box2">End date: </label>
+              <input style="border-radius: 15px" type="text" id="box2" readonly name="enddate">
+
+              <button id="createButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
+              <br>
+            </div>
+          </form>
+
+        </div>
       </div>
 
       <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
