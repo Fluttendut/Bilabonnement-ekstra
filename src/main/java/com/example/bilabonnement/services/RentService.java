@@ -54,6 +54,7 @@ public class RentService {
     }
 
 
+
     public void cancelRentalContract(int contractID) {
         try {
             CarRepository carRepo = new CarRepository();

@@ -2,20 +2,12 @@ package com.example.bilabonnement.controllers;
 
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.Rentee;
-import com.example.bilabonnement.models.User;
 import com.example.bilabonnement.repositories.CarRepository;
-import com.example.bilabonnement.repositories.LogginginRepository;
-import com.example.bilabonnement.services.CarService;
 import com.example.bilabonnement.services.RentService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.context.request.WebRequest;
-
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
@@ -25,8 +17,6 @@ public class HomeController
 
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
-    CarRepository carRepository = new CarRepository();
-    LeasingContract leasing = new LeasingContract();
 
     public HomeController() throws IOException
     {
@@ -84,6 +74,18 @@ public class HomeController
 
 }
 
+// ting der virker 100%
+//TODO update car (available)
+//TODO get available car
+//TODO get all cars
+//TODO get damaged cars
+//TODO get rented cars
+//TODO get rentee (from name or email)
+//TODO opret rental table i DB
+//TODO registrer nye lejeaftaler
+//TODO delete contract
+//TODO sammenlagt pris for udlejede biler (accounting)
+
 // Ting vi tror fungerer / skal testes
 //TODO create car
 //TODO delete car
@@ -91,16 +93,16 @@ public class HomeController
 //TODO binde tingene sammen
 
 // Ting vi mangler
-//TODO login
-//TODO alt html / css
-//TODO test af alt
-//TODO binde tingene sammen
 //TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler (accounting) html
 //todo fejlhåndtering ved forkert indput
 //todo mekaniker siden html (service)
 //todo accounting siden html
 //todo ekstra udstyr? lav som checkbox
+
+
+//ting vi har skåret fra
+//TODO login
 
 // TO DO today
 

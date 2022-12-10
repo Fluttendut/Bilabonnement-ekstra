@@ -41,6 +41,28 @@ public class CarRepository {
     return car;
     }
 
+    public Car getACar(String serialnumber) {
+
+        Car car = new Car();
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=?");
+            psts.setString(1, serialnumber);
+            ResultSet resultSet = psts.executeQuery();
+
+            if (resultSet.next()) {
+                car = new Car(
+                        resultSet.getInt("id"),
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("type"),
+                        resultSet.getBoolean("Damaged"),
+                        resultSet.getBoolean("Available"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return car;
+    }
+
     public String autoSerialNumber(String type) {
 
         List<LeasingContract> cars = new ArrayList<>();
