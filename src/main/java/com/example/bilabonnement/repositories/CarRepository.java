@@ -19,7 +19,7 @@ public class CarRepository {
     }
 
 
-    public Car getACar(String serialnumber) {
+    public Car getAvailableCar(String serialnumber) {
 
         Car car = new Car();
         try {
@@ -59,35 +59,6 @@ public class CarRepository {
             throw new RuntimeException(e);
         }
     }
-
-//    public List<Car> getCar(int serialnumber){
-//
-//        List<Car> cars = new ArrayList<>();
-//        try
-//        {
-//            // spørgsmålstegnet gør vores query dynamisk i stedet for statisk
-//            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars WHERE serialnumber=? and available=true and damaged=false");
-//            psts.setInt(1, serialnumber);
-//            ResultSet resultSet = psts.executeQuery();
-//
-//            if (resultSet.next())
-//            {
-//                cars.add(new Car(
-//                        resultSet.getInt("id"),
-//                        resultSet.getInt("serialnumber"),
-//                        resultSet.getString("type"),
-//                        resultSet.getInt("price"),
-//                        resultSet.getBoolean("isDamaged"),
-//                        resultSet.getBoolean("isAvailable"),
-//                        resultSet.getBoolean("isRentedOut")));
-//            }
-//        } catch (SQLException e)
-//        {
-//            throw new RuntimeException(e);
-//        }
-//        return cars;
-//    }
-
 
     // Get all cars
     public List<Car> getAllCars() {
@@ -217,10 +188,10 @@ public class CarRepository {
  */
 
     // updates car object from DB
-    public void updateCarDamage(String serialnumber) throws RuntimeException {
+    public void updateCarDamaged(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set damaged =? where serialnumber=?");
-            Car car = getACar(serialnumber);
+            Car car = getAvailableCar(serialnumber);
             if (car.getIsDamaged() == true) {
                 psts.setBoolean(1, false);
                 psts.setString(2, serialnumber);
@@ -256,5 +227,78 @@ public class CarRepository {
             throw new RuntimeException(e);
         }
     }
+
+    public int getMonthlyIncome() {
+
+        int totalMonthlyIncome = 0;
+
+        List<LeasingContract> contracts = new ArrayList<>();
+
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
+            ResultSet resultSet = psts.executeQuery();
+
+            while (resultSet.next()) {
+                contracts.add(new LeasingContract(
+                        resultSet.getString("type"),
+                        resultSet.getInt("priceMonthly"),
+                        resultSet.getInt("priceTotal"),
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("startdate"),
+                        resultSet.getString("enddate"),
+                        resultSet.getInt("leasingperiod"),
+                        resultSet.getInt("contractID")
+                ));
+            }
+
+            for(int i=0 ; i<contracts.size() ; i++){
+                totalMonthlyIncome = totalMonthlyIncome + contracts.get(i).getPriceMonthly();
+            }
+            return totalMonthlyIncome;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getAnnualIncome() {
+
+        int annualIncome = 0;
+        int monthsInAYear = 12;
+        List<LeasingContract> contracts = new ArrayList<>();
+
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
+            ResultSet resultSet = psts.executeQuery();
+
+            while (resultSet.next()) {
+                contracts.add(new LeasingContract(
+                        resultSet.getString("type"),
+                        resultSet.getInt("priceMonthly"),
+                        resultSet.getInt("priceTotal"),
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("startdate"),
+                        resultSet.getString("enddate"),
+                        resultSet.getInt("leasingperiod"),
+                        resultSet.getInt("contractID")
+                ));
+            }
+
+
+            for(int i=0 ; i<contracts.size() ; i++){
+                annualIncome = annualIncome + (contracts.get(i).getPriceMonthly() * monthsInAYear);
+
+            }
+            System.out.println(annualIncome);
+            return annualIncome;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
 }

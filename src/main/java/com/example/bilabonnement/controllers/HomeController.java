@@ -88,16 +88,7 @@ public class HomeController
 //TODO create car
 //TODO delete car
 //TODO update car (damaged)
-//TODO update car (available)
-//TODO get available car
-//TODO get all cars
-//TODO get damaged cars
-//TODO get rented cars
-//TODO get rentee (from name or email)
-//TODO create rentee
-//TODO delete rentee
-//TODO update rentee
-//TODO opret rental table i DB
+//TODO binde tingene sammen
 
 // Ting vi mangler
 //TODO login
@@ -105,15 +96,11 @@ public class HomeController
 //TODO test af alt
 //TODO binde tingene sammen
 //TODO pris ved skade
-//TODO sammenlagt pris for udlejede biler
-//TODO registrer nye lejeaftaler
-
-
+//TODO sammenlagt pris for udlejede biler (accounting) html
+//todo fejlhåndtering ved forkert indput
+//todo mekaniker siden html (service)
+//todo accounting siden html
+//todo ekstra udstyr? lav som checkbox
 
 // TO DO today
-//TODO opdater trello!!!
-//TODO delete contract
-//TODO alter contract
-//TODO fix pris
-
 

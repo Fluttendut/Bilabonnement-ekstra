@@ -1,6 +1,5 @@
 package com.example.bilabonnement.services;
 
-import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.repositories.CarRepository;
@@ -17,8 +16,6 @@ import java.util.List;
 public class RentService {
 
     private Connection conn = DatabaseConnectionManager.getConnection();
-
-    //Car car = new Car();
 
     public RentService() throws IOException {
     }
@@ -64,11 +61,29 @@ public class RentService {
             PreparedStatement psts2 = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
             psts2.setInt(1, contractID);
             //TODO fix this stuff
-            //carRepo.updateCarAvailable();
+            carRepo.updateCarAvailable(getSerialFromContractID(contractID));
 
             psts2.executeUpdate();
 
         } catch (SQLException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getSerialFromContractID(int contractID) {
+        List<LeasingContract> contracts = new ArrayList<>();
+
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing where contractID=?");
+            psts.setInt(1, contractID);
+            ResultSet resultSet = psts.executeQuery();
+
+            while (resultSet.next()) {
+                contracts.add(new LeasingContract(resultSet.getString("serialnumber")));
+            }
+            return contracts.get(0).getSerialnumber();
+
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
