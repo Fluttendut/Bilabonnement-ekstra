@@ -25,6 +25,7 @@ public class HomeController
 
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
+    CarRepository carRepository = new CarRepository();
     LeasingContract leasing = new LeasingContract();
 
     public HomeController() throws IOException
@@ -70,6 +71,7 @@ public class HomeController
     public String cancelLeasing(LeasingContract leasingContract, Rentee rentee)
     {
         rent.cancelRentalContract(leasingContract.getContractID());
+        //carRepository.updateCarDamage(leasingContract.getSerialnumber()); //todo test this function make html for it
         
         return "redirect:/login";
     }
