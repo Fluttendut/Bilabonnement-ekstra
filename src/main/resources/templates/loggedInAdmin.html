@@ -202,12 +202,21 @@
                                 <td th:text="${car.type}"></td>
                                 <td th:text="${car.isDamagedString}"></td>
                                 <td th:text="${car.isAvailableString}"></td>
-
                             </tr>
+
 
                             </tbody>
                         </table>
                     </div>
+                    <table class="container">
+                        <tbody>
+                        <tr>
+                            <td>Annual</td>
+                        </tr>
+                        <tr th:each="leasingcontract :${annualIncome}">
+                            <td th:text="${leasingcontract.AnnualIncomeTH}"></td>
+                        </tbody>
+                    </table>
 
                     <div class="container">
                         <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E="
@@ -560,20 +569,42 @@
                 <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
                        placeholder=" Enter CPR"> <br>
 -->
-                <tr th:each="leasingContract :${allContracts}">
-                    <td th:text="${leasingContract.contractID}"></td>
-                    <td th:text="${leasingContract.type}"></td>
-                    <td th:text="${leasingContract.serialnumber}"></td>
-                    <td th:text="${leasingContract.startdate}"></td>
-                    <td th:text="${leasingContract.enddate}"></td>
-                </tr>
 
+                <table class="container">
+                    <tbody>
+                    <tr>
+                        <td>ContractID</td>
+                        <td>Type</td>
+                        <td>Serialnumber</td>
+                        <td>Start date</td>
+                        <td>End date</td>
+                    </tr>
+                    <tr th:each="leasingContract :${allContracts}">
+                        <td th:text="${leasingContract.contractID}"></td>
+                        <td th:text="${leasingContract.type}"></td>
+                        <td th:text="${leasingContract.serialnumber}"></td>
+                        <td th:text="${leasingContract.startdate}"></td>
+                        <td th:text="${leasingContract.enddate}"></td>
+                    </tr>
+                    </tbody>
+                </table>
                 <form action="/cancelleasing" method="post">
+
 
 
                     <label for="contractID">Contract ID</label><br>
                     <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
                            placeholder=" Enter Contract ID"> <br><br>
+
+                    <br><h4><b>Is the car damaged?</b></h4>
+                    <label for="yes">Yes</label>
+                    <input type="radio" name="damageCheck" id="yes" value="1"
+                           onclick="return checkDamaged()">
+                    <label for="no">No</label>
+                    <input type="radio" name="damageCheck" id="no" value="0"
+                           onclick="return checkDamaged()"> <br>
+
+                    <input style="border-radius: 15px" type="text" required name="damageCheck" id="damageCheck"> <br>
 
                     <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                     <br>
@@ -581,6 +612,18 @@
                 </form>
 
             </div>
+
+            <script>
+                function checkDamaged(){
+                    let damaged = 0;
+                    if (document.getElementById("yes").checked === true) {
+                        damaged = 1;
+                    }
+
+                    document.getElementById("damageCheck").value = damaged;
+                }
+            </script>
+
 
             <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
@@ -652,25 +695,55 @@
     ui-widget-content" aria-hidden="true" style="display: none;">
                 <div class="row">
                     <div class="column">
+
+                        <table class="container">
+                            <tbody>
+                            <tr>
+                                <td>Serialnumber</td>
+                                <td>Type</td>
+                            </tr>
+                            <tr th:each="leasingContract :${damagedCars}">
+                                <td th:text="${leasingContract.serialnumber}"></td>
+                                <td th:text="${leasingContract.type}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+
                         <form action="/service" method="post">
+
                             <h4><b>Serialnumber</b></h4>
                             <input style="border-radius: 15px" type="text" required name="serialnumber"
-                                   placeholder=" Enter serialnumber"> <br>
+                                   placeholder=" Enter serialnumber"> <br><br>
 
+                            <!--
+                                                        <br><h4><b>Car repair status</b></h4>
+                                                        <label for="repaired">Repaired</label>
+                                                        <input type="checkbox" name="repaired" id="repaired" value="Repaired">
 
-                            <br><h4><b>Car repair status</b></h4>
-                            <label for="repaired">Repaired</label><br>
-                            <input type="radio" name="repaired" id="repaired" value="Repaired">
-                            <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
-                            <label for="damaged">Damaged</label>
-                            <input type="radio" name="damaged" id="damaged" value="Damaged">
-                            <!--                       onclick="return ValidateCheckType(),checkPrice()">-->
+                                                                              onclick="return ValidateCheckType(),checkPrice()">
+                                                        <label for="damaged">Damaged</label>
+                                                        <input type="radio" name="damaged" id="damaged" value="Damaged">
+                                                                           onclick="return ValidateCheckType(),checkPrice()">
 
-
+                            <input style="border-radius: 15px" type="text" required name="repairedCheck" id="repairedCheck"
+                                   onclick="return checkRepaired()">
+                                   -->
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                         </form>
+
+                        <script>
+                            function checkRepaired(){
+                                let repaired = 0;
+                                if (document.getElementById("repaired").checked === true) {
+                                    repaired = 1;
+                                }
+
+                                document.getElementById("repairedCheck").value = repaired;
+                            }
+                        </script>
+
                         <br><br>
 
-                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                     </div>
                     <div class="column">
 

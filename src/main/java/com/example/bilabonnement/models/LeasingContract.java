@@ -1,6 +1,12 @@
 package com.example.bilabonnement.models;
 
+import com.example.bilabonnement.repositories.CarRepository;
+
+import java.io.IOException;
+
 public class LeasingContract {
+
+    CarRepository carRepo = new CarRepository();
 
     private int contractID;
     private String type;
@@ -13,12 +19,11 @@ public class LeasingContract {
    private int leasingperiod;
 
 
-    public LeasingContract() {
+    public LeasingContract() throws IOException {
         
     }
 
-    public LeasingContract(String type, int priceMonthly, int priceTotal, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID)
-    {
+    public LeasingContract(String type, int priceMonthly, int priceTotal, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID) throws IOException {
         this.type = type;
         this.priceMonthly = priceMonthly;
         this.priceTotal = priceTotal;
@@ -29,7 +34,7 @@ public class LeasingContract {
         this.contractID = contractID;
     }
 
-    public LeasingContract(int contractID, String type, String serialnumber, String startdate, String enddate) {
+    public LeasingContract(int contractID, String type, String serialnumber, String startdate, String enddate) throws IOException {
         this.contractID = contractID;
         this.type = type;
         this.serialnumber = serialnumber;
@@ -37,7 +42,7 @@ public class LeasingContract {
         this.enddate = enddate;
     }
 
-    public LeasingContract(String serialnumber) {
+    public LeasingContract(String serialnumber) throws IOException {
         this.serialnumber = serialnumber;
     }
 
@@ -117,6 +122,13 @@ public class LeasingContract {
     public void setLeasingperiod(int leasingperiod)
     {
         this.leasingperiod = leasingperiod;
+    }
+
+    public String getAnnualIncomeTH()
+    {
+        int annualIncome = carRepo.getAnnualIncome();
+        String income = Integer.toString(annualIncome);
+        return income;
     }
 
     @Override

@@ -77,7 +77,7 @@ public class CarRepository {
             }
             return cars.get(0).getSerialnumber();
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -160,8 +160,8 @@ public class CarRepository {
                         resultSet.getInt("id"),
                         resultSet.getString("serialnumber"),
                         resultSet.getString("type"),
-                        resultSet.getBoolean("isDamaged"),
-                        resultSet.getBoolean("isAvailable")));
+                        resultSet.getBoolean("damaged"),
+                        resultSet.getBoolean("available")));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -213,7 +213,7 @@ public class CarRepository {
     public void updateCarDamaged(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set damaged =? where serialnumber=?");
-            Car car = getAvailableCar(serialnumber);
+            Car car = getACar(serialnumber);
             if (car.getIsDamaged() == true) {
                 psts.setBoolean(1, false);
                 psts.setString(2, serialnumber);
@@ -279,7 +279,7 @@ public class CarRepository {
             return totalMonthlyIncome;
 
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -316,7 +316,7 @@ public class CarRepository {
             return annualIncome;
 
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }

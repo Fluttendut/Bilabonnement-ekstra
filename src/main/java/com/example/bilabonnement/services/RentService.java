@@ -55,7 +55,7 @@ public class RentService {
 
 
 
-    public void cancelRentalContract(int contractID) {
+    public void cancelRentalContract(int contractID, int damageCheck) {
         try {
             CarRepository carRepo = new CarRepository();
 
@@ -63,6 +63,10 @@ public class RentService {
             psts2.setInt(1, contractID);
             //TODO fix this stuff
             carRepo.updateCarAvailable(getSerialFromContractID(contractID));
+
+            if (damageCheck == 1){
+                carRepo.updateCarDamaged(getSerialFromContractID(contractID));
+            }
 
             psts2.executeUpdate();
 
@@ -84,7 +88,7 @@ public class RentService {
             }
             return contracts.get(0).getSerialnumber();
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -106,7 +110,7 @@ public class RentService {
 
                 ));
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
 
