@@ -23,17 +23,17 @@ public class HomeController
     {
     }
 
-    public class htmlController
-    {
-        @GetMapping("/")
-        public String index()
-        {
-            return "index";
-        }
-    }
+//    public class htmlController
+//    {
+//        @GetMapping("/")
+//        public String index()
+//        {
+//            return "index";
+//        }
+//    }
 
     //TEMP login så vi kan arbejde med næste side
-    @GetMapping("/login")
+    @GetMapping("/")
     public String login(Model model)
     {
         model.addAttribute("AllCars", repo.getAllCars());
@@ -46,7 +46,7 @@ public class HomeController
 
         model.addAttribute("damagedCars",repo.getAllDamagedCars());
 
-        return "loggedInAdmin";
+        return "frontpage";
     }
 
 
@@ -57,7 +57,7 @@ public class HomeController
 
         rent.createRentalContract(leasingContract, rentee);
 
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @PostMapping("/cancelleasing")
@@ -66,14 +66,14 @@ public class HomeController
         rent.cancelRentalContract(leasingContract.getContractID(), damageCheck);
         //carRepository.updateCarDamage(leasingContract.getSerialnumber()); //todo test this function make html for it
         
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @PostMapping("/service")
     public String service(LeasingContract leasingContract)
     {
         repo.updateCarDamaged(leasingContract.getSerialnumber());
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 }
