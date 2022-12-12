@@ -384,10 +384,7 @@
                     aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
                     <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasing</a>
                 </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="2-qs-3" aria-labelledby="ui-id-18" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-18">Change leasing</a>
-                </li>
+
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
                     <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">View leasing</a>
@@ -665,14 +662,22 @@
             </script>
 
 
-            <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-                Change leasing
-            </div>
 
             <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                View Leasing
+                    <h4><b>View Leasing</b></h4>
+                    <input style="border-radius: 15px" type="text" required name="contract ID"
+                           placeholder=" Enter contract ID"> <br><br>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+
+                <script>
+                    function findLeasing(){
+                        if (document.getElementById("contract ID").value === !null) {
+                            return document.getElementById("contract ID")
+                        }
+                    }
+                </script>
 
             </div>
         </div>
