@@ -384,7 +384,6 @@
                     aria-controls="2-qs-2" aria-labelledby="ui-id-17" aria-selected="false" aria-expanded="false">
                     <a href="#2-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-17">Cancel leasing</a>
                 </li>
-
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
                     <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">View leasing</a>
@@ -604,8 +603,8 @@
                             <br>
 
 
-                            <label for="damagePrice">Price for damages: </label>
-                            <input style="border-radius: 15px" type="text" id="damagePrice" name="damagePrice">
+                            <label for="damangePrice">Price for damages: </label><br>
+                            <input style="border-radius: 15px" type="text" id="damangePrice" name="damangePrice">
 
                             <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <br>
@@ -627,7 +626,7 @@
                                    onclick="return checkDamageType()">
                             <label for="type4">Engine problem</label>
 
-
+                            
                         </form>
 
                     </div>
@@ -662,14 +661,14 @@
             </script>
 
 
-
             <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
+                <form action="/viewContract" method="get">
                     <h4><b>View Leasing</b></h4>
                     <input style="border-radius: 15px" type="text" required name="contract ID"
-                           placeholder=" Enter contract ID"> <br><br>
+                           placeholder=" Enter contract ID" onsubmit="return findLeasing()"> <br><br>
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+                </form>
 
                 <script>
                     function findLeasing(){
@@ -677,6 +676,14 @@
                             return document.getElementById("contract ID")
                         }
                     }
+
+                    // function checkRepaired() {
+                    //     let repaired = 0;
+                    //     if (document.getElementById("repaired").checked === true) {
+                    //         repaired = 1;
+                    //     }
+                    //
+                    //     document.getElementById("repairedCheck").value = repaired;
                 </script>
 
             </div>
