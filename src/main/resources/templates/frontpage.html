@@ -58,7 +58,6 @@
         .container {
             position: relative;
             width: auto;
-            /*height: auto;*/
             max-height: inherit;
         }
 
@@ -588,13 +587,13 @@
                     </tr>
                     </tbody>
                 </table>
-                <form action="/cancelleasing" method="post">
 
-
-
-                    <label for="contractID">Contract ID</label><br>
-                    <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
-                           placeholder=" Enter Contract ID"> <br><br>
+                <div class="row">
+                    <div class="column">
+                        <form action="/cancelleasing" method="post">
+                            <label for="contractID">Contract ID</label><br>
+                            <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
+                                   placeholder=" Enter Contract ID"> <br><br>
 
                     <br><h4><b>Is the car damaged?</b></h4>
                     <label for="yes">Yes</label>
@@ -647,6 +646,7 @@
 
                 }
             </script>
+
 
 
             <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
