@@ -666,9 +666,35 @@
                 <form action="/viewContract" method="get">
                     <h4><b>View Leasing</b></h4>
                     <input style="border-radius: 15px" type="text" required name="contract ID"
-                           placeholder=" Enter contract ID" onsubmit="return findLeasing()"> <br><br>
+                           placeholder=" Enter contract ID"> <br><br>
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </form>
+
+                <table class="container">
+                    <tbody>
+                    <tr>
+
+                        <td>Type</td>
+                        <td>Price monthly</td>
+                        <td>Price total</td>
+                        <td>Serialnumber</td>
+                        <td>Start date</td>
+                        <td>End date</td>
+                        <td>Leasingperiod</td>
+                        <td>ContractID</td>
+                    </tr>
+                    <tr th:each="leasingContract :${Contract}">
+                        <td th:text="${leasingContract.type}"></td>
+                        <td th:text="${leasingContract.priceMonthly}"></td>
+                        <td th:text="${leasingContract.priceTotal}"></td>
+                        <td th:text="${leasingContract.serialnumber}"></td>
+                        <td th:text="${leasingContract.startdate}"></td>
+                        <td th:text="${leasingContract.enddate}"></td>
+                        <td th:text="${leasingContract.leasingperiod}"></td>
+                        <td th:text="${leasingContract.contractID}"></td>
+                    </tr>
+                    </tbody>
+                </table>
 
                 <script>
                     function findLeasing(){

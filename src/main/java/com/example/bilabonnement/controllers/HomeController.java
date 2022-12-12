@@ -78,6 +78,14 @@ public class HomeController
         return "redirect:/";
     }
 
+    @GetMapping("/viewContract")
+    public String viewContract(LeasingContract leasingContract, Model model)
+    {
+        model.addAttribute("Contract", rent.getOneContract(leasingContract.getContractID()));
+        return "redirect:/";
+
+    }
+
 }
 
 // ting der virker 100%

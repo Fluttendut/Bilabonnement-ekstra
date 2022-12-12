@@ -114,4 +114,32 @@ public class RentService {
 
         return contracts;
     }
+
+
+    public List<LeasingContract> getOneContract(int contractID) {
+
+        List<LeasingContract> contract = new ArrayList<>();
+        try {
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing where contractID=?");
+            psts.setInt(1,contractID);
+
+            ResultSet resultSet = psts.executeQuery();
+            while (resultSet.next()) {
+                contract.add(new LeasingContract(
+                        resultSet.getString("type"),
+                        resultSet.getInt("priceMonthly"),
+                        resultSet.getInt("priceTotal"),
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("startdate"),
+                        resultSet.getString("enddate"),
+                        resultSet.getInt("leasingperiod"),
+                        resultSet.getInt("contractID")
+                ));
+            }
+        } catch (SQLException | IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return contract;
+    }
 }
