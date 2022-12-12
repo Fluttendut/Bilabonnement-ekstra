@@ -1,5 +1,6 @@
 package com.example.bilabonnement.controllers;
 
+import com.example.bilabonnement.models.Car;
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.repositories.CarRepository;
@@ -61,9 +62,9 @@ public class HomeController
     }
 
     @PostMapping("/cancelleasing")
-    public String cancelLeasing(LeasingContract leasingContract, int damageCheck)
+    public String cancelLeasing(LeasingContract leasingContract, int damageCheck, String damagePrice)
     {
-        rent.cancelRentalContract(leasingContract.getContractID(), damageCheck);
+        rent.cancelRentalContract(leasingContract.getContractID(), damageCheck, damagePrice);
         //carRepository.updateCarDamage(leasingContract.getSerialnumber()); //todo test this function make html for it
         
         return "redirect:/";
@@ -73,6 +74,7 @@ public class HomeController
     public String service(LeasingContract leasingContract)
     {
         repo.updateCarDamaged(leasingContract.getSerialnumber());
+        repo.resetDamagePrice(leasingContract.getSerialnumber());
         return "redirect:/";
     }
 

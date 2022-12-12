@@ -607,8 +607,8 @@
                             <br>
 
 
-                            <label for="damangePrice">Price for damages: </label>
-                            <input style="border-radius: 15px" type="text" id="damangePrice" name="damangePrice">
+                            <label for="damagePrice">Price for damages: </label>
+                            <input style="border-radius: 15px" type="text" id="damagePrice" name="damagePrice">
 
                             <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <br>
@@ -617,18 +617,18 @@
                     <div class="column">
                         <form>
 
-                            <input type="checkbox" hidden name="damageType" id="damage1" value="damage1"
-                                   onclick="return checkPrice()">
-                            <label for="type1">Luxury</label>
-                            <input type="checkbox" hidden name="damageType" id="damage2" value="damage2"
-                                   onclick="return checkPrice()">
-                            <label for="type2">Big</label>
-                            <input type="checkbox" hidden name="damageType" id="damage3" value="damage3"
-                                   onclick="return checkPrice()">
-                            <label for="type3">Medium</label>
-                            <input type="checkbox" hidden name="damageType" id="damage4" value="damage4"
-                                   onclick="return checkPrice()">
-                            <label for="type4">Small</label>
+                            <input type="checkbox" name="damageType" id="damage1" value="damage1"
+                                   onclick="return checkDamageType()">
+                            <label for="type1">Scratch</label>
+                            <input type="checkbox" name="damageType" id="damage2" value="damage2"
+                                   onclick="return checkDamageType()">
+                            <label for="type2">Rim damaged</label>
+                            <input type="checkbox" name="damageType" id="damage3" value="damage3"
+                                   onclick="return checkDamageType()">
+                            <label for="type3">Cracked windshield</label>
+                            <input type="checkbox" name="damageType" id="damage4" value="damage4"
+                                   onclick="return checkDamageType()">
+                            <label for="type4">Engine problem</label>
 
                             
                         </form>
@@ -648,7 +648,19 @@
 
                 function checkDamageType(){
                     let damagePrice = 0;
-
+                    if (document.getElementById("damage1").checked === true){
+                        damagePrice = damagePrice + 500;
+                    }
+                    if (document.getElementById("damage2").checked === true){
+                        damagePrice = damagePrice + 1000;
+                    }
+                    if (document.getElementById("damage3").checked === true){
+                        damagePrice = damagePrice + 2000;
+                    }
+                    if (document.getElementById("damage4").checked === true){
+                        damagePrice = damagePrice + 4000;
+                    }
+                    document.getElementById("damagePrice").value = damagePrice;
                 }
             </script>
 

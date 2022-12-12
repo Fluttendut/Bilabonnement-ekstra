@@ -22,6 +22,15 @@ public class Car
         this.isAvailable = isAvailable;
 
     }
+    public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable)
+    {
+        this.id = id;
+        this.serialnumber = serialnumber;
+        this.type = type;
+        this.isDamaged = isDamaged;
+        this.isAvailable = isAvailable;
+
+    }
 
 
 
@@ -99,7 +108,13 @@ public class Car
         }
     }
 
-//
+    public String getPriceForCollectiveDamages() {
+        return priceForCollectiveDamages;
+    }
+
+    public void setPriceForCollectiveDamages(String priceForCollectiveDamages) {
+        this.priceForCollectiveDamages = priceForCollectiveDamages;
+    }
 
     @Override
     public String toString()

@@ -106,8 +106,6 @@ public class RentService {
                         resultSet.getString("serialnumber"),
                         resultSet.getString("startdate"),
                         resultSet.getString("enddate")
-
-
                 ));
             }
         } catch (SQLException | IOException e) {
