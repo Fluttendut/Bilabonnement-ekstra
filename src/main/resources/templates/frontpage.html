@@ -606,13 +606,32 @@
 
                     <input style="border-radius: 15px" type="text" required name="damageCheck" id="damageCheck"> <br>
 
-                    <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    <br>
+                            <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <br>
+                        </form>
+                    </div>
+                    <div class="column">
+                        <form>
 
-                </form>
+                            <input type="checkbox" hidden name="damageType" id="damage1" value="damage1"
+                                   onclick="return checkPrice()">
+                            <label for="type1">Luxury</label>
+                            <input type="checkbox" hidden name="damageType" id="damage2" value="damage2"
+                                   onclick="return checkPrice()">
+                            <label for="type2">Big</label>
+                            <input type="checkbox" hidden name="damageType" id="damage3" value="damage3"
+                                   onclick="return checkPrice()">
+                            <label for="type3">Medium</label>
+                            <input type="checkbox" hidden name="damageType" id="damage4" value="damage4"
+                                   onclick="return checkPrice()">
+                            <label for="type4">Small</label>
 
+                            
+                        </form>
+
+                    </div>
+                </div>
             </div>
-
             <script>
                 function checkDamaged(){
                     let damaged = 0;
@@ -621,6 +640,11 @@
                     }
 
                     document.getElementById("damageCheck").value = damaged;
+                }
+
+                function checkDamageType(){
+                    let damagePrice = 0;
+
                 }
             </script>
 
