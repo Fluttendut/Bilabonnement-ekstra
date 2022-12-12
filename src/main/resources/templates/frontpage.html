@@ -563,11 +563,11 @@
 
             <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-<!--
-                <label for="cprCancel">CPR</label><br>
-                <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
-                       placeholder=" Enter CPR"> <br>
--->
+                <!--
+                                <label for="cprCancel">CPR</label><br>
+                                <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
+                                       placeholder=" Enter CPR"> <br>
+                -->
 
                 <table class="container">
                     <tbody>
@@ -595,15 +595,20 @@
                             <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
                                    placeholder=" Enter Contract ID"> <br><br>
 
-                    <br><h4><b>Is the car damaged?</b></h4>
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="damageCheck" id="yes" value="1"
-                           onclick="return checkDamaged()">
-                    <label for="no">No</label>
-                    <input type="radio" name="damageCheck" id="no" value="0"
-                           onclick="return checkDamaged()"> <br>
+                            <br><h4><b>Is the car damaged?</b></h4>
+                            <label for="yes">Yes</label>
+                            <input type="radio" name="damageCheck" id="yes" value="1"
+                                   onclick="return checkDamaged()">
+                            <label for="no">No</label>
+                            <input type="radio" name="damageCheck" id="no" value="0"
+                                   onclick="return checkDamaged()"> <br>
 
-                    <input style="border-radius: 15px" type="text" required name="damageCheck" id="damageCheck"> <br>
+                            <input style="border-radius: 15px" type="text" required name="damageCheck" id="damageCheck">
+                            <br>
+
+
+                            <label for="damangePrice">Price for damages: </label>
+                            <input style="border-radius: 15px" type="text" id="damangePrice" name="damangePrice">
 
                             <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <br>
@@ -632,7 +637,7 @@
                 </div>
             </div>
             <script>
-                function checkDamaged(){
+                function checkDamaged() {
                     let damaged = 0;
                     if (document.getElementById("yes").checked === true) {
                         damaged = 1;
@@ -648,7 +653,6 @@
             </script>
 
 
-
             <div id="2-qs-3" aria-labelledby="ui-id-18" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
                 Change leasing
@@ -662,125 +666,125 @@
         </div>
     </div>
 
-            <div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    <div id="accounting" aria-labelledby="ui-id-4" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-                <div id="tabs-accounting" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
-                    <ul role="tablist"
-                        class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                            aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false"
-                            aria-expanded="false">
-                            <a href="#3-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-21">1</a>
-                        </li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                            aria-controls="3-qs-2" aria-labelledby="ui-id-22" aria-selected="false"
-                            aria-expanded="false">
-                            <a href="#3-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-22">2</a>
-                        </li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                            aria-controls="3-qs-3" aria-labelledby="ui-id-23" aria-selected="false"
-                            aria-expanded="false">
-                            <a href="#3-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-23">3</a>
-                        </li>
-                        <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                            aria-controls="3-qs-4" aria-labelledby="ui-id-24" aria-selected="false"
-                            aria-expanded="false">
-                            <a href="#3-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-24">4</a>
-                        </li>
-                    </ul>
+        <div id="tabs-accounting" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
+            <ul role="tablist"
+                class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false"
+                    aria-expanded="false">
+                    <a href="#3-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-21">1</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-2" aria-labelledby="ui-id-22" aria-selected="false"
+                    aria-expanded="false">
+                    <a href="#3-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-22">2</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-3" aria-labelledby="ui-id-23" aria-selected="false"
+                    aria-expanded="false">
+                    <a href="#3-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-23">3</a>
+                </li>
+                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                    aria-controls="3-qs-4" aria-labelledby="ui-id-24" aria-selected="false"
+                    aria-expanded="false">
+                    <a href="#3-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-24">4</a>
+                </li>
+            </ul>
 
-                    <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+            <div id="3-qs-1" aria-labelledby="ui-id-21" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-                    </div>
-
-                    <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-                        <p>:</p>
-
-
-                    </div>
-
-                    <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-                    </div>
-
-                    <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-                    </div>
-                </div>
             </div>
 
-
-            <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+            <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <div class="row">
-                    <div class="column">
+                <p>:</p>
 
-                        <table class="container">
-                            <tbody>
-                            <tr>
-                                <td>Serialnumber</td>
-                                <td>Type</td>
-                            </tr>
-                            <tr th:each="leasingContract :${damagedCars}">
-                                <td th:text="${leasingContract.serialnumber}"></td>
-                                <td th:text="${leasingContract.type}"></td>
-                            </tr>
-                            </tbody>
-                        </table>
 
-                        <form action="/service" method="post">
+            </div>
 
-                            <h4><b>Serialnumber</b></h4>
-                            <input style="border-radius: 15px" type="text" required name="serialnumber"
-                                   placeholder=" Enter serialnumber"> <br><br>
+            <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
 
-                            <!--
-                                                        <br><h4><b>Car repair status</b></h4>
-                                                        <label for="repaired">Repaired</label>
-                                                        <input type="checkbox" name="repaired" id="repaired" value="Repaired">
+            </div>
 
-                                                                              onclick="return ValidateCheckType(),checkPrice()">
-                                                        <label for="damaged">Damaged</label>
-                                                        <input type="radio" name="damaged" id="damaged" value="Damaged">
-                                                                           onclick="return ValidateCheckType(),checkPrice()">
+            <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
 
-                            <input style="border-radius: 15px" type="text" required name="repairedCheck" id="repairedCheck"
-                                   onclick="return checkRepaired()">
-                                   -->
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                        </form>
+            </div>
+        </div>
+    </div>
 
-                        <script>
-                            function checkRepaired(){
-                                let repaired = 0;
-                                if (document.getElementById("repaired").checked === true) {
-                                    repaired = 1;
-                                }
 
-                                document.getElementById("repairedCheck").value = repaired;
-                            }
-                        </script>
+    <div id="service" aria-labelledby="ui-id-5" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
+    ui-widget-content" aria-hidden="true" style="display: none;">
+        <div class="row">
+            <div class="column">
 
-                        <br><br>
+                <table class="container">
+                    <tbody>
+                    <tr>
+                        <td>Serialnumber</td>
+                        <td>Type</td>
+                    </tr>
+                    <tr th:each="leasingContract :${damagedCars}">
+                        <td th:text="${leasingContract.serialnumber}"></td>
+                        <td th:text="${leasingContract.type}"></td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                    </div>
-                    <div class="column">
+                <form action="/service" method="post">
 
-                        <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
-                             alt="Mechanic"
-                             style="object-fit: cover;
+                    <h4><b>Serialnumber</b></h4>
+                    <input style="border-radius: 15px" type="text" required name="serialnumber"
+                           placeholder=" Enter serialnumber"> <br><br>
+
+                    <!--
+                                                <br><h4><b>Car repair status</b></h4>
+                                                <label for="repaired">Repaired</label>
+                                                <input type="checkbox" name="repaired" id="repaired" value="Repaired">
+
+                                                                      onclick="return ValidateCheckType(),checkPrice()">
+                                                <label for="damaged">Damaged</label>
+                                                <input type="radio" name="damaged" id="damaged" value="Damaged">
+                                                                   onclick="return ValidateCheckType(),checkPrice()">
+
+                    <input style="border-radius: 15px" type="text" required name="repairedCheck" id="repairedCheck"
+                           onclick="return checkRepaired()">
+                           -->
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </form>
+
+                <script>
+                    function checkRepaired() {
+                        let repaired = 0;
+                        if (document.getElementById("repaired").checked === true) {
+                            repaired = 1;
+                        }
+
+                        document.getElementById("repairedCheck").value = repaired;
+                    }
+                </script>
+
+                <br><br>
+
+            </div>
+            <div class="column">
+
+                <img src="https://img.freepik.com/free-photo/muscular-car-service-worker-repairing-vehicle_146671-19605.jpg?w=2000"
+                     alt="Mechanic"
+                     style="object-fit: cover;
                      width: auto;
                       height: 300px;
                       float: left;">
-                    </div>
-                </div>
             </div>
         </div>
+    </div>
+</div>
 </body>
 </html>
 
