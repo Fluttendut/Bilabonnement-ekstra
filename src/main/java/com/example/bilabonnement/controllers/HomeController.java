@@ -92,21 +92,21 @@ public class HomeController
 //TODO delete contract
 //TODO sammenlagt pris for udlejede biler (accounting)
 //TODO update car (damaged)
+//TODO pris ved skade
 
 // Ting vi tror fungerer / skal testes
 //TODO create car
 //TODO delete car
-//TODO binde tingene sammen
 
 // Ting vi mangler
 //TODO opdater html design (især index)
-//TODO pris ved skade
 //TODO sammenlagt pris for udlejede biler (accounting) html
 //todo fejlhåndtering ved forkert indput
 //todo add pattern to input boxes
 //todo mekaniker siden html (service)
 //todo accounting siden html
 //todo ekstra udstyr? lav som checkbox
+//TODO binde tingene sammen
 //todo clean up code
 
 //ting vi har skåret fra

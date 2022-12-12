@@ -55,7 +55,7 @@ public class RentService {
 
 
 
-    public void cancelRentalContract(int contractID, int damageCheck) {
+    public void cancelRentalContract(int contractID, int damageCheck, String damagePrice) {
         try {
             CarRepository carRepo = new CarRepository();
 
@@ -63,7 +63,7 @@ public class RentService {
             psts2.setInt(1, contractID);
             //TODO fix this stuff
             carRepo.updateCarAvailable(getSerialFromContractID(contractID));
-
+            carRepo.updateCarDamagePrice(getSerialFromContractID(contractID),damagePrice);
             if (damageCheck == 1){
                 carRepo.updateCarDamaged(getSerialFromContractID(contractID));
             }

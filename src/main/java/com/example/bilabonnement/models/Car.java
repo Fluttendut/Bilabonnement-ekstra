@@ -8,19 +8,20 @@ public class Car
     private String type;
     private boolean isDamaged = false;
     private boolean isAvailable = true;
+    private String priceForCollectiveDamages;
 
     public Car()
     {
     }
 
-    public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable)
+    public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable, String priceForCollectiveDamages)
     {
         this.id = id;
         this.serialnumber = serialnumber;
         this.type = type;
         this.isDamaged = isDamaged;
         this.isAvailable = isAvailable;
-
+        this.priceForCollectiveDamages = priceForCollectiveDamages;
     }
     public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable)
     {
@@ -121,6 +122,7 @@ public class Car
     {
         return "Car{" +
                 "id=" + id +
+                "priceForCollectiveDamages=" + priceForCollectiveDamages +
                 ", serialnumber=" + serialnumber +
                 ", type='" + type + '\'' +
                 ", isDamaged=" + isDamaged +

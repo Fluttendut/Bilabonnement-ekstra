@@ -250,6 +250,29 @@ public class CarRepository {
         }
     }
 
+    public void updateCarDamagePrice(String serialnumber, String priceForCollectiveDamage) throws RuntimeException {
+        try {
+            PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set PriceForCollectiveDamage=? where serialnumber=?");
+
+            psts.setString(1, priceForCollectiveDamage);
+            psts.setString(2, serialnumber);
+            psts.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void resetDamagePrice(String serialnumber) throws RuntimeException {
+        try {
+            PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set PriceForCollectiveDamage=? where serialnumber=?");
+            psts.setString(1,"0");
+            psts.setString(2,serialnumber);
+            psts.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public int getMonthlyIncome() {
 
         int totalMonthlyIncome = 0;
