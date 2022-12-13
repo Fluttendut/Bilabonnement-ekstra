@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.io.IOException;
 
 
@@ -35,7 +37,7 @@ public class HomeController
 
     //TEMP login så vi kan arbejde med næste side
     @GetMapping("/")
-    public String login(Model model)
+    public String login(Model model, @RequestParam(required = false) Integer contractID)
     {
         model.addAttribute("AllCars", repo.getAllCars());
         model.addAttribute("SmallCars", repo.getAllCarsByType("small"));
@@ -46,6 +48,11 @@ public class HomeController
         model.addAttribute("allContracts", rent.getAllContracts());
 
         model.addAttribute("damagedCars",repo.getAllDamagedCars());
+
+
+        model.addAttribute("ContractsInfo", rent.getAllContractsWithAllInfo());
+
+
 
         return "frontpage";
     }
@@ -78,13 +85,16 @@ public class HomeController
         return "redirect:/";
     }
 
-    @GetMapping("/viewContract")
+    /*@GetMapping("/viewContract")
     public String viewContract(LeasingContract leasingContract, Model model)
     {
         model.addAttribute("Contract", rent.getOneContract(leasingContract.getContractID()));
-        return "redirect:/";
+
+        return "";
 
     }
+
+     */
 
 }
 

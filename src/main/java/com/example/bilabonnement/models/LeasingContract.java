@@ -42,9 +42,10 @@ public class LeasingContract {
         this.enddate = enddate;
     }
 
-    public LeasingContract(String serialnumber) throws IOException {
+    public LeasingContract(String serialnumber, String type) throws IOException {
         this.serialnumber = serialnumber;
     }
+
 
     public int getContractID() {
         return contractID;

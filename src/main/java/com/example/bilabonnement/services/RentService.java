@@ -1,15 +1,13 @@
 package com.example.bilabonnement.services;
 
+import com.example.bilabonnement.models.Accounting;
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.DatabaseConnectionManager;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class RentService {
     public void createRentalContract(LeasingContract leasingContract, Rentee rentee) {
         try {
             CarRepository carRepository = new CarRepository();
-
+            Accounting accounting = new Accounting();
 
             PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, startdate,enddate,serialnumber, priceMonthly, priceTotal,leasingperiod,name, Email, CPR,address) values(?,?,?,?,?,?,?,?,?,?,?)"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
             psts.setString(1, leasingContract.getType());
@@ -46,6 +44,8 @@ public class RentService {
             psts.setString(10, rentee.getCpr());
             psts.setString(11, rentee.getAddress());
 
+            //addToAccounting(leasingContract);
+
             psts.executeUpdate();
 
         } catch (SQLException | IOException e) {
@@ -61,7 +61,6 @@ public class RentService {
 
             PreparedStatement psts2 = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
             psts2.setInt(1, contractID);
-            //TODO fix this stuff
             carRepo.updateCarAvailable(getSerialFromContractID(contractID));
             carRepo.updateCarDamagePrice(getSerialFromContractID(contractID),damagePrice);
             if (damageCheck == 1){
@@ -84,7 +83,9 @@ public class RentService {
             ResultSet resultSet = psts.executeQuery();
 
             while (resultSet.next()) {
-                contracts.add(new LeasingContract(resultSet.getString("serialnumber")));
+                contracts.add(new LeasingContract(
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("type")));
             }
             return contracts.get(0).getSerialnumber();
 
@@ -116,12 +117,11 @@ public class RentService {
     }
 
 
-    public List<LeasingContract> getOneContract(int contractID) {
+    public List<LeasingContract> getAllContractsWithAllInfo() {
 
         List<LeasingContract> contract = new ArrayList<>();
         try {
-            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing where contractID=?");
-            psts.setInt(1,contractID);
+            PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
 
             ResultSet resultSet = psts.executeQuery();
             while (resultSet.next()) {
@@ -142,4 +142,31 @@ public class RentService {
 
         return contract;
     }
+
+    public void addToAccounting(LeasingContract leasingContract) throws SQLException {
+
+
+        /*
+        Accounting accounting = new Accounting();
+
+        accounting.setCurrentLeasedCars(accounting.getCurrentLeasedCars() + 1);
+        System.out.println(accounting.getCurrentLeasedCars());
+
+        accounting.setMonthlyIncome(accounting.getMonthlyIncome() + leasingContract.getPriceMonthly());
+        System.out.println(accounting.getMonthlyIncome());
+
+        accounting.setAnnualIncome(accounting.getAnnualIncome() + (leasingContract.getPriceMonthly()*12));
+        System.out.println(accounting.getAnnualIncome());
+
+        accounting.money();
+        System.out.println(accounting.money());
+        */
+
+    }
+    public void removeFromAccounting(LeasingContract leasingContract, Accounting accounting) throws SQLException {
+        accounting.setCurrentLeasedCars(accounting.getCurrentLeasedCars() - 1);
+        accounting.setMonthlyIncome(accounting.getMonthlyIncome() - leasingContract.getPriceMonthly());
+        accounting.setAnnualIncome(accounting.getAnnualIncome() - (leasingContract.getPriceMonthly()*12));
+    }
+
 }

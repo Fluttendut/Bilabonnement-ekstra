@@ -73,7 +73,9 @@ public class CarRepository {
             ResultSet resultSet = psts.executeQuery();
 
             while (resultSet.next()) {
-                cars.add(new LeasingContract(resultSet.getString("serialnumber")));
+                cars.add(new LeasingContract(
+                        resultSet.getString("serialnumber"),
+                        resultSet.getString("type")));
             }
             return cars.get(0).getSerialnumber();
 

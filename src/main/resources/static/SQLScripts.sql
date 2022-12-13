@@ -20,13 +20,6 @@ create table User
     password varchar(50)        not null
 );
 
-create table rentee
-(
-    name    varchar(50)        not null,
-    email   varchar(50) unique not null,
-    cpr     int unique         not null,
-    address varchar(50)        not null
-);
 
 create table leasing
 (
@@ -34,7 +27,13 @@ create table leasing
     price        int         not null,
     startdate    date        not null,
     enddate      date        not null,
-    serialnumber int         not null,
+    serialnumber int         not null
+);
 
-    foreign key (serialnumber) references Cars (serialnumber)
-)
+create table accounting
+(
+  currentLeasedCars varchar(50),
+  monthlyIncome     varchar(50),
+  annualIncome      varchar(50)
+);
+

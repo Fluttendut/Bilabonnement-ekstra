@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RenteeRepository {
-
+/*
     private Connection conn = DatabaseConnectionManager.getConnection();
 
     public RenteeRepository() throws IOException {
     }
-/*
+
     public List<Rentee> getRentee(String name, String email) {
 
         List<Rentee> rentee = new ArrayList<>();
@@ -110,4 +110,6 @@ public class RenteeRepository {
     }
 
  */
+
+
 }

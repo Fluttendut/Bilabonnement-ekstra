@@ -22,23 +22,6 @@
             $("#tabs-accounting").tabs();
             $("#tabs-service").tabs();
             $("#tabs-webs").tabs();
-
-
-            $("#btnRun").click(function () {
-                $.ajax({
-                    url: "https://api.nationalize.io/?name=" + encodeURIComponent($("#name").val()),
-                    success: function (result) {
-                        $("#webresult").html("");
-                        $.each(result.country, function (i) {
-                            $.each(result.country[i], function (key, val) {
-                                $("#webresult").append("<div>" + key + ":" + val + "</div>");
-                            });
-                        });
-                    }
-                });
-            });
-
-
         });
     </script>
 
@@ -147,8 +130,8 @@
     ui-widget-content" aria-hidden="false">
 
         <h1>Greetings from skynet!</h1>
-        <h4>Welcome to the frontpage of BilAbonnement! You have successfully logged in</h4>
-        <h4>You will now have access to the program and its features!</h4><br>
+        <h4>Welcome to the frontpage of BilAbonnement!</h4>
+        <h4>From here you will now have access to the program and its features!</h4><br>
         <h5>Have a nice day!</h5>
         <br>
     </div>
@@ -207,15 +190,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <table class="container">
-                        <tbody>
-                        <tr>
-                            <td>Annual</td>
-                        </tr>
-                        <tr th:each="leasingcontract :${annualIncome}">
-                            <td th:text="${leasingcontract.AnnualIncomeTH}"></td>
-                        </tbody>
-                    </table>
+
 
                     <div class="container">
                         <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E="
@@ -386,7 +361,7 @@
                 </li>
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
                     aria-controls="2-qs-4" aria-labelledby="ui-id-19" aria-selected="false" aria-expanded="false">
-                    <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">View leasing</a>
+                    <a href="#2-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-19">View all leasings</a>
                 </li>
             </ul>
 
@@ -401,15 +376,21 @@
                             <label for="name">Name</label><br>
                             <input style="border-radius: 15px" type="text" required name="name" id="name"
                                    placeholder=" Enter name"> <br>
+
                             <label for="email">E-mail</label><br>
                             <input style="border-radius: 15px" type="text" required name="email" id="email"
-                                   placeholder=" Enter e-mail"> <br>
+                                   placeholder=" Enter e-mail"
+                                   pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                                   oninvalid="this.setCustomValidity('Invalid email: @ or . is missing')"
+                                   onkeyup="setCustomValidity('')"> <br>
+
                             <label for="cprCreate">CPR</label><br>
                             <input style="border-radius: 15px" type="text" required name="cpr" id="cprCreate"
                                    placeholder=" Enter CPR"
                                    pattern="[0-9]{10,10}"
                                    oninvalid="this.setCustomValidity('Enter 10 digit cpr')"
                                    onkeyup="setCustomValidity('')"> <br>
+
                             <label for="address">Address</label><br>
                             <input style="border-radius: 15px" type="text" required name="address" id="address"
                                    placeholder=" Enter address"> <br>
@@ -588,7 +569,7 @@
                     <div class="column">
                         <form action="/cancelleasing" method="post">
                             <label for="contractID">Contract ID</label><br>
-                            <input style="border-radius: 15px" type="text" required name="contractID" id="contractID"
+                            <input style="border-radius: 15px" type="number" required name="contractID" id="contractID"
                                    placeholder=" Enter Contract ID"> <br><br>
 
                             <br><h4><b>Is the car damaged?</b></h4>
@@ -599,12 +580,11 @@
                             <input type="radio" name="damageCheck" id="no" value="0"
                                    onclick="return checkDamaged()"> <br>
 
-                            <input style="border-radius: 15px" type="text" required name="damageCheck" id="damageCheck">
+                            <input style="border-radius: 15px" type="text" required hidden name="damageCheck" id="damageCheck">
                             <br>
 
-
-                            <label for="damangePrice">Price for damages: </label><br>
-                            <input style="border-radius: 15px" type="text" id="damangePrice" name="damangePrice">
+                            <label for="damagePrice">Price for damages: </label><br>
+                            <input style="border-radius: 15px" type="text" id="damagePrice" name="damagePrice">
 
                             <button id="cancelButton" type="submit" class="btn btn-primary btn-lg">Submit</button>
                             <br>
@@ -663,54 +643,42 @@
 
             <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
+
+        <!--
                 <form action="/viewContract" method="get">
                     <h4><b>View Leasing</b></h4>
                     <input style="border-radius: 15px" type="text" required name="contract ID"
                            placeholder=" Enter contract ID"> <br><br>
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </form>
-
+        -->
                 <table class="container">
                     <tbody>
                     <tr>
-
+                        <td>ContractID</td>
+                        <td>Serialnumber</td>
                         <td>Type</td>
                         <td>Price monthly</td>
                         <td>Price total</td>
-                        <td>Serialnumber</td>
                         <td>Start date</td>
                         <td>End date</td>
                         <td>Leasingperiod</td>
-                        <td>ContractID</td>
+
                     </tr>
-                    <tr th:each="leasingContract :${Contract}">
+                    <tr th:each="leasingContract :${ContractsInfo}">
+                        <td th:text="${leasingContract.contractID}"></td>
+                        <td th:text="${leasingContract.serialnumber}"></td>
                         <td th:text="${leasingContract.type}"></td>
                         <td th:text="${leasingContract.priceMonthly}"></td>
                         <td th:text="${leasingContract.priceTotal}"></td>
-                        <td th:text="${leasingContract.serialnumber}"></td>
                         <td th:text="${leasingContract.startdate}"></td>
                         <td th:text="${leasingContract.enddate}"></td>
                         <td th:text="${leasingContract.leasingperiod}"></td>
-                        <td th:text="${leasingContract.contractID}"></td>
+
                     </tr>
                     </tbody>
                 </table>
 
-                <script>
-                    function findLeasing(){
-                        if (document.getElementById("contract ID").value === !null) {
-                            return document.getElementById("contract ID")
-                        }
-                    }
-
-                    // function checkRepaired() {
-                    //     let repaired = 0;
-                    //     if (document.getElementById("repaired").checked === true) {
-                    //         repaired = 1;
-                    //     }
-                    //
-                    //     document.getElementById("repairedCheck").value = repaired;
-                </script>
 
             </div>
         </div>
