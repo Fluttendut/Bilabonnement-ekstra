@@ -1,6 +1,5 @@
 package com.example.bilabonnement.services;
 
-import com.example.bilabonnement.models.Accounting;
 import com.example.bilabonnement.models.LeasingContract;
 import com.example.bilabonnement.models.Rentee;
 import com.example.bilabonnement.repositories.CarRepository;
@@ -21,7 +20,6 @@ public class RentService {
     public void createRentalContract(LeasingContract leasingContract, Rentee rentee) {
         try {
             CarRepository carRepository = new CarRepository();
-            Accounting accounting = new Accounting();
 
             PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, startdate,enddate,serialnumber, priceMonthly, priceTotal,leasingperiod,name, Email, CPR,address) values(?,?,?,?,?,?,?,?,?,?,?)"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
             psts.setString(1, leasingContract.getType());
@@ -44,9 +42,10 @@ public class RentService {
             psts.setString(10, rentee.getCpr());
             psts.setString(11, rentee.getAddress());
 
-            //addToAccounting(leasingContract);
+            addIncomeAccounting(leasingContract);
 
             psts.executeUpdate();
+
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
@@ -59,15 +58,15 @@ public class RentService {
         try {
             CarRepository carRepo = new CarRepository();
 
-            PreparedStatement psts2 = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
-            psts2.setInt(1, contractID);
+            PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
+            psts.setInt(1, contractID);
             carRepo.updateCarAvailable(getSerialFromContractID(contractID));
             carRepo.updateCarDamagePrice(getSerialFromContractID(contractID),damagePrice);
             if (damageCheck == 1){
                 carRepo.updateCarDamaged(getSerialFromContractID(contractID));
             }
-
-            psts2.executeUpdate();
+            removeFromAccounting(contractID);
+            psts.executeUpdate();
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
@@ -143,30 +142,21 @@ public class RentService {
         return contract;
     }
 
-    public void addToAccounting(LeasingContract leasingContract) throws SQLException {
+    public void addIncomeAccounting(LeasingContract leasingContract) throws SQLException {
 
-
-        /*
-        Accounting accounting = new Accounting();
-
-        accounting.setCurrentLeasedCars(accounting.getCurrentLeasedCars() + 1);
-        System.out.println(accounting.getCurrentLeasedCars());
-
-        accounting.setMonthlyIncome(accounting.getMonthlyIncome() + leasingContract.getPriceMonthly());
-        System.out.println(accounting.getMonthlyIncome());
-
-        accounting.setAnnualIncome(accounting.getAnnualIncome() + (leasingContract.getPriceMonthly()*12));
-        System.out.println(accounting.getAnnualIncome());
-
-        accounting.money();
-        System.out.println(accounting.money());
-        */
+        PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.accounting(monthlyIncome,annualIncome,contractID) values(?,?,?)");
+        psts.setInt(1,leasingContract.getPriceMonthly());
+        psts.setInt(2,(leasingContract.getPriceMonthly()*12));
+        psts.setInt(3,leasingContract.getContractID());
+        psts.executeUpdate();
 
     }
-    public void removeFromAccounting(LeasingContract leasingContract, Accounting accounting) throws SQLException {
-        accounting.setCurrentLeasedCars(accounting.getCurrentLeasedCars() - 1);
-        accounting.setMonthlyIncome(accounting.getMonthlyIncome() - leasingContract.getPriceMonthly());
-        accounting.setAnnualIncome(accounting.getAnnualIncome() - (leasingContract.getPriceMonthly()*12));
+    public void removeFromAccounting(int contractID) throws SQLException {
+
+        PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.accounting where contractID=?");
+        psts.setInt(1,contractID);
+        psts.executeUpdate();
+
     }
 
 }
