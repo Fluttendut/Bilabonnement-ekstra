@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 @Controller
@@ -37,22 +38,20 @@ public class HomeController
 
     //TEMP login så vi kan arbejde med næste side
     @GetMapping("/")
-    public String login(Model model, @RequestParam(required = false) Integer contractID)
-    {
-        model.addAttribute("AllCars", repo.getAllCars());
-        model.addAttribute("SmallCars", repo.getAllCarsByType("small"));
-        model.addAttribute("MediumCars", repo.getAllCarsByType("medium"));
-        model.addAttribute("BigCars", repo.getAllCarsByType("big"));
-        model.addAttribute("LuxuryCars", repo.getAllCarsByType("luxury"));
+    public String login(Model model) throws SQLException {
+        model.addAttribute("AllCars",repo.getAllCars());
+        model.addAttribute("SmallCars",repo.getAllCarsByType("small"));
+        model.addAttribute("MediumCars",repo.getAllCarsByType("medium"));
+        model.addAttribute("BigCars",repo.getAllCarsByType("big"));
+        model.addAttribute("LuxuryCars",repo.getAllCarsByType("luxury"));
 
-        model.addAttribute("allContracts", rent.getAllContracts());
+        model.addAttribute("allContracts",rent.getAllContracts());
+        model.addAttribute("ContractsInfo",rent.getAllContractsWithAllInfo());
 
         model.addAttribute("damagedCars",repo.getAllDamagedCars());
 
-
-        model.addAttribute("ContractsInfo", rent.getAllContractsWithAllInfo());
-
-
+        model.addAttribute("income",rent.getAccountingIncome());
+        model.addAttribute("leasedCars",rent.getAccountingCars());
 
         return "frontpage";
     }
@@ -111,6 +110,8 @@ public class HomeController
 //TODO sammenlagt pris for udlejede biler (accounting)
 //TODO update car (damaged)
 //TODO pris ved skade
+//todo mekaniker siden html (service)
+//todo accounting siden html
 
 // Ting vi tror fungerer / skal testes
 //TODO create car
@@ -121,8 +122,6 @@ public class HomeController
 //TODO sammenlagt pris for udlejede biler (accounting) html
 //todo fejlhåndtering ved forkert indput
 //todo add pattern to input boxes
-//todo mekaniker siden html (service)
-//todo accounting siden html
 //todo ekstra udstyr? lav som checkbox
 //TODO binde tingene sammen
 //todo clean up code

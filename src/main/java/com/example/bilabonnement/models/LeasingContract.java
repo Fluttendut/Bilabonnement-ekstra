@@ -6,17 +6,17 @@ import java.io.IOException;
 
 public class LeasingContract {
 
-    CarRepository carRepo = new CarRepository();
-
     private int contractID;
     private String type;
     private int priceMonthly;
     private int priceTotal;
+    private int priceAnnual;
     private String serialnumber;
 
    private String startdate;
    private String enddate;
    private int leasingperiod;
+   private int numberOfContracts;
 
 
     public LeasingContract() throws IOException {
@@ -33,6 +33,17 @@ public class LeasingContract {
         this.leasingperiod = leasingperiod;
         this.contractID = contractID;
     }
+    public LeasingContract(String type, int priceMonthly, int priceTotal,int priceAnnual, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID) throws IOException {
+        this.type = type;
+        this.priceMonthly = priceMonthly;
+        this.priceTotal = priceTotal;
+        this.priceAnnual = priceAnnual;
+        this.serialnumber = serialnumber;
+        this.startdate = startdate;
+        this.enddate = enddate;
+        this.leasingperiod = leasingperiod;
+        this.contractID = contractID;
+    }
 
     public LeasingContract(int contractID, String type, String serialnumber, String startdate, String enddate) throws IOException {
         this.contractID = contractID;
@@ -40,6 +51,15 @@ public class LeasingContract {
         this.serialnumber = serialnumber;
         this.startdate = startdate;
         this.enddate = enddate;
+    }
+
+    public LeasingContract(int priceMonthly, int priceAnnual) throws IOException {
+        this.priceMonthly = priceMonthly;
+        this.priceAnnual = priceAnnual;
+    }
+
+    public LeasingContract(int numberOfContracts) {
+        this.numberOfContracts = numberOfContracts;
     }
 
     public LeasingContract(String serialnumber, String type) throws IOException {
@@ -125,25 +145,35 @@ public class LeasingContract {
         this.leasingperiod = leasingperiod;
     }
 
-    public String getAnnualIncomeTH()
-    {
-        int annualIncome = carRepo.getAnnualIncome();
-        String income = Integer.toString(annualIncome);
-        return income;
+    public int getPriceAnnual() {
+        return priceAnnual;
+    }
+
+    public void setPriceAnnual(int priceAnnual) {
+        this.priceAnnual = priceAnnual;
+    }
+
+    public int getNumberOfContracts() {
+        return numberOfContracts;
+    }
+
+    public void setNumberOfContracts(int numberOfContracts) {
+        this.numberOfContracts = numberOfContracts;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "LeasingContract{" +
                 "contractID=" + contractID +
                 ", type='" + type + '\'' +
                 ", priceMonthly=" + priceMonthly +
                 ", priceTotal=" + priceTotal +
-                ", serialnumber=" + serialnumber +
+                ", priceAnnual=" + priceAnnual +
+                ", serialnumber='" + serialnumber + '\'' +
                 ", startdate='" + startdate + '\'' +
                 ", enddate='" + enddate + '\'' +
                 ", leasingperiod=" + leasingperiod +
+                ", numberOfContracts=" + numberOfContracts +
                 '}';
     }
 }
