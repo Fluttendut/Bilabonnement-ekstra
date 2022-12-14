@@ -26,7 +26,7 @@ public class RentService {
             psts.setString(2, leasingContract.getStartdate());
             psts.setString(3, leasingContract.getEnddate());
 
-            if (leasingContract.getSerialnumber().equals("")) {
+            if (leasingContract.getSerialnumber().equals("") || checkIfSerialnumberIsAvailable(leasingContract.getSerialnumber()) == false) {
                 psts.setString(4, carRepository.autoSerialNumber(leasingContract.getType()));
                 carRepository.updateCarAvailable(carRepository.autoSerialNumber(leasingContract.getType()));
             } else {
@@ -179,14 +179,15 @@ public class RentService {
         return leasedCars;
         }
 
-        public int checkIfSerialnumberExist(String serialnumber) throws SQLException {
-            int checkIfExist = 1;
-            PreparedStatement psts = conn.prepareStatement("select serialnumber from bilabonnement.leasing where serialnumber=?");
+        public boolean checkIfSerialnumberIsAvailable(String serialnumber) throws SQLException {
+            boolean checkIfAvailable;
+            PreparedStatement psts = conn.prepareStatement("select available from bilabonnement.cars where serialnumber=?");
             psts.setString(1, serialnumber);
-            if (psts.equals("")){
-                checkIfExist = -1;
-            }
-            return checkIfExist;
+            if (psts.equals(1)){
+                checkIfAvailable = true;
+            } else checkIfAvailable = false;
+
+            return checkIfAvailable;
         }
 
 }
