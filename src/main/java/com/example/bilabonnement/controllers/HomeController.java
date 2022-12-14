@@ -61,7 +61,6 @@ public class HomeController
     @PostMapping("/createleasing")
     public String createLeasing(LeasingContract leasingContract, Rentee rentee)
     {
-
         rent.createRentalContract(leasingContract, rentee);
 
         return "redirect:/";

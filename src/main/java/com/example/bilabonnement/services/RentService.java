@@ -48,6 +48,7 @@ public class RentService {
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
+
         }
     }
 
@@ -176,6 +177,16 @@ public class RentService {
             leasedCars.add(new LeasingContract(numberOfContracts));
 
         return leasedCars;
+        }
+
+        public int checkIfSerialnumberExist(String serialnumber) throws SQLException {
+            int checkIfExist = 1;
+            PreparedStatement psts = conn.prepareStatement("select serialnumber from bilabonnement.leasing where serialnumber=?");
+            psts.setString(1, serialnumber);
+            if (psts.equals("")){
+                checkIfExist = -1;
+            }
+            return checkIfExist;
         }
 
 }
