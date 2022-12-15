@@ -60,10 +60,10 @@ public class RentService {
 
             PreparedStatement psts = conn.prepareStatement("delete from bilabonnement.leasing where contractID=?");
             psts.setInt(1, contractID);
-            carRepo.updateCarAvailable(getSerialFromContractID(contractID));
-            carRepo.updateCarDamagePrice(getSerialFromContractID(contractID),damagePrice);
+            carRepo.updateCarAvailable(getSerialnumberFromContractID(contractID));
+            carRepo.updateCarDamagePrice(getSerialnumberFromContractID(contractID),damagePrice);
             if (damageCheck == 1){
-                carRepo.updateCarDamaged(getSerialFromContractID(contractID));
+                carRepo.updateCarDamaged(getSerialnumberFromContractID(contractID));
             }
 
             psts.executeUpdate();
@@ -73,7 +73,7 @@ public class RentService {
         }
     }
 
-    public String getSerialFromContractID(int contractID) {
+    public String getSerialnumberFromContractID(int contractID) {
         List<LeasingContract> contracts = new ArrayList<>();
 
         try {

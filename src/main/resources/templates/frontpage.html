@@ -7,12 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-
-    <!--    <script src="/scripts/image-visibility.js"></script>-->
-
 
     <script>
         $(function () {
@@ -483,7 +479,6 @@
                     }
 
                     Date.prototype.addDays = function (days) {
-                        //TODO Why const instead of let?
                         const date = new Date(this.valueOf());
                         date.setDate(date.getDate() + days);
                         return date;
@@ -512,9 +507,6 @@
                     }
                     document.getElementById("monthlyPrice").value = priceM;
 
-                    //TODO read up on why === instead of ==
-                    //The main difference between the == and === operator in javascript is that the == operator does the
-                    // type conversion of the operands before comparison, whereas the === operator compares the values as well as the data types of the operands
                     let priceT = 0;
                     if (document.getElementById("4m").checked === true) {
                         priceT = (priceM * 4);
@@ -540,11 +532,6 @@
 
             <div id="2-qs-2" aria-labelledby="ui-id-17" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
-                <!--
-                                <label for="cprCancel">CPR</label><br>
-                                <input style="border-radius: 15px" type="text" name="cprCancel" id="cprCancel"
-                                       placeholder=" Enter CPR"> <br>
-                -->
 
                 <table class="container">
                     <tbody>
@@ -644,14 +631,6 @@
             <div id="2-qs-4" aria-labelledby="ui-id-19" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
-        <!--
-                <form action="/viewContract" method="get">
-                    <h4><b>View Leasing</b></h4>
-                    <input style="border-radius: 15px" type="text" required name="contract ID"
-                           placeholder=" Enter contract ID"> <br><br>
-                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                </form>
-        -->
                 <table class="container">
                     <tbody>
                     <tr>
@@ -679,7 +658,6 @@
                     </tbody>
                 </table>
 
-
             </div>
         </div>
     </div>
@@ -694,21 +672,6 @@
                     aria-controls="3-qs-1" aria-labelledby="ui-id-21" aria-selected="false"
                     aria-expanded="false">
                     <a href="#3-qs-1" tabindex="-1" class="ui-tabs-anchor" id="ui-id-21">Info</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="3-qs-2" aria-labelledby="ui-id-22" aria-selected="false"
-                    aria-expanded="false">
-                    <a href="#3-qs-2" tabindex="-1" class="ui-tabs-anchor" id="ui-id-22">2</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="3-qs-3" aria-labelledby="ui-id-23" aria-selected="false"
-                    aria-expanded="false">
-                    <a href="#3-qs-3" tabindex="-1" class="ui-tabs-anchor" id="ui-id-23">3</a>
-                </li>
-                <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
-                    aria-controls="3-qs-4" aria-labelledby="ui-id-24" aria-selected="false"
-                    aria-expanded="false">
-                    <a href="#3-qs-4" tabindex="-1" class="ui-tabs-anchor" id="ui-id-24">4</a>
                 </li>
             </ul>
 
@@ -739,22 +702,6 @@
                 </table>
             </div>
 
-            <div id="3-qs-2" aria-labelledby="ui-id-22" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-                <p>:</p>
-
-
-            </div>
-
-            <div id="3-qs-3" aria-labelledby="ui-id-23" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-            </div>
-
-            <div id="3-qs-4" aria-labelledby="ui-id-24" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
-    ui-widget-content" aria-hidden="true" style="display: none;">
-
-            </div>
         </div>
     </div>
 
@@ -784,32 +731,9 @@
                     <input style="border-radius: 15px" type="text" required name="serialnumber"
                            placeholder=" Enter serialnumber"> <br><br>
 
-                    <!--
-                                                <br><h4><b>Car repair status</b></h4>
-                                                <label for="repaired">Repaired</label>
-                                                <input type="checkbox" name="repaired" id="repaired" value="Repaired">
-
-                                                                      onclick="return ValidateCheckType(),checkPrice()">
-                                                <label for="damaged">Damaged</label>
-                                                <input type="radio" name="damaged" id="damaged" value="Damaged">
-                                                                   onclick="return ValidateCheckType(),checkPrice()">
-
-                    <input style="border-radius: 15px" type="text" required name="repairedCheck" id="repairedCheck"
-                           onclick="return checkRepaired()">
-                           -->
                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                 </form>
 
-                <script>
-                    function checkRepaired() {
-                        let repaired = 0;
-                        if (document.getElementById("repaired").checked === true) {
-                            repaired = 1;
-                        }
-
-                        document.getElementById("repairedCheck").value = repaired;
-                    }
-                </script>
 
                 <br><br>
 

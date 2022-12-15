@@ -1,6 +1,5 @@
 package com.example.bilabonnement.models;
 
-import com.example.bilabonnement.repositories.CarRepository;
 
 import java.io.IOException;
 
@@ -19,8 +18,7 @@ public class LeasingContract {
    private int numberOfContracts;
 
 
-    public LeasingContract() throws IOException {
-        
+    public LeasingContract() {
     }
 
     public LeasingContract(String type, int priceMonthly, int priceTotal, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID) throws IOException {
