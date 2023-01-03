@@ -10,10 +10,11 @@ public class Car
     private boolean isAvailable = true;
     private String priceForCollectiveDamages;
 
+    //empty constructor
     public Car()
     {
     }
-
+    //constructor taking all parameters
     public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable, String priceForCollectiveDamages)
     {
         this.id = id;
@@ -35,7 +36,7 @@ public class Car
     }
 
 
-
+    //getters and setters
     public int getId()
     {
         return id;
@@ -86,6 +87,7 @@ public class Car
         isAvailable = available;
     }
 
+    //method to determine if a car is available or not called via getter / setter
     public String getIsAvailableString()
     {
         if (isAvailable == true)
@@ -97,7 +99,7 @@ public class Car
             return "";
         }
     }
-
+    //method to determine if a car is damaged or not called via getter / setter
     public String getIsDamagedString()
     {
         if (isDamaged == true)
@@ -119,6 +121,7 @@ public class Car
         this.priceForCollectiveDamages = priceForCollectiveDamages;
     }
 
+    //to string for printing values in a neat way
     @Override
     public String toString()
     {

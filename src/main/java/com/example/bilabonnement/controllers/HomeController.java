@@ -14,9 +14,9 @@ import java.sql.SQLException;
 
 
 @Controller
-public class HomeController
+public class HomeController     //this is the class that forwards information between classes
 {
-
+    //This is for creating a new instance of the objects, so we can work with them
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
 
@@ -63,7 +63,7 @@ public class HomeController
     {
         //We delete the parameters in leasingContract by ID and update the car leased with a damageCheck and damagePrice method.
         rent.cancelRentalContract(leasingContract.getContractID(), damageCheck, damagePrice);
-        
+        //We redirect to our startpage
         return "redirect:/";
     }
 
@@ -73,6 +73,7 @@ public class HomeController
         //update the car leased with a damageCheck and damagePrice method.
         repo.updateCarDamaged(leasingContract.getSerialnumber());
         repo.resetDamagePrice(leasingContract.getSerialnumber());
+        //We redirect to our startpage
         return "redirect:/";
     }
 

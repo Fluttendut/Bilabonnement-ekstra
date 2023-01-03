@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRepository {
-
+    //connection to the database by creating an instance of the Connection class
     private Connection conn = DatabaseConnectionManager.getConnection();
 
 
@@ -32,7 +32,7 @@ public class CarRepository {
             psts.setString(1, serialnumber);
             //We execute the SQL statement
             ResultSet resultSet = psts.executeQuery();
-
+            //this is an if statement used to create new car objects with our Car attributes and return them
             if (resultSet.next()) {
                 car = new Car(
                         resultSet.getInt("id"),
@@ -49,8 +49,9 @@ public class CarRepository {
         return car;
     }
 
+    //this method is used to automatically pick a car where the serial number is available
     public String autoSerialNumber(String type) {
-
+        //Generates a list of available cars
         List<LeasingContract> cars = new ArrayList<>();
 
         try {
@@ -152,6 +153,7 @@ public class CarRepository {
         return damagedCars;
     }
 
+    //this method updates the damaged attribute of a car in our database
     public void updateCarDamaged(String serialnumber) throws RuntimeException {
         //We use Try to run the code to see if the code will run
         try {
@@ -161,8 +163,11 @@ public class CarRepository {
             if (car.getIsDamaged() == true) {
                 psts.setBoolean(1, false);
                 psts.setString(2, serialnumber);
+                //We execute the SQL statement and update the table
                 psts.executeUpdate();
-            } else {
+            }
+            //else method that switches the value of the attribute from true to false and the car is now broken
+            else {
                 psts.setBoolean(1, true);
                 psts.setString(2, serialnumber);
                 //We execute the SQL statement and update the table
