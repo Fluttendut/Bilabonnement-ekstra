@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class LeasingContract {
 
+    //Attributes of the Car class
     private int contractID;
     private String type;
     private int priceMonthly;
@@ -17,10 +18,11 @@ public class LeasingContract {
    private int leasingperiod;
    private int numberOfContracts;
 
-
+    //empty constructor
     public LeasingContract() {
     }
 
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public LeasingContract(String type, int priceMonthly, int priceTotal, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID) throws IOException {
         this.type = type;
         this.priceMonthly = priceMonthly;
@@ -31,6 +33,8 @@ public class LeasingContract {
         this.leasingperiod = leasingperiod;
         this.contractID = contractID;
     }
+
+    //constructor taking all parameters
     public LeasingContract(String type, int priceMonthly, int priceTotal,int priceAnnual, String serialnumber, String startdate, String enddate, int leasingperiod, int contractID) throws IOException {
         this.type = type;
         this.priceMonthly = priceMonthly;
@@ -43,6 +47,7 @@ public class LeasingContract {
         this.contractID = contractID;
     }
 
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public LeasingContract(int contractID, String type, String serialnumber, String startdate, String enddate) throws IOException {
         this.contractID = contractID;
         this.type = type;
@@ -51,20 +56,23 @@ public class LeasingContract {
         this.enddate = enddate;
     }
 
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public LeasingContract(int priceMonthly, int priceAnnual) throws IOException {
         this.priceMonthly = priceMonthly;
         this.priceAnnual = priceAnnual;
     }
 
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public LeasingContract(int numberOfContracts) {
         this.numberOfContracts = numberOfContracts;
     }
 
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public LeasingContract(String serialnumber, String type) throws IOException {
         this.serialnumber = serialnumber;
     }
 
-
+    //getters and setters
     public int getContractID() {
         return contractID;
     }
@@ -159,6 +167,7 @@ public class LeasingContract {
         this.numberOfContracts = numberOfContracts;
     }
 
+    //to string for printing values in a neat way
     @Override
     public String toString() {
         return "LeasingContract{" +

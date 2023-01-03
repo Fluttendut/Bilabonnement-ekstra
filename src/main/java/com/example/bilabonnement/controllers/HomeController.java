@@ -20,8 +20,7 @@ public class HomeController
     CarRepository repo = new CarRepository();
     RentService rent = new RentService();
 
-    public HomeController() throws IOException
-    {
+    public HomeController() throws IOException{
     }
 
 
@@ -41,6 +40,7 @@ public class HomeController
         model.addAttribute("income",rent.getAccountingIncome());
         model.addAttribute("leasedCars",rent.getAccountingCars());
 
+        //Returns the html page "frontpage"
         return "frontpage";
     }
 

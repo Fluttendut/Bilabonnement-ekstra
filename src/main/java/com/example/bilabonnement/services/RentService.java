@@ -53,7 +53,7 @@ public class RentService {
     }
 
 
-
+    //We delete the parameters in leasingContract by ID and update the car leased with a damageCheck and damagePrice method.
     public void cancelRentalContract(int contractID, int damageCheck, String damagePrice) {
         try {
             CarRepository carRepo = new CarRepository();

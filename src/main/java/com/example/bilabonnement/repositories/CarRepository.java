@@ -62,6 +62,7 @@ public class CarRepository {
     }
 
     // Get all cars
+    //Method that returns a list of all Car objects regardless of their status
     public List<Car> getAllCars() {
 
         List<Car> cars = new ArrayList<>();
@@ -83,12 +84,15 @@ public class CarRepository {
 
         return cars;
     }
-
+    //Method that returns a Car object by serialnumber
     public List<Car> getAllCarsByType(String type) {
 
+        //Creating a list of Car objects
         List<Car> cars = new ArrayList<>();
+        //We use Try to run the code to see if the code will run
         try {
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.cars where type=?");
+            //We set the placeholder ? on parameterIndex 1 to be a type
             psts.setString(1, type);
             ResultSet resultSet = psts.executeQuery();
             while (resultSet.next()) {
@@ -100,6 +104,7 @@ public class CarRepository {
                         resultSet.getBoolean("available")
                 ));
             }
+            //If the try fails, we will catch it here with an exception so that we can see what went wrong
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -107,6 +112,7 @@ public class CarRepository {
         return cars;
     }
 
+    //this method returns a list of damaged car objects
     public List<Car> getAllDamagedCars() {
 
         List<Car> damagedCars = new ArrayList<>();
@@ -139,6 +145,7 @@ public class CarRepository {
             } else {
                 psts.setBoolean(1, true);
                 psts.setString(2, serialnumber);
+                //We execute the SQL statement and update the table
                 psts.executeUpdate();
             }
 
@@ -147,6 +154,7 @@ public class CarRepository {
         }
     }
 
+    //this method updates the Available attribute of a car in our database
     public void updateCarAvailable(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set available=? where serialnumber=?");
@@ -155,10 +163,12 @@ public class CarRepository {
             if (car.getIsAvailable() == false) {
                 psts.setBoolean(1, true);
                 psts.setString(2, serialnumber);
+                //We execute the SQL statement and update the table
                 psts.executeUpdate();
             } else {
                 psts.setBoolean(1, false);
                 psts.setString(2, serialnumber);
+                //We execute the SQL statement and update the table
                 psts.executeUpdate();
             }
 
@@ -167,23 +177,28 @@ public class CarRepository {
         }
     }
 
+    //this method updates the damagePrice attribute of a car selected from serialnumber in our database
     public void updateCarDamagePrice(String serialnumber, String priceForCollectiveDamage) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set PriceForCollectiveDamage=? where serialnumber=?");
 
             psts.setString(1, priceForCollectiveDamage);
             psts.setString(2, serialnumber);
+            //We execute the SQL statement and update the table
             psts.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
+    //this method updates the damagePrice attribute of a car selected from serialnumber in our database, and sets it to "0"
     public void resetDamagePrice(String serialnumber) throws RuntimeException {
         try {
             PreparedStatement psts = conn.prepareStatement("update bilabonnement.cars set PriceForCollectiveDamage=? where serialnumber=?");
+            // Resets the damageprice to "0"
             psts.setString(1,"0");
             psts.setString(2,serialnumber);
+            //We execute the SQL statement and update the table
             psts.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
