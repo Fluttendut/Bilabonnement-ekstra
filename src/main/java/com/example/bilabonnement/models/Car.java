@@ -2,7 +2,7 @@ package com.example.bilabonnement.models;
 
 public class Car
 {
-
+    //Attributes of the Car class
     private int id;
     private String serialnumber;
     private String type;
@@ -23,6 +23,7 @@ public class Car
         this.isAvailable = isAvailable;
         this.priceForCollectiveDamages = priceForCollectiveDamages;
     }
+    //Constructor that takes the selected parameters and refer to the attributes with this.
     public Car(int id, String serialnumber, String type, boolean isDamaged, boolean isAvailable)
     {
         this.id = id;
@@ -109,10 +110,11 @@ public class Car
         }
     }
 
+    //These are never used and we forgot to remove them
     public String getPriceForCollectiveDamages() {
         return priceForCollectiveDamages;
     }
-
+    //These are never used and we forgot to remove them
     public void setPriceForCollectiveDamages(String priceForCollectiveDamages) {
         this.priceForCollectiveDamages = priceForCollectiveDamages;
     }

@@ -23,9 +23,12 @@ public class HomeController
     public HomeController() throws IOException{
     }
 
-
+    //GetMapping is used to handle the GET type of request method.
     @GetMapping("/")
+    //We create a String method that parses our model(Class)
     public String startpage(Model model) throws SQLException {
+        //We use the model to call a SQL statement for the tables in our database, and assign the returned value to a name
+        //repo.getAllCars below is the method where the specific SQL select statement is used for line 32
         model.addAttribute("AllCars",repo.getAllCars());
         model.addAttribute("SmallCars",repo.getAllCarsByType("small"));
         model.addAttribute("MediumCars",repo.getAllCarsByType("medium"));
@@ -45,18 +48,20 @@ public class HomeController
     }
 
 
-
+    //PostMapping is used to handle POST type of request method
     @PostMapping("/createleasing")
     public String createLeasing(LeasingContract leasingContract, Rentee rentee)
     {
+        //We insert the parameters leasingContract and rentee into a new row in our database table
         rent.createRentalContract(leasingContract, rentee);
-
+        //We redirect to our startpage
         return "redirect:/";
     }
 
     @PostMapping("/cancelleasing")
     public String cancelLeasing(LeasingContract leasingContract, int damageCheck, String damagePrice)
     {
+        //We delete the parameters in leasingContract by ID and update the car leased with a damageCheck and damagePrice method.
         rent.cancelRentalContract(leasingContract.getContractID(), damageCheck, damagePrice);
         
         return "redirect:/";
@@ -65,6 +70,7 @@ public class HomeController
     @PostMapping("/service")
     public String service(LeasingContract leasingContract)
     {
+        //update the car leased with a damageCheck and damagePrice method.
         repo.updateCarDamaged(leasingContract.getSerialnumber());
         repo.resetDamagePrice(leasingContract.getSerialnumber());
         return "redirect:/";

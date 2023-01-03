@@ -16,7 +16,7 @@ public class RentService {
 
     public RentService() throws IOException {
     }
-
+    //We insert the parameters leasingContract and rentee into a new row in our database table
     public void createRentalContract(LeasingContract leasingContract, Rentee rentee) {
         try {
             CarRepository carRepository = new CarRepository();
