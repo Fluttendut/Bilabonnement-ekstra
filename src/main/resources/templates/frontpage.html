@@ -199,6 +199,7 @@
                     <div class="container">
                         <table class="container">
                             <tbody>
+                            <!-- this creates a table row -->
                             <tr>
 <!--                                This put names on the table cells in the row created above-->
                                 <td>ID</td>
@@ -209,6 +210,7 @@
                             </tr>
                             <!-- this creates a table row for each car from AllCars -->
                             <tr th:each="car :${AllCars}">
+                                <!-- this fills information into cells and loops though the database information called until all the information has been processed.  -->
                                 <td th:text="${car.id}"></td>
                                 <td th:text="${car.serialnumber}"></td>
                                 <td th:text="${car.type}"></td>
