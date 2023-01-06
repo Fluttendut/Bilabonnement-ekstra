@@ -6,6 +6,7 @@ import com.example.bilabonnement.repositories.CarRepository;
 import com.example.bilabonnement.repositories.DatabaseConnectionManager;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +116,7 @@ public class RentService {
         return contracts;
     }
 
-
+    //methods that returns all cortracts and all info
     public List<LeasingContract> getAllContractsWithAllInfo() {
 
         List<LeasingContract> contract = new ArrayList<>();
@@ -142,6 +143,7 @@ public class RentService {
         return contract;
     }
 
+    //method that returns expected income
     public List<LeasingContract> getAccountingIncome() {
         int priceMonthly = 0;
         int priceAnnual = 0;
@@ -160,7 +162,7 @@ public class RentService {
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
-
+        // returns the arraylist with the priceMonthly and priceAnnual attribute
         return income;
     }
 
