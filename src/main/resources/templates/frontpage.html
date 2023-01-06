@@ -161,11 +161,13 @@
         <br>
     </div>
 
+<!--    This is our Cars tab that has tabs within it aswell-->
     <div id="cars" aria-labelledby="ui-id-2" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
 
         <div id="tabs-cars" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
-
+<!--            Sub-tabs on the cars tab-->
+<!--            Works the same way as the outer tabs see line 120-128-->
             <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
 
                 <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
@@ -189,14 +191,16 @@
                     <a href="#qs-5" tabindex="-1" class="ui-tabs-anchor" id="ui-id-11">Small</a>
                 </li>
             </ul>
-
+<!--            This div refers to the tab on line 173 and we define what we want to have inside the tab.-->
             <div id="qs-1" aria-labelledby="ui-id-7" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="true" style="display: none;">
+<!--                This is a container with the flex property. Container is CSS-->
                 <div class="flex-container">
                     <div class="container">
                         <table class="container">
                             <tbody>
                             <tr>
+<!--                                This put names on the table cells in the row created above-->
                                 <td>ID</td>
                                 <td>Serialnumber</td>
                                 <td>Type</td>
@@ -217,7 +221,7 @@
                         </table>
                     </div>
 
-
+<!--                    This adds an image that is defined as an HTML link-->
                     <div class="container">
                         <img src="https://media.istockphoto.com/id/480652712/photo/dealer-new-cars-stock.jpg?s=612x612&w=0&k=20&c=Mzfb5oEeovQblEo160df-xFxfd6dGoLBkqjjDWQbd5E="
                              alt="All cars"
@@ -393,7 +397,9 @@
 
             <div id="2-qs-1" aria-labelledby="ui-id-16" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
             ui-widget-content" aria-hidden="true" style="display: none;">
+<!--            The div below is using the class "row" while the div on line 406 use the "column" class. This is so we can move the 'boxes' around as we desire-->
                 <div class="row">
+<!--                    method="post" lets us forward the information that is put into input to our Java code-->
                     <form action="/createleasing" method="post">
                         <div style="width: 257px" class="column">
 
@@ -404,6 +410,9 @@
                                    placeholder=" Enter name"> <br>
 
                             <label for="email">E-mail</label><br>
+<!--                            The pattern allows us to check if the input follows a specific ruleset we have set up with regular expressions-->
+<!--                            oninvalid allows us to inform the user of any missing characters that are required by our ruleset-->
+<!--                            onkeyup resets the oninvalid message and allows the user to move forward if the new info follows our ruleset-->
                             <input style="border-radius: 15px" type="text" required name="email" id="email"
                                    placeholder=" Enter e-mail"
                                    pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
@@ -430,6 +439,10 @@
                                    id="serialnumber" placeholder=" For a specific car only"><br>
 
                             <br><h4><b> Select car type</b></h4>
+<!--                        here we initially used check boxes but that would require a lot of logic. We decided to use radio buttons instead-->
+<!--                        Radio buttons allows only one of the boxes to be checked at a time, this the button does the logical function for us-->
+<!--                        we also make a call to our backend method checkPrice() which tells the system the price of the car defined by which box is checked and makes us able to display it on screen-->
+<!--                        We should instead have had a CSS file and a JS file-->
                             <input type="radio" name="type" id="type1" value="luxury"
                                    onclick="return checkPrice()">
                             <label for="type1">Luxury</label>
@@ -445,6 +458,7 @@
 
 
                             <br><h4><b>Select leasing period</b></h4>
+                            <!--  checkPrice() is for calculating the price for the period and displayDays() is for calculation the end date for the period                     -->
                             <input type="radio" name="leasingperiod" id="4m" value="4"
                                    onclick="return checkPrice(),displayDays()">
                             <label for="4m">4 Months</label>
@@ -494,7 +508,9 @@
                     // immediate function body (hence the function scope) while let variables are scoped to the immediate...
                     // enclosing block denoted by { } (hence the block scope).
                     let days = 0;
+                    // checks if the radio button with ID "4m" has been checked
                     if (document.getElementById("4m").checked === true) {
+                        // Updates the variable days if the condition above is true
                         days = 120;
                     }
                     if (document.getElementById("8m").checked === true) {
