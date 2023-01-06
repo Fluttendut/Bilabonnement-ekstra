@@ -4,19 +4,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Bilabonnement</title>
+<!--  This allows us to use bootstrap. Bootstrap is sort of a cooking book with recipes. An example would be a button or a card  -->
+<!--   https://getbootstrap.com/docs/4.0/components/card/ -->
+<!--   https://getbootstrap.com/docs/4.0/components/buttons/ -->
+
+    THIS IS A BUTTON
+<!--    <button type="button" class="btn btn-primary">name of the button</button>-->
+<!--    .btn-primary {attributes of the button this would be found in stylesheet or in style section} -->
+
+    THIS IS A CARD
+<!--    <div class="card" style="width: 18rem;">-->
+<!--        <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--        <div class="card-body">-->
+<!--            <h5 class="card-title">Card title</h5>-->
+<!--            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+<!--            <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--        </div>-->
+<!--    </div>-->
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--    This is a library that lets us use certain functions-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script>
+<!--       This is our tabs on our page -->
         $(function () {
             $("#tabs").tabs();
             $("#tabs-cars").tabs();
             $("#tabs-subscription").tabs();
             $("#tabs-accounting").tabs();
             $("#tabs-service").tabs();
+            // This should have been deleted
             $("#tabs-webs").tabs();
         });
     </script>
@@ -96,8 +117,10 @@
     </style>
 </head>
 <body>
+<!-- There we create a DIV with the ID tabs, that uses the class below to allow us to create functioning tabs-->
 <div id="tabs" class="ui-tabs ui-corner-all ui-widget ui-widget-content">
 
+<!--   Here we create the tablist that is unordered -->
     <ul role="tablist" class="ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
 
 <!--        We create a tab called start, that is sorted by the ID-->
@@ -126,6 +149,8 @@
         </li>
     </ul>
 
+<!--    This is our first tab that is displayed using the aria-labelledby. The aria-labelledby is defined by the UD of the tab list -->
+<!--    example: aria-labelledby="ui-id-5" is defined with id="ui-id-5"-->
     <div id="start" aria-labelledby="ui-id-1" role="tabpanel" class="ui-tabs-panel ui-corner-bottom
     ui-widget-content" aria-hidden="false">
 
