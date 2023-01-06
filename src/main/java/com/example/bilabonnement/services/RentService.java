@@ -22,12 +22,13 @@ public class RentService {
         //We use Try to run the code to see if the code will run
         try {
             CarRepository carRepository = new CarRepository();
-
-            PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, startdate,enddate,serialnumber, priceMonthly, priceTotal,priceAnnual,leasingperiod,name, Email, CPR,address) values(?,?,?,?,?,?,?,?,?,?,?,?)"); // spørgsmålstegnet gør vores querry dynamisk i stedet for statisk
+            //We prepare a SQL statement that insert our attributes into our Leasing table
+            // The question marks makes our query dynamic rather than static.
+            PreparedStatement psts = conn.prepareStatement("insert into bilabonnement.leasing(type, startdate,enddate,serialnumber, priceMonthly, priceTotal,priceAnnual,leasingperiod,name, Email, CPR,address) values(?,?,?,?,?,?,?,?,?,?,?,?)");
             psts.setString(1, leasingContract.getType());
             psts.setString(2, leasingContract.getStartdate());
             psts.setString(3, leasingContract.getEnddate());
-
+            //here we check if the serialnumber is available or not, and return an answer based on the returned results.
             if (leasingContract.getSerialnumber().equals("") || checkIfSerialnumberIsAvailable(leasingContract.getSerialnumber()) == false) {
                 psts.setString(4, carRepository.autoSerialNumber(leasingContract.getType()));
                 carRepository.updateCarAvailable(carRepository.autoSerialNumber(leasingContract.getType()));
@@ -74,33 +75,38 @@ public class RentService {
             throw new RuntimeException(e);
         }
     }
-
+    //in this method we select everthing associated with a specifik contractID
     public String getSerialnumberFromContractID(int contractID) {
         List<LeasingContract> contracts = new ArrayList<>();
 
         try {
+            //here we try to select and call the specific id from the database
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing where contractID=?");
             psts.setInt(1, contractID);
             ResultSet resultSet = psts.executeQuery();
 
+            //here we continue to search for more results and don't stop before we have all instances of this contractID
             while (resultSet.next()) {
                 contracts.add(new LeasingContract(
                         resultSet.getString("serialnumber"),
                         resultSet.getString("type")));
             }
+            //here we return the first element of our arrayList, as there should never be more than 1 hit on a specific contractID
             return contracts.get(0).getSerialnumber();
 
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
     }
-
+    //method to get all contracts
     public List<LeasingContract> getAllContracts() {
 
         List<LeasingContract> contracts = new ArrayList<>();
         try {
+            //here we select all contracts in the database and add them to an arrayList
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
             ResultSet resultSet = psts.executeQuery();
+            //here we keep asking the system if we have more contacts left in the database that is addable to the list before we present it
             while (resultSet.next()) {
                 contracts.add(new LeasingContract(
                         resultSet.getInt("contractID"),
@@ -146,10 +152,12 @@ public class RentService {
 
     //method that returns expected income
     public List<LeasingContract> getAccountingIncome() {
+        //here we initiate our variables of out income
         int priceMonthly = 0;
         int priceAnnual = 0;
         List<LeasingContract> income = new ArrayList<>();
         try {
+            //we choose everything from the database where from the leasing table
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
 
             ResultSet resultSet = psts.executeQuery();
@@ -159,7 +167,7 @@ public class RentService {
                 priceMonthly = priceMonthly + resultSet.getInt("priceMonthly");
                 priceAnnual = priceAnnual + resultSet.getInt("priceAnnual");
             }
-
+            //here we add the income together
             income.add(new LeasingContract(priceMonthly, priceAnnual));
 
         } catch (SQLException | IOException e) {
@@ -175,10 +183,11 @@ public class RentService {
     public List<LeasingContract> getAccountingCars() throws SQLException {
         int numberOfContracts = 0;
         List<LeasingContract> leasedCars = new ArrayList<>();
-
+            //select all leasing contracts from the database
             PreparedStatement psts = conn.prepareStatement("select * from bilabonnement.leasing");
 
             ResultSet resultSet = psts.executeQuery();
+            //if there are more results in database after the first one we loop though the database until we no longer receive a result.
             while (resultSet.next()) {
                 //we take the variable value numberOfContracts and update it to be numberOfContracts + 1
                 numberOfContracts = numberOfContracts + 1;
@@ -188,6 +197,7 @@ public class RentService {
         return leasedCars;
         }
 
+        //
         public boolean checkIfSerialnumberIsAvailable(String serialnumber) throws SQLException {
             boolean checkIfAvailable;
             PreparedStatement psts = conn.prepareStatement("select available from bilabonnement.cars where serialnumber=?");
