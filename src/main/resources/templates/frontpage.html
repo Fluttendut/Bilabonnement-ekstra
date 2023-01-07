@@ -543,7 +543,7 @@
                     document.getElementById("box2").value = date.toISOString().slice(0, 10);
 
                 }
-
+                //this is the same as the above function
                 function checkPrice() {
                     let priceM = 0;
                     if (document.getElementById("type1").checked === true) {
@@ -612,7 +612,7 @@
                             <label for="contractID">Contract ID</label><br>
                             <input style="border-radius: 15px" type="number" required name="contractID" id="contractID"
                                    placeholder=" Enter Contract ID"> <br><br>
-
+                            <!-- this part of the code, is what lets us show a car as damaged/not damaged -->
                             <br><h4><b>Is the car damaged?</b></h4>
                             <label for="yes">Yes</label>
                             <input type="radio" name="damageCheck" id="yes" value="1"
@@ -633,7 +633,7 @@
                     </div>
                     <div class="column">
                         <form>
-
+                            <!-- this part of the code is the part that lets us choose which damage -->
                             <input type="checkbox" name="damageType" id="damage1" value="damage1"
                                    onclick="return checkDamageType()">
                             <label for="type1">Scratch</label>
