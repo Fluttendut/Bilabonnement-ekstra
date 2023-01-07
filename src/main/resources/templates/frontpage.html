@@ -698,7 +698,9 @@
                         <td>Leasingperiod</td>
 
                     </tr>
+<!--                    each is like a for each loop. It goes thorough the arraylist contractsInfo that contain information received with the method getAllContractsWithAllInfo() in HomeController line 39 -->
                     <tr th:each="leasingContract :${ContractsInfo}">
+<!--                     The variables below are the information from ContractsInfo that we are inserting into our table cells-->
                         <td th:text="${leasingContract.contractID}"></td>
                         <td th:text="${leasingContract.serialnumber}"></td>
                         <td th:text="${leasingContract.type}"></td>
